@@ -1,0 +1,1662 @@
+<!doctype html>
+<html lang="fr">
+<head>
+<meta name="robots" content="noindex, nofollow">
+
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Du bourgeon au flacon · Complément Terre</title>
+<meta name="description" content="Gemmothérapie bio et artisanale, Mulhouse, Alsace. Macérats de bourgeons frais, complexes et Gemmo Émotions.">
+<meta name="theme-color" content="#1F3A2B">
+<style>
+@font-face{font-family:Poppins;font-weight:300;font-style:normal;font-display:swap;src:url(fichiers/assets/903f89d69b6fa930.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-weight:300;font-style:italic;font-display:swap;src:url(fichiers/assets/551d693544e24958.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-weight:400;font-style:normal;font-display:swap;src:url(fichiers/assets/b858117263b67742.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-weight:500;font-style:normal;font-display:swap;src:url(fichiers/assets/2917a67f77e8d73a.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-weight:600;font-style:normal;font-display:swap;src:url(fichiers/assets/dd5f02640eb91f5d.woff2) format("woff2")}
+@font-face{font-family:Poppins;font-weight:800;font-style:normal;font-display:swap;src:url(fichiers/assets/97f89c4d58aa2e8e.woff2) format("woff2")}
+
+:root{
+  --orange:#C46A2B; --orange-ink:#A3541C; --orange-lite:#E39A63;
+  --cream:#F5EEE1; --sand:#EAE0CD; --sand-2:#E2D6BF; --paper:#FBF8F2;
+  --forest:#1F3A2B; --forest-deep:#132419; --moss:#2C4A37; --bark:#4A3426; --terre:#7A3F1D; --night:#0B140E;
+  --ink:#1F3A2B; --ink-2:rgba(31,58,43,.8); --ink-3:rgba(31,58,43,.72);
+  --cr-2:rgba(245,238,225,.8); --cr-3:rgba(245,238,225,.7);
+  --m:clamp(20px,4.2vw,72px); --g:clamp(12px,1.6vw,28px);
+  --col:calc((100vw - 2*var(--m) - 11*var(--g))/12);
+  --ease-out:cubic-bezier(.23,1,.32,1); --ease-io:cubic-bezier(.77,0,.175,1); --ease-drawer:cubic-bezier(.32,.72,0,1);
+  --nav-h:72px;
+}
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{background:var(--forest-deep);-webkit-text-size-adjust:100%;scrollbar-color:var(--orange) var(--forest-deep);scrollbar-width:thin}
+html.lenis,html.lenis body{height:auto}
+.lenis.lenis-smooth{scroll-behavior:auto!important}
+body{font-family:Poppins,system-ui,sans-serif;font-weight:300;font-size:16px;line-height:1.65;color:var(--ink);background:var(--cream);overflow-x:clip;-webkit-font-smoothing:antialiased;caret-color:var(--orange)}
+::selection{background:var(--orange);color:var(--cream)}
+::-webkit-scrollbar{width:9px}::-webkit-scrollbar-track{background:var(--forest-deep)}::-webkit-scrollbar-thumb{background:var(--orange);border-radius:9px;border:2px solid var(--forest-deep)}
+img{display:block;max-width:100%}
+a{color:inherit;text-decoration:none}
+button{font:inherit;color:inherit;background:none;border:0;cursor:pointer;-webkit-tap-highlight-color:transparent}
+:focus-visible{outline:2px solid var(--orange);outline-offset:4px;border-radius:4px}
+em{font-style:italic;font-weight:300;color:var(--orange)}
+.dark em,.on-dark em{color:var(--orange-lite)}
+.num{font-variant-numeric:tabular-nums lining-nums}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* Typo V3 : titre fort (800) + relance italique légère orange */
+.d1{font-size:clamp(3.1rem,8.6vw,7.4rem);font-weight:800;line-height:.94;letter-spacing:-.045em;text-wrap:balance}
+.d2{font-size:clamp(2.4rem,5.4vw,5rem);font-weight:800;line-height:.98;letter-spacing:-.04em;text-wrap:balance}
+.d1 em,.d2 em{font-weight:300;letter-spacing:-.035em}
+.d3{font-size:clamp(1.8rem,3vw,2.8rem);font-weight:800;line-height:1.02;letter-spacing:-.035em}
+.lede{font-size:clamp(1.02rem,1.2vw,1.16rem);line-height:1.7;max-width:34em;color:var(--ink-2)}
+.dark .lede{color:var(--cr-2)}
+.meta{font-size:.76rem;font-weight:500;letter-spacing:.16em;text-transform:uppercase}
+.dark{background:var(--forest);color:var(--cream)}
+.wrap{padding-inline:var(--m)}
+.grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g)}
+.shadow-floor{position:absolute;left:12%;right:12%;bottom:-2.5%;height:6%;border-radius:50%;background:radial-gradient(closest-side,rgba(11,20,14,.38),rgba(11,20,14,0));pointer-events:none}
+
+/* ---------- NAV ---------- */
+.nav{position:fixed;inset:0 0 auto 0;z-index:50;height:var(--nav-h);display:flex;align-items:center;justify-content:space-between;padding-inline:var(--m);color:var(--cream);transition:background-color .45s var(--ease-out),color .45s var(--ease-out)}
+.nav::after{content:"";position:absolute;inset:auto var(--m) 0 var(--m);height:1px;background:currentColor;opacity:0;transition:opacity .45s var(--ease-out)}
+.nav.solid{background:var(--forest)}.nav.solid::after{opacity:.14}
+.nav.light{color:var(--forest)}.nav.light.solid{background:var(--cream)}
+.logo{position:relative;display:block;height:40px;width:150px}
+.logo img{position:absolute;inset:0;height:100%;width:auto;transition:opacity .4s var(--ease-out)}
+.logo .lc{opacity:0}.nav.light .logo .lc{opacity:1}.nav.light .logo .ls{opacity:0}
+.links{position:relative;display:flex;gap:clamp(18px,2.4vw,40px);font-size:.9rem;font-weight:400}
+.links a{position:relative;padding:8px 0;opacity:.75;transition:opacity .25s ease}
+.links a[aria-current="true"]{opacity:1}
+@media (hover:hover) and (pointer:fine){.links a:hover{opacity:1}}
+.links .bar{position:absolute;left:0;bottom:2px;height:1.5px;width:100px;background:var(--orange);transform-origin:0 50%;transform:scaleX(0);transition:transform .45s var(--ease-out)}
+.pill{display:inline-flex;align-items:center;gap:.6em;height:44px;padding:0 20px;border-radius:999px;background:var(--orange-ink);color:var(--cream);font-size:.88rem;font-weight:500;transition:background-color .25s ease,transform .16s var(--ease-out)}
+.pill:active{transform:scale(.97)}
+@media (hover:hover) and (pointer:fine){.pill:hover{background:var(--terre)}}
+.pill svg{width:14px;height:14px}
+.menu-btn{display:none;height:44px;padding:0 4px;font-size:.9rem;font-weight:500;align-items:center;gap:10px}
+.menu-btn i{display:block;width:22px;height:7.5px;background:linear-gradient(currentColor,currentColor) 0 0/100% 1.5px no-repeat,linear-gradient(currentColor,currentColor) 0 100%/100% 1.5px no-repeat}
+.sheet{position:fixed;inset:0;z-index:60;background:var(--forest);color:var(--cream);display:flex;flex-direction:column;padding:calc(var(--nav-h) + 24px) var(--m) calc(32px + env(safe-area-inset-bottom));clip-path:inset(0 0 100% 0);visibility:hidden;transition:clip-path .5s var(--ease-drawer),visibility 0s .5s}
+.sheet.open{clip-path:inset(0 0 0 0);visibility:visible;transition:clip-path .5s var(--ease-drawer),visibility 0s 0s}
+.sheet a.big{font-size:clamp(2.4rem,11vw,3.6rem);font-weight:800;letter-spacing:-.04em;line-height:1.18;display:block}
+.sheet .close{position:absolute;top:14px;right:var(--m);height:44px;font-weight:500}
+.sheet .foot{margin-top:auto;display:flex;flex-direction:column;gap:18px}
+
+/* ---------- HERO : 3 chapitres. Les titres vivent dans une couche à part, jamais rognée par le rideau ---------- */
+.hero{position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--forest-deep);color:var(--cream);contain:paint}
+.chap{position:absolute;inset:0;overflow:hidden;background:var(--forest-deep)}
+.chap .ph{position:absolute;inset:0;will-change:transform}
+.chap .kb{position:absolute;inset:0;will-change:transform}
+.chap img.bg{width:100%;height:100%;object-fit:cover}
+.chap .veil{position:absolute;inset:0;pointer-events:none;background:linear-gradient(180deg,rgba(19,36,25,.4) 0%,rgba(19,36,25,0) 28%,rgba(19,36,25,0) 45%,rgba(19,36,25,.78) 100%),linear-gradient(90deg,rgba(19,36,25,.55),rgba(19,36,25,0) 62%)}
+.chap .dim{position:absolute;inset:0;background:#0B140E;opacity:0;pointer-events:none}
+.chap2{background:radial-gradient(120% 90% at 78% 30%,#2C4A37 0%,#1F3A2B 42%,#132419 100%)}
+.chap3{background:radial-gradient(70% 60% at 70% 62%,rgba(196,106,43,.22),rgba(196,106,43,0) 70%),radial-gradient(120% 100% at 50% 40%,#1F3A2B 0%,#0B140E 100%)}
+.chap3 .prod{position:absolute;right:calc(var(--m) + var(--col)*1.4);bottom:9vh;height:72vh;aspect-ratio:251/678;will-change:transform}
+.chap3 .prod img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 34px 30px rgba(0,0,0,.4))}
+.htext{position:absolute;z-index:5;left:var(--m);right:var(--m);bottom:clamp(96px,15vh,150px);pointer-events:none}
+.ht{position:absolute;left:0;bottom:0;max-width:min(64vw,980px)}
+.ht .lede{color:var(--cr-2);margin-top:22px;max-width:30em}
+.ht .row{display:block;padding:.06em 0}
+.hero-ui{position:absolute;z-index:6;left:var(--m);right:var(--m);bottom:36px;display:flex;align-items:center;justify-content:space-between;color:var(--cr-2)}
+.ticks{display:flex;gap:6px}
+.ticks i{display:block;width:44px;height:2px;background:rgba(245,238,225,.24);overflow:hidden;border-radius:2px}
+.ticks b{display:block;height:100%;background:var(--cream);transform-origin:0 50%;transform:scaleX(0)}
+.cue{display:flex;align-items:center;gap:12px}
+.cue span{display:block;width:1px;height:34px;background:rgba(245,238,225,.3);overflow:hidden;position:relative}
+.cue span::after{content:"";position:absolute;inset:0;background:var(--cream);animation:cue 2.4s var(--ease-io) infinite}
+@keyframes cue{0%{transform:scaleY(0);transform-origin:top}45%{transform:scaleY(1);transform-origin:top}46%{transform-origin:bottom}100%{transform:scaleY(0);transform-origin:bottom}}
+/* Filet de sécurité CSS pur : si le JS n'a pas encore tourné (ou est coupé), le système est quand même respecté. */
+@media (prefers-reduced-motion: reduce){.cue span::after{animation:none}}
+
+/* ---------- MANIFESTE ---------- */
+.mani{padding-block:clamp(110px,18vh,200px) clamp(90px,14vh,170px)}
+.mani .quote{grid-column:1/span 7;font-size:clamp(2rem,4.2vw,4rem);font-weight:500;line-height:1.08;letter-spacing:-.035em;text-wrap:balance}
+.mani .quote .w{opacity:.24}
+.mani .body{grid-column:1/span 6;margin-top:clamp(48px,7vh,80px);display:grid;grid-template-columns:1fr 1fr;gap:var(--g)}
+.mani .body p{line-height:1.75;color:var(--ink-2)}
+.mani .sign{grid-column:1/span 6;margin-top:40px;display:flex;align-items:center;gap:16px;color:var(--ink-2)}
+.mani .sign::before{content:"";width:48px;height:1px;background:var(--orange)}
+.mani .comp{grid-column:9/span 4;grid-row:1/span 3;align-self:start;position:sticky;top:calc(var(--nav-h) + 6vh);height:min(72vh,680px);justify-self:center;aspect-ratio:251/678;perspective:1200px}
+.comp .yaw{position:absolute;inset:0;will-change:transform}
+.comp img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 30px 26px rgba(31,58,43,.28))}
+.comp .sheen{position:absolute;inset:0;overflow:hidden;mix-blend-mode:screen;-webkit-mask:url(fichiers/assets/ac2d45eab3ecc469.webp) center/contain no-repeat;mask:url(fichiers/assets/ac2d45eab3ecc469.webp) center/contain no-repeat}
+.comp .sheen i{position:absolute;top:0;bottom:0;left:-100%;width:300%;background:linear-gradient(100deg,transparent 40%,rgba(255,236,214,.42) 48%,rgba(255,255,255,.14) 51%,transparent 58%);will-change:transform}
+
+/* ---------- BANDEAU ---------- */
+.mq{background:var(--forest);color:var(--cream);padding:clamp(22px,3.6vh,38px) 0;overflow:hidden}
+.mq-row{display:flex;width:max-content;will-change:transform}
+.mq-row span{display:flex;align-items:center;font-size:clamp(1.9rem,4.2vw,3.6rem);font-weight:500;letter-spacing:-.03em;line-height:1.25;white-space:nowrap}
+.mq-row span::after{content:"";width:.2em;height:.2em;border-radius:50%;background:var(--orange);margin:0 .7em}
+.mq-row.b span{font-style:italic;font-weight:300;color:var(--cr-3)}
+
+/* ---------- LE GESTE ---------- */
+.geste{padding-top:clamp(110px,16vh,190px)}
+.geste-head{display:flex;justify-content:space-between;align-items:end;gap:var(--g);margin-bottom:clamp(40px,6vh,72px)}
+.geste-head .lede{max-width:26em}
+.geste-grid{align-items:start}
+.g-frame{grid-column:1/span 7;position:sticky;top:calc(var(--nav-h) + 3vh);height:calc(100svh - var(--nav-h) - 6vh);border-radius:6px;overflow:hidden;background:var(--forest)}
+.g-img{position:absolute;inset:0;clip-path:inset(100% 0 0 0)}
+.g-img:first-child{clip-path:inset(0 0 0 0)}
+.g-img>img{width:100%;height:100%;object-fit:cover;transform:scale(1.1);will-change:transform}
+.g-img.prods{background:radial-gradient(90% 70% at 50% 70%,var(--sand) 0%,var(--sand-2) 100%);display:flex;align-items:flex-end;justify-content:center;gap:2%;padding-bottom:12%}
+.g-img.prods .b{position:relative;height:62%;aspect-ratio:251/678}
+.g-img.prods .b img{width:100%;height:100%;object-fit:contain}
+.g-img.prods .b:nth-child(2){height:70%}
+.g-cap{position:absolute;left:22px;bottom:20px;z-index:3;color:var(--cream);font-size:.86rem;display:flex;gap:14px;align-items:center;padding:7px 14px;border-radius:999px;background:rgba(19,36,25,.62)}
+.g-cap b{font-weight:600}
+.g-steps{grid-column:9/span 4}
+.g-step{min-height:calc(100svh - var(--nav-h));display:flex;flex-direction:column;justify-content:center;padding-block:10vh}
+.g-step .n{font-size:clamp(4.2rem,8vw,7.5rem);font-weight:300;line-height:1;letter-spacing:-.05em;color:var(--orange)}
+.g-step h3{margin:22px 0 14px}
+.g-step p{color:var(--ink-2);max-width:24em}
+
+/* ---------- MURIEL & SIMON ---------- */
+.about{padding-block:clamp(120px,18vh,210px)}
+.about h2{grid-column:1/span 8}
+.about .ph-main{grid-column:1/span 7;margin-top:clamp(50px,8vh,90px);aspect-ratio:3/2;border-radius:6px;overflow:hidden}
+.about .ph-main img,.about .ph-in img{width:100%;height:116%;object-fit:cover;will-change:transform}
+.about .txt{grid-column:9/span 4;margin-top:clamp(50px,8vh,90px);display:flex;flex-direction:column;gap:22px}
+.about .txt p{color:var(--cr-2)}
+.about .ph-in{grid-column:9/span 3;aspect-ratio:1253/1710;border-radius:6px;overflow:hidden;margin-top:clamp(28px,5vh,48px);position:relative}
+.about figcaption{position:absolute;left:14px;bottom:12px;font-size:.82rem;color:var(--cream);padding:5px 12px;border-radius:999px;background:rgba(19,36,25,.62)}
+.about .names{display:flex;align-items:center;gap:16px;font-weight:600}
+.about .names::before{content:"";width:48px;height:1px;background:var(--orange-lite)}
+
+/* ---------- UNITAIRES — langage V3 : grandes cartes verticales, un seul rang ---------- */
+.gamme{padding-block:clamp(110px,16vh,180px) clamp(80px,12vh,140px);overflow:hidden}
+.gamme-head{display:flex;justify-content:space-between;align-items:end;gap:var(--g);margin-bottom:clamp(30px,5vh,52px)}
+.gamme-head .side{display:flex;flex-direction:column;align-items:flex-end;gap:18px;text-align:right}
+.gamme-head .side .lede{max-width:25em}
+.rail-ctl{display:flex;align-items:center;gap:14px}
+.range{font-size:.95rem;color:var(--ink-2);min-width:9.5em;text-align:right}
+.range b{font-weight:600;color:var(--ink)}
+.arw{width:48px;height:48px;border-radius:50%;border:1px solid rgba(31,58,43,.28);display:grid;place-items:center;transition:background-color .2s ease,border-color .2s ease,transform .16s var(--ease-out),opacity .2s ease}
+.arw svg{width:18px;height:18px}
+.arw:active{transform:scale(.94)}
+.arw[disabled]{opacity:.3;cursor:default}
+@media (hover:hover) and (pointer:fine){.arw:not([disabled]):hover{background:var(--forest);border-color:var(--forest);color:var(--cream)}}
+.rail{display:flex;gap:clamp(12px,1.3vw,20px);overflow-x:auto;overscroll-behavior-x:contain;scroll-snap-type:x proximity;scrollbar-width:none;padding-inline:var(--m);scroll-padding-inline:var(--m);cursor:grab;-webkit-overflow-scrolling:touch}
+.rail::-webkit-scrollbar{display:none}
+.rail.drag{cursor:grabbing;scroll-snap-type:none}
+.rail.drag a{pointer-events:none}
+.card{position:relative;flex:0 0 auto;width:clamp(250px,21vw,330px);scroll-snap-align:start;display:flex;flex-direction:column;user-select:none;-webkit-user-drag:none}
+.card .im{position:relative;aspect-ratio:3/4.1;border-radius:4px;background:var(--sand);overflow:hidden;transition:background-color .35s ease}
+.card .no{position:absolute;top:16px;left:18px;font-size:.78rem;font-weight:600;letter-spacing:.06em;color:var(--ink-2);z-index:2}
+.card .bt{position:absolute;left:50%;bottom:7%;height:85%;aspect-ratio:251/678;transform:translateX(-50%)}
+.card .bt img{width:100%;height:100%;object-fit:contain;-webkit-user-drag:none;transition:transform .5s var(--ease-out)}
+.card .bt .shadow-floor{transition:transform .5s var(--ease-out),opacity .5s var(--ease-out)}
+.card .go{position:absolute;right:16px;top:14px;font-size:.78rem;font-weight:500;color:var(--ink);opacity:0;transform:translateY(-4px);transition:opacity .25s ease,transform .25s var(--ease-out);z-index:2}
+.card .meta-row{display:flex;justify-content:space-between;align-items:end;gap:12px;padding:14px 2px 0}
+.card .lat{font-size:.8rem;font-style:italic;color:var(--ink-3);line-height:1.3}
+.card h3{font-size:clamp(1.3rem,1.6vw,1.6rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;margin-top:3px}
+.card .inf{font-size:.76rem;color:var(--ink-2);text-align:right;line-height:1.35;flex:0 0 auto}
+@media (hover:hover) and (pointer:fine){
+  .card:hover .im{background:var(--sand-2)}
+  .card:hover .bt img{transform:translateY(-10px) rotate(-1.5deg)}
+  .card:hover .bt .shadow-floor{transform:scaleX(.8);opacity:.7}
+  .card:hover .go{opacity:1;transform:none}
+}
+.card.more .im{background:var(--forest);color:var(--cream);display:flex;flex-direction:column;justify-content:space-between;padding:22px}
+.card.more strong{font-size:4.4rem;font-weight:800;letter-spacing:-.06em;line-height:1}
+.card.more span{color:var(--cr-2);line-height:1.5}
+.card.more em{font-style:normal;font-weight:500;color:var(--orange-lite)}
+.rail-bar{margin:28px var(--m) 0;height:2px;background:rgba(31,58,43,.12);border-radius:2px;position:relative;overflow:hidden}
+.rail-bar i{position:absolute;top:0;bottom:0;left:0;width:100%;background:var(--orange);transform-origin:0 50%;transform:scaleX(.1)}
+
+/* ---------- COMPLEXES — panneaux empilés V3, un panneau par univers d'étiquette ---------- */
+.cx-intro{padding:clamp(120px,18vh,200px) var(--m) clamp(50px,8vh,90px);display:flex;justify-content:space-between;align-items:end;gap:var(--g);background:var(--cream)}
+.cx-intro .lede{max-width:27em}
+.cx-stack{background:var(--cream);padding-bottom:0}
+.pan{position:sticky;top:var(--nav-h);height:calc(100svh - var(--nav-h));display:grid;grid-template-columns:5fr 7fr;overflow:hidden;transform-origin:50% 0;will-change:transform}
+.pan .tx{position:relative;display:flex;flex-direction:column;justify-content:space-between;padding:clamp(28px,5vh,56px) clamp(24px,3.4vw,60px);color:var(--cream)}
+.pan .top{display:flex;justify-content:space-between;align-items:center;font-size:.8rem;font-weight:500;letter-spacing:.14em;text-transform:uppercase;opacity:.9}
+.pan .sys{font-size:clamp(.95rem,1.1vw,1.08rem);font-weight:500;letter-spacing:.02em;margin-bottom:clamp(14px,2.4vh,26px);display:flex;align-items:center;gap:12px}
+.pan .sys::before{content:"";width:34px;height:1px;background:currentColor;opacity:.6}
+.pan ul{list-style:none;display:flex;flex-direction:column;gap:clamp(12px,2.2vh,22px)}
+.pan li small{display:block;font-size:.95rem;font-style:italic;font-weight:300;opacity:.85}
+.pan li b{display:block;font-size:clamp(2rem,3.7vw,3.5rem);font-weight:800;letter-spacing:-.045em;line-height:1;transition:opacity .3s ease}
+.pan li p{margin-top:8px;font-size:.95rem;line-height:1.55;max-width:30em;opacity:.9}
+.pan .pv{position:relative;background:var(--sand);display:flex;align-items:flex-end;justify-content:center;gap:clamp(8px,2vw,34px);padding:0 4% 9%}
+.pan .ghost{position:absolute;right:4%;top:2%;font-size:clamp(9rem,22vw,20rem);font-weight:800;letter-spacing:-.07em;line-height:1;color:rgba(31,58,43,.07);pointer-events:none}
+.pan .b{position:relative;height:clamp(240px,58vh,620px);aspect-ratio:251/678;will-change:transform}
+.pan .b img{width:100%;height:100%;object-fit:contain;position:relative;z-index:1}
+.pan .b.one{height:clamp(260px,66vh,680px)}
+.pan .shade{position:absolute;inset:0;background:#0B140E;opacity:0;pointer-events:none;z-index:4}
+.pan.c-forest .tx{background:var(--forest)}
+.pan.c-orange .tx{background:var(--orange);color:var(--night)}
+.pan.c-cream .tx{background:var(--cream);color:var(--forest);box-shadow:inset -1px 0 0 rgba(31,58,43,.1)}
+.pan.c-bark .tx{background:var(--bark)}
+.pan.c-moss .tx{background:var(--moss)}
+.pan.c-terre .tx{background:var(--terre)}
+.pan.c-deep .tx{background:var(--forest-deep)}
+.pan.c-cream .pv,.pan.c-orange .pv{background:var(--sand-2)}
+
+/* ---------- GEMMO ÉMOTIONS — vrais détourages ---------- */
+.gemmo{position:relative;overflow:hidden;background:var(--cream)}
+.gemmo .pin{height:100vh;height:100svh;display:grid;grid-template-rows:auto 1fr auto;padding-top:calc(var(--nav-h) + 3vh);padding-bottom:5vh}
+.gem-head{display:flex;justify-content:space-between;align-items:start;gap:var(--g)}
+.gem-head .lede{max-width:24em;text-align:right}
+.gem-stage{position:relative;display:flex;align-items:flex-end;justify-content:center;min-height:0}
+.gem-b{position:absolute;bottom:3%;height:min(46vh,470px);aspect-ratio:251/678;will-change:transform,opacity}
+.gem-b img{width:100%;height:100%;object-fit:contain;position:relative;z-index:1}
+.gem-b .shadow-floor{bottom:-2%;opacity:.8}
+.gem-foot{display:grid;grid-template-columns:auto 1fr auto;align-items:end;gap:var(--g)}
+.gem-no{font-size:clamp(4.4rem,9vw,8.6rem);font-weight:300;line-height:.86;letter-spacing:-.06em;color:var(--orange);display:flex;align-items:flex-start;height:.9em;overflow:hidden}
+.gem-no sup{font-size:.28em;letter-spacing:0;margin:.5em .2em 0 0;font-weight:500}
+.gem-no .roll{display:block;will-change:transform}
+.gem-no .roll span{display:block;height:.9em;line-height:.86}
+.gem-txt{height:5.4rem;overflow:hidden;line-height:1.2}
+.gem-txt .roll2{will-change:transform}
+.gem-txt .it{height:5.4rem;display:flex;flex-direction:column;justify-content:flex-end;padding-bottom:.3rem}
+.gem-txt b{display:block;font-size:clamp(1.5rem,2.8vw,2.6rem);font-weight:800;letter-spacing:-.035em;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.gem-txt span{display:block;font-size:.98rem;color:var(--ink-2);margin-top:6px}
+.gem-dots{display:flex;gap:8px;padding-bottom:14px}
+.gem-dots i{width:8px;height:8px;border-radius:50%;background:rgba(31,58,43,.2);transition:background-color .3s ease,transform .3s var(--ease-out)}
+.gem-dots i.on{background:var(--orange);transform:scale(1.25)}
+
+/* ---------- SIGNATURE ---------- */
+.sig{position:relative;height:100vh;height:100svh;overflow:hidden;background:var(--forest-deep);color:var(--cream)}
+.sig-photo{position:absolute;inset:0;will-change:transform}
+.sig-photo img{width:100%;height:100%;object-fit:cover}
+.sig-photo::after{content:"";position:absolute;inset:0;background:linear-gradient(90deg,rgba(19,36,25,.66),rgba(19,36,25,.12) 62%),linear-gradient(0deg,rgba(19,36,25,.45),rgba(19,36,25,0) 40%)}
+.sig-mask{position:absolute;inset:0;width:100%;height:100%;will-change:transform}
+.sig-cap{position:absolute;left:var(--m);right:var(--m);bottom:clamp(28px,5vh,52px);display:flex;justify-content:space-between;color:var(--ink-2);font-size:.95rem;font-weight:500}
+.sig-end{position:absolute;left:var(--m);top:50%;transform:translateY(-50%);max-width:min(58vw,780px);z-index:2}
+.sig-end .row{display:block}
+.sig-end .facts{margin-top:28px;display:flex;flex-wrap:wrap;gap:10px 26px;color:var(--cr-2)}
+.sig-end .facts b{font-weight:600;color:var(--cream)}
+.sig .prod{position:absolute;right:calc(var(--m) + var(--col)*1.6);bottom:8vh;height:70vh;aspect-ratio:251/678;z-index:2;will-change:transform,opacity}
+.sig .prod img{width:100%;height:100%;object-fit:contain;filter:drop-shadow(0 34px 30px rgba(0,0,0,.42))}
+
+/* ---------- FINALE ---------- */
+.fin{padding-block:clamp(120px,18vh,200px) 40px;overflow:hidden}
+.fin-top{align-items:center;min-height:62vh}
+.fin-top .tx{grid-column:1/span 7}
+.fin-top .tx .lede{margin-top:26px}
+.cta{display:inline-flex;align-items:center;gap:18px;margin-top:44px;font-size:clamp(1rem,1.3vw,1.18rem);font-weight:500}
+.cta .c{display:grid;place-items:center;width:64px;height:64px;border-radius:50%;background:var(--orange);color:var(--cream);transition:transform .25s var(--ease-out),background-color .25s ease}
+.cta .c svg{width:20px;height:20px}
+.cta u{text-decoration:none;background:linear-gradient(currentColor,currentColor) 0 100%/100% 1px no-repeat;padding-bottom:3px;transition:background-size .4s var(--ease-out)}
+@media (hover:hover) and (pointer:fine){.cta:hover .c{transform:scale(1.06);background:var(--orange-ink)}.cta:hover u{background-size:0 1px;background-position:100% 100%}}
+.cta:active .c{transform:scale(.96)}
+.duo{grid-column:8/span 5;position:relative;height:62vh;display:flex;align-items:flex-end;justify-content:center;gap:4%}
+.duo .b{position:relative;height:88%;aspect-ratio:251/678}
+.duo .b:first-child{height:76%}
+.duo .b img{width:100%;height:100%;object-fit:contain;position:relative;z-index:1;filter:drop-shadow(0 26px 24px rgba(0,0,0,.35))}
+.caution{margin-top:clamp(70px,10vh,120px);padding:26px 0;border-top:1px solid rgba(245,238,225,.16);border-bottom:1px solid rgba(245,238,225,.16);display:grid;grid-template-columns:auto 1fr;gap:20px;align-items:start}
+.caution .ic{width:36px;height:36px;border:1px solid var(--orange-lite);border-radius:50%;display:grid;place-items:center;color:var(--orange-lite)}
+.caution .ic svg{width:16px;height:16px}
+.caution p{font-size:1rem;line-height:1.6;max-width:62em}
+.caution small{display:block;margin-top:8px;font-size:.9rem;line-height:1.6;color:var(--cr-3)}
+.end{margin-top:40px;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);row-gap:28px;color:var(--cr-3);font-size:.9rem}
+.end img{grid-column:1/span 3;height:52px;width:auto}
+.end .c1{grid-column:5/span 3}.end .c2{grid-column:8/span 5}
+.end h4{color:var(--cream);font-weight:600;font-size:.92rem;margin-bottom:6px}
+.legal{margin-top:48px;display:flex;justify-content:space-between;flex-wrap:wrap;gap:12px;color:var(--cr-3);font-size:.82rem}
+.legal a,.legal button{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(245,238,225,.4)}
+@media (hover:hover) and (pointer:fine){.legal a:hover,.legal button:hover{color:var(--cream)}}
+
+/* ---------- MOBILE ---------- */
+@media (max-width:640px){
+  :root{--nav-h:62px}
+  .links,.nav .pill{display:none}
+  .menu-btn{display:inline-flex}
+  .logo{height:32px;width:122px}
+  .htext{top:calc(var(--nav-h) + 5vh);bottom:96px}
+  .ht{bottom:auto;top:0;max-width:none;right:0}
+  .ht.ht1{top:auto;bottom:0}
+  .chap3 .prod{right:auto;left:50%;margin-left:calc(-1 * 50svh * 251 / 678 / 2);bottom:86px;height:50svh}
+  .hero-ui{bottom:26px}.ticks i{width:30px}.cue{display:none}
+  .mani .grid{display:flex;flex-direction:column}
+  .mani .body{grid-template-columns:1fr;gap:18px}
+  .mani .comp{position:relative;top:auto;height:52svh;margin:0 auto 44px;order:-1}
+  .geste-head,.gamme-head,.cx-intro{flex-direction:column;align-items:flex-start}
+  .gamme-head .side{align-items:flex-start;text-align:left;width:100%}
+  .rail-ctl{width:100%;justify-content:space-between}
+  .range{text-align:left;order:-1}
+  .g-frame{grid-column:1/-1;top:calc(var(--nav-h) + 8px);height:46svh;z-index:2}
+  .g-steps{grid-column:1/-1}
+  .g-step{min-height:auto;padding-block:56px 64px}
+  .g-step .n{font-size:3.4rem}
+  .about h2,.about .ph-main,.about .txt{grid-column:1/-1}
+  .about .ph-in{grid-column:3/span 10}
+  .card{width:74vw}
+  .pan{position:relative;top:auto;height:auto;min-height:0;grid-template-columns:1fr}
+  .pan .tx{padding:34px var(--m) 30px;gap:26px}
+  .pan .pv{padding:26px 4% 36px;min-height:0;overflow:hidden}
+  .pan .b{height:min(38svh,300px)}.pan .b.one{height:min(44svh,340px)}
+  .pan .ghost{font-size:9rem;top:0}
+  .pan li b{font-size:2.1rem}
+  .gem-head{flex-direction:column}.gem-head .lede{text-align:left}
+  .gem-b{height:min(36svh,310px)}
+  .gem-head .lede{display:none}
+  .gem-txt,.gem-txt .it{height:4.4rem}
+  .gem-foot{grid-template-columns:auto 1fr;row-gap:8px}
+  .gem-txt b{font-size:1.25rem}
+  .gem-dots{grid-column:1/-1;padding:0}
+  .sig-end{top:calc(var(--nav-h) + 5vh);transform:none;max-width:none;right:var(--m)}
+  .sig-end .facts{flex-direction:column;gap:4px}
+  .sig .prod{right:auto;left:50%;margin-left:calc(-1 * 44svh * 251 / 678 / 2);bottom:5svh;height:44svh}
+  .fin-top{min-height:0}
+  .fin-top .tx,.duo{grid-column:1/-1}
+  .duo{height:50svh;margin-top:56px}
+  .end img,.end .c1,.end .c2{grid-column:1/-1}
+}
+
+/* ---------- MOUVEMENT RÉDUIT : uniquement sur demande explicite (?motion=reduced) ---------- */
+html.rm .cue span::after{animation:none}
+html.rm .mani .quote .w{opacity:1}
+html.rm .hero{height:auto}
+html.rm .chap{position:relative;height:100svh}
+html.rm .htext,html.rm .hero-ui{display:none}
+html.rm .chap .ht-static{display:block}
+.ht-static{display:none;position:absolute;left:var(--m);right:var(--m);bottom:clamp(96px,15vh,150px);z-index:3;color:var(--cream)}
+html.rm .gemmo .pin{height:auto;grid-template-rows:auto auto;gap:40px}
+html.rm .gem-stage{display:flex;gap:28px;overflow-x:auto;justify-content:flex-start;align-items:flex-end;padding:20px var(--m) 40px;margin-inline:calc(-1*var(--m));height:auto}
+html.rm .gem-b{position:relative;flex:0 0 auto;bottom:auto}
+html.rm .gem-foot{display:none}
+html.rm .sig{height:auto;min-height:100svh}
+html.rm .sig-mask,html.rm .sig-cap{display:none}
+html.rm .sig-end{position:relative;top:auto;transform:none;padding:22vh var(--m) 18vh;left:0}
+html.rm .pan{position:relative;top:auto}
+
+/* V42 — accès aux gammes, médias métier et navigation accessible. */
+html{scroll-padding-top:90px}
+.sr:focus{position:fixed;top:12px;left:20px;width:auto;height:auto;clip:auto;padding:12px;background:var(--cream);z-index:100;color:var(--forest)}
+.hero .ht1 .d1{font-size:clamp(3rem,7.2vw,6.7rem)}
+.hero-actions{position:absolute;left:var(--m);right:var(--m);bottom:34px;z-index:8;display:flex;gap:24px;align-items:center}
+.hero-actions .pill{background:var(--cream);color:var(--forest);height:50px}
+.hero-story{font-size:.87rem;text-decoration:underline;text-underline-offset:6px}
+.hero-ui{left:auto;pointer-events:none}.hero-ui .cue{display:none}
+.ht .lede{max-width:26em}.chap .veil{background:linear-gradient(90deg,rgba(11,20,14,.72),rgba(11,20,14,.05) 80%),linear-gradient(0deg,rgba(11,20,14,.55),transparent 60%)}
+.collections{padding-block:80px 90px;background:var(--paper)}
+.gammes{padding-block:clamp(100px,15vh,170px) clamp(90px,13vh,150px)}
+.gammes-head{display:flex;justify-content:space-between;align-items:end;gap:var(--g);margin-bottom:clamp(36px,5.5vh,60px)}
+.gammes-head .meta{color:var(--orange-ink)}
+.gammes-head h2{font-size:clamp(2rem,3.6vw,3.4rem);font-weight:700;letter-spacing:-.04em;line-height:1.08;margin-top:10px}
+.gammes-head .lede{max-width:24em;text-align:right}
+.gammes-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:var(--g);align-items:stretch}
+.gtile{position:relative;display:flex;flex-direction:column;justify-content:flex-end;min-height:clamp(380px,46vh,520px);border-radius:8px;overflow:hidden;padding:clamp(22px,2.6vw,32px);isolation:isolate;transition:transform .35s var(--ease-out)}
+.gtile.t-cream{background:linear-gradient(175deg,var(--sand) 0%,var(--sand-2) 100%);color:var(--ink)}
+.gtile.t-moss{background:linear-gradient(175deg,var(--moss) 0%,var(--forest) 100%);color:var(--cream);margin-top:clamp(0px,2.4vh,30px)}
+.gtile.t-forest{background:linear-gradient(175deg,var(--forest) 0%,var(--forest-deep) 100%);color:var(--cream)}
+.gtile .meta{position:relative;z-index:2}
+.gtile.t-cream .meta{color:var(--orange-ink)}
+.gtile.t-moss .meta,.gtile.t-forest .meta{color:var(--orange-lite)}
+.gt-ghost{position:absolute;top:clamp(14px,2vw,26px);right:clamp(18px,2.4vw,30px);font-size:clamp(4rem,9vw,7rem);font-weight:800;letter-spacing:-.05em;line-height:1;opacity:.1;z-index:1;pointer-events:none}
+.gtile.t-cream .gt-ghost{color:var(--forest)}
+.gtile.t-moss .gt-ghost,.gtile.t-forest .gt-ghost{color:var(--cream)}
+.gt-tx{position:relative;z-index:2;display:flex;flex-direction:column;gap:10px;max-width:66%}
+.gt-tx h3{font-size:clamp(1.4rem,1.9vw,1.9rem);font-weight:600;letter-spacing:-.035em;line-height:1.14;margin-top:2px}
+.gt-tx p{font-size:.88rem;line-height:1.5;opacity:.82;max-width:22em}
+.gt-link{display:inline-flex;align-items:center;gap:8px;margin-top:6px;font-size:.84rem;font-weight:500}
+.gt-link svg{width:13px;height:13px;transition:transform .3s var(--ease-out)}
+.gtile:focus-visible{outline:2px solid var(--orange);outline-offset:-3px}
+@media (hover:hover) and (pointer:fine){
+  .gtile:hover{transform:translateY(-4px)}
+  .gtile:hover .gt-link svg{transform:translate(3px,-3px)}
+}
+.catalogue-tools{display:flex;align-items:center;gap:20px;margin-bottom:28px;flex-wrap:wrap}.catalogue-tools label{font-size:.9rem;font-weight:500}
+.catalogue-tools input{font:inherit;font-size:.95rem;padding:14px 18px;background:var(--paper);color:var(--forest);border:1px solid #b7bba8;border-radius:4px;width:min(100%,360px)}
+.catalogue-tools p{font-size:.85rem;color:var(--ink-2)}.card[hidden]{display:none}.card .go{opacity:1;transform:none}
+
+.gem-shop{position:absolute;right:0;bottom:18px;font-size:.8rem;text-decoration:underline;text-underline-offset:5px;z-index:8}
+html.rm .hero-actions{position:relative;padding:24px var(--m);left:auto;right:auto;bottom:auto;background:var(--forest)}
+html.rm .hero .chap{height:70svh;min-height:480px}
+html.rm .gem-shop{position:static;margin-bottom:20px}
+html.rm .gem-stage{align-items:start}.gem-caption{display:none}html.rm .gem-caption{display:block;font-size:.9rem;max-width:200px;margin-top:16px}html.rm .gem-b{height:auto!important;width:200px}html.rm .gem-b img{height:300px;object-fit:contain}
+@media(max-width:640px){
+.gammes{padding-block:70px 54px}.gammes-head{flex-direction:column;align-items:flex-start;gap:14px}.gammes-head .lede{text-align:left}.gammes-grid{grid-template-columns:1fr;gap:16px}.gtile{min-height:300px;padding:22px}.gtile.t-moss{margin-top:0}.gt-tx{max-width:72%}.gt-bottle{height:62%}
+.hero-story{display:none}.hero-actions{bottom:24px}.hero-actions .pill{font-size:.8rem;padding:0 16px}.hero-ui{right:20px;bottom:46px}.hero .ht1 .d1{font-size:clamp(3rem,11vw,5rem)}
+.catalogue-tools{gap:10px}.catalogue-tools label,.catalogue-tools input{width:100%}.catalogue-tools p{margin-top:4px}.gem-shop{bottom:8px;font-size:.72rem}.gem-foot{padding-bottom:24px}
+}
+html.rm *,html.rm *::before,html.rm *::after{animation:none!important;transition:none!important}
+
+/* =====================================================================
+   REPRISE DU 18/11/2026 — haut de page, complexes et Gemmo Émotions.
+   ===================================================================== */
+@property --bg{syntax:"<color>";inherits:true;initial-value:#1F3A2B}
+@property --fg{syntax:"<color>";inherits:true;initial-value:#F5EEE1}
+@property --glow{syntax:"<color>";inherits:true;initial-value:#2C4A37}
+
+/* ---------- HAUT DE PAGE : une seule image forte, le flacon déjà là ---------- */
+.hero2{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--forest-deep);color:var(--cream);isolation:isolate}
+.h2-photo{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.h2-photo .kb{position:absolute;inset:0;will-change:transform}
+.h2-photo img{width:100%;height:100%;object-fit:cover;object-position:50% 30%;will-change:transform}
+.h2-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,20,14,.8),rgba(11,20,14,.1) 72%),linear-gradient(0deg,rgba(11,20,14,.72),rgba(11,20,14,0) 58%)}
+.h2-in{position:relative;z-index:2;padding:calc(var(--nav-h) + 8vh) var(--m) clamp(104px,15vh,150px);max-width:min(64vw,1000px)}
+.hero2 em{color:var(--orange-lite)}
+.hero2 .row{display:block;overflow:hidden;padding:.08em 0;margin:-.08em 0}
+.hero2 .row>*{display:block}
+.hero2 .lede{color:var(--cr-2);margin-top:24px;max-width:27em}
+.h2-actions{display:flex;flex-wrap:wrap;align-items:center;gap:16px 26px;margin-top:36px}
+.h2-actions .pill{background:var(--cream);color:var(--forest);height:52px;padding:0 24px;font-size:.92rem}
+@media (hover:hover) and (pointer:fine){.h2-actions .pill:hover{background:var(--sand)}}
+.h2-facts{position:absolute;z-index:2;left:var(--m);right:var(--m);bottom:30px;display:flex;flex-wrap:wrap;gap:8px 30px;list-style:none;font-size:.86rem;color:var(--cr-2)}
+.h2-facts b{font-weight:600;color:var(--cream)}
+
+/* La barre de navigation se fond dans la vitrine en cours. */
+.nav.over,.nav.over.solid,.nav.over.light.solid{background:transparent}
+.nav.over::after{opacity:0}
+
+@media (max-width:640px){
+  .h2-in{max-width:none;align-self:flex-start;padding:calc(var(--nav-h) + 5vh) var(--m) 0}
+  .hero2{align-items:flex-start}
+  .hero2 .lede{max-width:22em}
+  .h2-actions{margin-top:26px}
+  .h2-actions .pill{height:48px;font-size:.86rem;padding:0 20px}
+  .hero-story{display:none}
+  .h2-veil{background:linear-gradient(180deg,rgba(11,20,14,.82) 0%,rgba(11,20,14,.35) 52%,rgba(11,20,14,.78) 100%)}
+  .h2-facts{bottom:20px;gap:4px 16px;font-size:.76rem;justify-content:center}
+}
+
+/* ---------- Reprise du 18/11/2026 (suite) : ombres au sol manquantes ---------- */
+.mani .comp .shadow-floor{left:6%;right:6%;bottom:-2.2%;height:5.5%}
+.gammes-head h2{margin-top:0}
+
+/* =====================================================================
+   REPRISE « FLUIDITÉ + HOMOGÉNÉITÉ » — 18/11/2026
+   ===================================================================== */
+:root{--r:6px;--sec:clamp(92px,15vh,180px)}
+
+/* ---------- VITRINES : une rangée de flacons qui glisse en continu avec le défilement,
+   le fond se fond d'une couleur d'étiquette à la suivante ---------- */
+.show{position:relative;overflow:hidden;background:var(--bg);color:var(--fg)}
+.show em{color:inherit;opacity:.78}
+.show-pin{position:relative;height:100vh;height:100svh;min-height:540px;display:grid;grid-template-rows:auto minmax(0,1fr) auto;gap:1.6vh;padding:calc(var(--nav-h) + 2vh) var(--m) 3.4vh}
+.show-glow{position:absolute;inset:0;pointer-events:none;background:radial-gradient(44% 60% at 62% 58%,var(--glow) 0%,transparent 72%);opacity:.7}
+.show.flip .show-glow{background:radial-gradient(44% 60% at 30% 58%,var(--glow) 0%,transparent 72%)}
+.show-head{position:relative;z-index:4;display:flex;justify-content:space-between;align-items:end;gap:var(--g)}
+.show-head h2{font-size:clamp(1.4rem,2.3vw,2.2rem);font-weight:800;letter-spacing:-.035em;line-height:1.06}
+.show-head h2 em{display:inline;font-weight:300;letter-spacing:-.03em}
+.show-count{font-size:.95rem;font-weight:500;white-space:nowrap}
+.show-count b{font-size:1.6em;font-weight:800;letter-spacing:-.03em}
+.show-body{position:relative;z-index:2;min-height:0;display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);align-items:end}
+.show-tx{grid-column:1/span 5;grid-row:1;position:relative;z-index:3;padding-bottom:2vh;min-width:0}
+.show-sys{display:flex;align-items:center;gap:12px;font-size:.98rem;font-weight:500;margin-bottom:14px}
+.show-sys::before{content:"";width:34px;height:1px;background:currentColor;opacity:.6}
+.show-name{font-size:clamp(2.3rem,5.6vw,5.6rem);font-weight:800;line-height:.98;letter-spacing:-.04em;text-wrap:balance}
+.show-compo{margin-top:16px;font-size:clamp(.98rem,1.15vw,1.14rem);line-height:1.55;max-width:24em;opacity:.92}
+.show-link{display:inline-flex;align-items:center;gap:9px;margin-top:22px;font-weight:500;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.show-link svg{width:13px;height:13px}
+.show-stage{grid-column:6/span 5;grid-row:1;position:relative;height:100%;min-height:0}
+.show-ghost{position:absolute;left:50%;top:0;translate:-50% 0;font-size:clamp(8rem,24vw,22rem);font-weight:800;letter-spacing:-.06em;line-height:.82;color:color-mix(in srgb,currentColor 11%,transparent);white-space:nowrap;pointer-events:none;user-select:none}
+.show-track{position:absolute;inset:0}
+.show-b{position:absolute;left:50%;bottom:5%;height:min(60svh,600px);aspect-ratio:251/678;margin:0;translate:-50% 0;transform-origin:50% 100%}
+.show-b .bb{position:absolute;inset:0}
+.show-b img{width:100%;height:100%;object-fit:contain}
+.show-b .shadow-floor{left:4%;right:4%;bottom:-3%;height:6.5%;background:radial-gradient(closest-side,rgba(11,20,14,.5),rgba(11,20,14,0))}
+.show-index{grid-column:11/span 2;grid-row:1;position:relative;z-index:3;align-self:center;list-style:none;display:flex;flex-direction:column;max-height:100%;overflow:auto;scrollbar-width:none}
+.show-index::-webkit-scrollbar{display:none}
+.show-index button{display:flex;align-items:center;gap:11px;width:100%;padding:5px 4px;text-align:left;font-size:.88rem;line-height:1.3;opacity:.74;transition:opacity .25s ease,transform .4s var(--ease-out)}
+.show-index button::before{content:"";flex:0 0 auto;width:9px;height:9px;border-radius:50%;background:var(--c);box-shadow:0 0 0 1.5px currentColor}
+.show-index button[aria-current="true"]{opacity:1;font-weight:600;transform:translateX(8px)}
+@media (hover:hover) and (pointer:fine){.show-index button:hover{opacity:1}}
+.show.flip .show-stage{grid-column:1/span 5}
+.show.flip .show-tx{grid-column:6/span 5}
+.show.flip .show-name{font-size:clamp(2.1rem,4.4vw,4.4rem)}
+.show.flip .show-ghost{font-weight:300;letter-spacing:-.05em;color:color-mix(in srgb,currentColor 20%,transparent)}
+.show-foot{position:relative;z-index:4;display:flex;align-items:center;gap:14px}
+.show-arw{flex:0 0 auto;width:48px;height:48px;border-radius:50%;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 38%,transparent);display:grid;place-items:center;transition:background-color .2s ease,color .2s ease,transform .16s var(--ease-out),opacity .2s ease}
+.show-arw svg{width:18px;height:18px}
+.show-arw:active{transform:scale(.94)}
+.show-arw[disabled]{opacity:.3;cursor:default}
+@media (hover:hover) and (pointer:fine){.show-arw:not([disabled]):hover{background:var(--fg);color:var(--bg)}}
+.show-bar{flex:1;height:2px;border-radius:2px;background:color-mix(in srgb,currentColor 22%,transparent);position:relative;overflow:hidden}
+.show-bar i{position:absolute;inset:0;background:currentColor;transform-origin:0 50%;transform:scaleX(0)}
+.show-skip{font-size:.86rem;text-decoration:underline;text-underline-offset:5px;white-space:nowrap}
+.show :focus-visible{outline-color:currentColor}
+
+/* ---------- HOMOGÉNÉITÉ : un rayon, un rythme de sections, des titres d'une seule voix ---------- */
+.gtile,.card .im,.g-frame,.about .ph-main,.about .ph-in,.catalogue-tools input{border-radius:var(--r)}
+.d2 em{display:block}
+.gammes-head h2{font-weight:800;letter-spacing:-.04em;line-height:1.04;margin-top:0}
+.gt-tx h3{font-weight:800;letter-spacing:-.035em}
+.gtile.t-cream .meta{color:var(--terre)}
+.gtile.t-moss .meta,.gtile.t-forest .meta{color:#EDB083}
+.gt-link{display:inline;white-space:nowrap}
+.gt-link svg{display:inline;vertical-align:-1px;margin-left:8px}
+.card .go{display:inline-flex;align-items:center;gap:6px}
+.card .go svg,.card.more em svg,.end a svg{width:11px;height:11px;flex:0 0 auto}
+.card.more em{display:inline-flex;align-items:center;gap:6px}
+.end a{display:inline-flex;align-items:center;gap:6px}
+/* Ombre au sol du flacon de l'étape « Macération » : sa largeur suit la HAUTEUR du cadre,
+   comme le flacon lui-même, elle reste donc dessous à toutes les largeurs. */
+
+@media (min-width:641px){
+  .gammes{padding-block:var(--sec) calc(var(--sec)*.8)}
+  .mani{padding-block:var(--sec) calc(var(--sec)*.85)}
+  .geste{padding-top:var(--sec)}
+  .about{padding-block:var(--sec)}
+  .gamme{padding-block:var(--sec) calc(var(--sec)*.75)}
+  .fin{padding-top:var(--sec)}
+}
+
+/* ---------- ÉCRANS INTERMÉDIAIRES (641 à 1040 px) : la composition « ordinateur », resserrée ---------- */
+@media (min-width:641px) and (max-width:1040px){
+  .links{gap:16px;font-size:.84rem}
+  .nav .pill{height:40px;padding:0 16px;font-size:.82rem}
+  .h2-in{max-width:60vw;padding-bottom:clamp(84px,13vh,120px)}
+  .hero-story{display:none}
+  .gammes-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .gammes-head .lede{text-align:left}
+  .gammes-grid{grid-template-columns:1fr 1fr}
+  .gtile{min-height:300px}
+  .gtile.t-cream{grid-column:1/-1;min-height:260px}
+  .gtile.t-moss{margin-top:0}
+  .mani .quote{grid-column:1/span 8}
+  .mani .body{grid-column:1/span 8}
+  .mani .comp{grid-column:9/span 4;height:min(60vh,480px)}
+  .geste-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .g-frame{grid-column:1/span 6}
+  .g-steps{grid-column:8/span 5}
+  .about h2{grid-column:1/-1}
+  .about .ph-main{grid-column:1/span 6;aspect-ratio:4/5}
+  .about .txt{grid-column:8/span 5}
+  .about .ph-in{grid-column:8/span 4}
+  .gamme-head{flex-direction:column;align-items:flex-start;gap:18px}
+  .gamme-head .side{align-items:flex-start;text-align:left;width:100%}
+  .rail-ctl{width:100%;justify-content:flex-end}
+  .show-tx{grid-column:1/span 6}
+  .show-stage{grid-column:7/span 6}
+  .show.flip .show-stage{grid-column:1/span 6}
+  .show.flip .show-tx{grid-column:7/span 6}
+  .show-index{display:none}
+  .show-b{height:min(56svh,520px)}
+  .show-name{font-size:clamp(2.2rem,6.4vw,3.8rem)}
+  .show.flip .show-name{font-size:clamp(1.9rem,5vw,3rem)}
+  .sig .prod{right:calc(var(--m) + 2vw);height:62vh}
+  .sig-end{max-width:56vw}
+  .fin-top .tx{grid-column:1/span 7}
+  .duo{grid-column:8/span 5;height:52vh}
+  .end .c1{grid-column:5/span 4}.end .c2{grid-column:9/span 4}
+}
+
+/* ---------- TÉLÉPHONE (640 px et moins) : la vitrine se feuillette au doigt, nativement ---------- */
+@media (max-width:640px){
+  .show-pin{height:auto;min-height:0;display:block;padding:calc(var(--nav-h) + 12px) 0 34px}
+  .show-head,.show-tx,.show-foot{padding-inline:var(--m)}
+  .show-head{align-items:start}
+  .show-body{display:flex;flex-direction:column;align-items:stretch}
+  .show-stage,.show.flip .show-stage{order:-1;height:44svh;min-height:290px;margin-top:6px}
+  .show-ghost{font-size:11rem;top:4%}
+  .show-track{display:flex;align-items:flex-end;overflow-x:auto;overflow-y:hidden;scroll-snap-type:x mandatory;scrollbar-width:none;-webkit-overflow-scrolling:touch;padding-bottom:5%}
+  .show-track::-webkit-scrollbar{display:none}
+  .show-track::before,.show-track::after{content:"";flex:0 0 calc(50% - 26vw)}
+  .show-b{position:relative;left:auto;bottom:auto;translate:none;flex:0 0 52vw;height:88%;aspect-ratio:auto;scroll-snap-align:center;display:flex;justify-content:center;will-change:auto}
+  .show-b .bb{position:relative;inset:auto;height:100%;aspect-ratio:251/678;transform-origin:50% 100%}
+  .show-tx,.show.flip .show-tx{padding-top:14px;padding-bottom:0;min-height:13.5rem}
+  .show-name,.show.flip .show-name{font-size:clamp(2.2rem,10.5vw,3.1rem)}
+  .show-index{flex-direction:row;gap:8px;margin-top:18px;padding:4px var(--m);overflow-x:auto;max-height:none;scroll-padding-inline:var(--m)}
+  .show-index li{flex:0 0 auto}
+  .show-index button{width:auto;padding:10px 15px;border-radius:999px;white-space:nowrap;opacity:.8;box-shadow:inset 0 0 0 1px color-mix(in srgb,currentColor 32%,transparent)}
+  .show-index button[aria-current="true"]{transform:none;box-shadow:inset 0 0 0 2px currentColor}
+  .show-foot{margin-top:20px}
+  .card{width:66vw}
+}
+
+/* =====================================================================
+   REPRISE « RÉCIT » — 18/11/2026 : moins de flacons, de vraies photos, une histoire.
+   ===================================================================== */
+.h2-in{max-width:min(82vw,1100px)}
+.hero2 .lede{max-width:30em}
+
+/* Trois gammes : tuiles photo */
+.gtile,.gtile.t-cream,.gtile.t-moss,.gtile.t-forest{background:var(--forest-deep);color:var(--cream);min-height:clamp(340px,46vh,500px)}
+.gtile.t-moss{margin-top:0}
+.gt-ph{position:absolute;inset:0;z-index:0;overflow:hidden}
+.gt-ph img{width:100%;height:100%;object-fit:cover;transition:transform 1.2s var(--ease-out)}
+.gt-ph::after{content:"";position:absolute;inset:0;background:linear-gradient(0deg,rgba(11,20,14,.9) 0%,rgba(11,20,14,.5) 48%,rgba(11,20,14,.12) 100%)}
+.gt-tx{max-width:none}
+.gtile .meta,.gtile.t-cream .meta{color:#EDB083}
+.gt-tx p{opacity:.9}
+@media (hover:hover) and (pointer:fine){.gtile:hover .gt-ph img{transform:scale(1.05)}}
+
+/* Le bourgeon : deux photos qui se chevauchent */
+.mani-media{grid-column:8/span 5;grid-row:1/span 3;position:relative;align-self:start}
+.mani-ph{aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--sand)}
+.mani-ph img{width:100%;height:112%;object-fit:cover;will-change:transform}
+.mani-ph2{position:absolute;left:-26%;bottom:6%;width:46%;aspect-ratio:1;border-radius:var(--r);overflow:hidden;border:8px solid var(--cream);background:var(--sand)}
+.mani-ph2 img{width:100%;height:100%;object-fit:cover}
+.mani-cap{margin-top:14px;font-size:.84rem;color:var(--ink-3);text-align:right}
+
+/* La vitalité : chapitre plein écran */
+.vit{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;overflow:hidden;background:var(--forest-deep);color:var(--cream);isolation:isolate}
+.vit-ph{position:absolute;inset:-7% 0;z-index:-2;will-change:transform}
+.vit-ph img{width:100%;height:100%;object-fit:cover}
+.vit::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(11,20,14,.92) 0%,rgba(11,20,14,.55) 50%,rgba(11,20,14,.3) 100%)}
+.vit-in{width:100%;padding:var(--sec) var(--m) clamp(40px,7vh,72px)}
+.vit blockquote{max-width:15em;line-height:1.1}
+.show-name,.show.flip .show-name{line-height:1.04}
+.vit em{color:var(--orange-lite)}
+.vit .lede{color:var(--cr-2);margin-top:22px;max-width:32em}
+.vit-facts{margin-top:clamp(36px,7vh,72px);display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:var(--g)}
+.vit-facts div{padding-top:18px;border-top:1px solid rgba(245,238,225,.3)}
+.vit-facts dt{font-weight:600;font-size:1.05rem}
+.vit-facts dd{margin-top:6px;font-size:.93rem;line-height:1.55;color:var(--cr-2);max-width:24em}
+
+/* Fin de page : une photo, plus de flacons */
+.fin-ph{grid-column:8/span 5;aspect-ratio:4/5;border-radius:var(--r);overflow:hidden;background:var(--forest-deep)}
+.fin-ph img{width:100%;height:100%;object-fit:cover}
+
+@media (min-width:641px) and (max-width:1040px){
+  .h2-in{max-width:min(86vw,1100px)}
+  .mani .quote,.mani .body,.mani .sign{grid-column:1/span 7}
+  .mani .body{grid-template-columns:1fr;gap:16px}
+  .mani-media{grid-column:9/span 4}
+  .mani-ph2{left:-34%;width:54%}
+  .gtile.t-cream{min-height:300px}
+}
+@media (max-width:640px){
+  .h2-in{max-width:none}
+  .mani-media{order:-1;width:100%;margin:0 0 30px}
+  .mani-ph{aspect-ratio:4/3.6}
+  .mani-ph2{left:auto;right:6%;bottom:22px;width:34%;border-width:6px}
+  .gtile,.gtile.t-cream,.gtile.t-moss,.gtile.t-forest{min-height:280px}
+  .vit-facts{grid-template-columns:1fr;gap:0;margin-top:34px}
+  .vit-facts div{padding:16px 0 4px}
+  .fin-ph{aspect-ratio:4/3;margin-top:46px}
+}
+/* Le bourgeon : la petite photo ne recouvre plus la légende */
+.mani-ph2{bottom:auto;top:56%}
+.mani-cap{padding-left:24%}
+.vit::before{background:linear-gradient(0deg,rgba(11,20,14,.94) 0%,rgba(11,20,14,.7) 50%,rgba(11,20,14,.5) 100%)}
+
+/* ---------- VITRINES, 2e version : fond neutre, couleur dans une niche ---------- */
+.show{background:var(--cream);color:var(--ink);--ground:var(--cream);--ground-fg:var(--forest)}
+.show.flip{background:var(--forest);color:var(--cream);--ground:var(--forest);--ground-fg:var(--cream)}
+.show em{color:var(--orange-ink);opacity:1}
+.show.flip em{color:var(--orange-lite)}
+.show-pin{gap:2.4vh}
+.show-panel{position:absolute;inset:0 5%;border-radius:999px 999px var(--r) var(--r);overflow:hidden;isolation:isolate;background:var(--bg,#93949c);color:var(--fg,#0B140E)}
+.show-panel .show-glow,.show.flip .show-panel .show-glow{position:absolute;inset:0;background:radial-gradient(62% 52% at 50% 64%,var(--glow,transparent) 0%,transparent 76%);opacity:.8}
+.show-panel .show-ghost,.show.flip .show-panel .show-ghost{top:10%;font-size:clamp(5.5rem,15vw,13.5rem);color:color-mix(in srgb,currentColor 15%,transparent)}
+.show-panel .show-count{position:absolute;left:50%;translate:-50% 0;bottom:14px;z-index:120;font-size:.82rem}
+.show-panel .show-count b{font-size:1.25em}
+.show-panel .show-b{bottom:11%;height:min(52svh,520px)}
+.show-sys::before{width:12px;height:12px;border-radius:50%;background:var(--accent,currentColor);opacity:1;box-shadow:0 0 0 1.5px currentColor}
+@media (hover:hover) and (pointer:fine){.show-arw:not([disabled]):hover{background:var(--ground-fg);color:var(--ground)}}
+.show-index button::before{box-shadow:0 0 0 1px color-mix(in srgb,currentColor 55%,transparent)}
+@media (min-width:641px) and (max-width:1040px){
+  .show-panel{inset:0 2%}
+  .show-panel .show-b{height:min(48svh,440px)}
+  .mani-ph2{top:50%}
+}
+@media (max-width:640px){
+  .show-stage,.show.flip .show-stage{margin:8px var(--m) 0;height:46svh}
+  .show-panel{inset:0}
+  .show-panel .show-ghost{font-size:8.5rem;top:9%}
+  .show-panel .show-b{height:80%;bottom:auto}
+  .show-panel .show-track{padding-bottom:13%}
+  .mani-ph2{top:auto;bottom:22px}
+  .mani-cap{padding-left:0;text-align:left}
+}
+
+/* ---------- Textes d'origine rétablis (19/11/2026) : seule leur mise en place change ---------- */
+.h2-facts{gap:4px 30px;font-size:.9rem;line-height:1.5;color:var(--cream)}
+@media (min-width:641px){.h2-in{padding-bottom:clamp(128px,20vh,176px)}}
+.h2-facts em{color:var(--orange-lite)}
+.gammes-title .meta{color:var(--orange-ink);margin-bottom:14px}
+.g-step p+p{margin-top:10px}
+.show-head{align-items:end}
+.show-head h2{font-size:clamp(1.5rem,2.6vw,2.5rem)}
+.show-head h2 em{display:inline}
+.show-head .lede{max-width:30em;text-align:right;font-size:.95rem;line-height:1.55;color:inherit;opacity:.85}
+.show-kind{font-size:.95rem;font-style:italic;font-weight:300;opacity:.85;margin-bottom:2px}
+@media (max-width:1040px){
+  .show-head{flex-direction:column;align-items:flex-start;gap:8px}
+  .show-head .lede{text-align:left;max-width:none;font-size:.88rem;line-height:1.45}
+  .show-pin{gap:1.4vh}
+}
+@media (min-width:641px) and (max-width:1040px){.show-panel .show-b{height:min(42svh,400px)}}
+@media (max-width:640px){.h2-facts{flex-direction:column;align-items:center;gap:2px;font-size:.82rem}}
+
+/* Photos des parents (19/11/2026) */
+@media (max-width:640px){.fin-ph{grid-column:1/-1;aspect-ratio:4/4.6;margin-top:40px}}
+
+/* ---------- 19/11/2026 : Muriel & Simon resserré, espace dédié aux salons ---------- */
+.about h2{grid-column:1/span 9}
+.about .ph-main{grid-column:1/span 6;aspect-ratio:4/3;margin-top:clamp(36px,6vh,64px)}
+.about .txt{grid-column:8/span 5;margin-top:clamp(36px,6vh,64px);align-self:center}
+.salons{background:var(--paper);padding-block:var(--sec)}
+.salons-head{display:flex;justify-content:space-between;align-items:end;gap:var(--g);margin-bottom:clamp(30px,5vh,56px)}
+.salons-head .lede{max-width:25em;text-align:right}
+.salons-grid{display:grid;grid-template-columns:repeat(12,minmax(0,1fr));gap:var(--g)}
+.sal{position:relative;margin:0;border-radius:var(--r);overflow:hidden;background:var(--sand)}
+.sal img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover}
+.sal-a{grid-column:1/span 7;aspect-ratio:1448/786}
+.sal-b{grid-column:8/span 5}
+.sal-c{grid-column:1/span 4;aspect-ratio:4/4.6}
+.sal figcaption{position:absolute;left:14px;bottom:12px;font-size:.82rem;color:var(--cream);padding:5px 12px;border-radius:999px;background:rgba(19,36,25,.62)}
+.sal-tx{grid-column:6/span 6;align-self:center;display:flex;flex-direction:column;gap:18px}
+.sal-tx p{color:var(--ink-2);max-width:34em}
+.sal-date{margin-top:8px;padding-top:18px;border-top:1px solid rgba(31,58,43,.16)}
+.sal-date dt{font-size:.84rem;color:var(--ink-3)}
+.sal-date dd{margin-top:4px;font-weight:500;font-size:1.05rem;line-height:1.4}
+.sal-link{align-self:flex-start;display:inline-flex;align-items:center;gap:9px;font-weight:500;text-decoration:underline;text-underline-offset:5px;text-decoration-thickness:1px}
+.sal-link svg{width:13px;height:13px}
+@media (min-width:641px) and (max-width:1040px){
+  .about .ph-main{aspect-ratio:4/4.4}
+  .salons-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .salons-head .lede{text-align:left}
+  .sal-a{grid-column:1/-1}
+  .sal-b{grid-column:1/span 6;aspect-ratio:4/4.8}
+  .sal-c{grid-column:7/span 6;aspect-ratio:4/4.8}
+  .sal-tx{grid-column:1/-1;margin-top:10px}
+}
+@media (max-width:640px){
+  .about .ph-main,.about .txt{margin-top:32px}
+  .salons{padding-block:76px}
+  .salons-head{flex-direction:column;align-items:flex-start;gap:14px}
+  .salons-head .lede{text-align:left}
+  .salons-grid{gap:12px}
+  .sal-a{grid-column:1/-1}
+  .sal-b,.sal-c{grid-column:span 6;aspect-ratio:4/5.4}
+  .sal-tx{grid-column:1/-1;margin-top:14px}
+  .sal figcaption{left:8px;right:8px;bottom:8px;font-size:.7rem;padding:4px 10px;border-radius:10px;text-align:center}
+}
+
+/* ---------- 19/11/2026 : Le geste, cadre au format portrait 3:4 (les photos se voient en entier) ---------- */
+.g-frame{grid-column:1/span 7;justify-self:start;width:auto;max-width:100%;height:calc(100svh - var(--nav-h) - 6vh);max-height:820px;aspect-ratio:3/4}
+.g-img>img{transform:none;will-change:auto}
+@media (min-width:641px) and (max-width:1040px){
+  .g-frame{grid-column:1/span 6;justify-self:stretch;width:100%;height:auto;max-height:none}
+}
+/* Grand écran : la photo et le texte forment une paire serrée (plus de vide entre les deux),
+   quelle que soit la hauteur de la fenêtre. */
+@media (min-width:1041px){
+  .geste-grid{display:flex;align-items:flex-start;gap:clamp(48px,7vw,120px)}
+  .g-frame{flex:0 0 auto}
+  .g-steps{flex:1 1 0;min-width:0;max-width:34em}
+}
+/* Étape 3 : les flacons tiennent dans le cadre portrait, au-dessus de la légende */
+.g-frame{background:var(--sand-2)}
+.g-img.prods{padding-bottom:19%;gap:1%}
+.g-img.prods .b{height:54%}
+.g-img.prods .b:nth-child(2){height:61%}
+@media (max-width:640px){
+  .g-frame{grid-column:1/-1;justify-self:center;align-self:center;width:auto;height:50svh;max-height:none;
+    /* le cadre est plus étroit que la page : un fond crème pleine largeur masque le texte qui défile derrière */
+    box-shadow:0 0 0 100vmax var(--cream);clip-path:inset(-12px -100vmax 0 -100vmax)}
+}
+
+/* ---------- 19/11/2026 : collage natif (sticky) à la place de l'épinglage par script ----------
+   L'épinglage par script faisait basculer la section entre deux modes de positionnement à l'entrée
+   et à la sortie : le navigateur devait tout redessiner d'un coup, d'où des bandes vides et des
+   morceaux décalés pendant un défilement rapide. */
+@media (min-width:641px){
+  .show{overflow:clip;height:calc(100svh + var(--run,0svh))}
+  .show-pin{position:sticky;top:0}
+}
+.sig-run{height:calc(100svh + 160vh)}
+.sig-run .sig{position:sticky;top:0}
+@media (max-width:640px){.sig-run{height:calc(100svh + 100vh)}}
+html.rm .sig-run{height:auto}
+html.rm .sig-run .sig{position:relative}
+
+/* ---------- 19/11/2026 : forme colorée derrière les flacons (remplace l'arche) ----------
+   .show-panel ne fait plus que positionner ; la couleur vit dans .show-shape, derrière la rangée.
+   Les flacons peuvent dépasser de la forme. Forme : un disque (choisi par Eliott le 19/11/2026). */
+.show-panel,.show.flip .show-panel{inset:0;border-radius:0;overflow:visible;background:none}
+.show-shape{position:absolute;overflow:hidden;background:var(--bg,#93949c);color:var(--fg,#0B140E)}
+.show-shape .show-glow,.show.flip .show-shape .show-glow{position:absolute;inset:0;background:radial-gradient(60% 55% at 50% 60%,var(--glow,transparent) 0%,transparent 78%);opacity:.75}
+.show-shape .show-ghost,.show.flip .show-shape .show-ghost{top:12%;font-size:clamp(5rem,13vw,11rem);color:color-mix(in srgb,currentColor 16%,transparent)}
+.show-panel .show-count{bottom:5.5%}
+
+/* Disque : le flacon du centre dépasse en haut, ses voisins débordent sur les côtés */
+.show[data-forme="disque"] .show-shape{left:50%;bottom:0;height:84%;aspect-ratio:1;max-width:100%;translate:-50% 0;border-radius:50%}
+.show[data-forme="disque"] .show-b{bottom:12%;height:86%}
+.show[data-forme="disque"] .show-shape .show-ghost{top:16%}
+
+@media (max-width:640px){
+  .show-panel .show-track{padding-bottom:12%}
+  .show[data-forme] .show-b{height:84%;bottom:auto}
+  .show[data-forme="disque"] .show-shape{height:80%;bottom:2%}
+  .show-shape .show-ghost,.show.flip .show-shape .show-ghost{font-size:7rem}
+}
+
+/* Disque, finitions : un anneau fin autour (rappel du cercle du logo), pas de grand chiffre derrière */
+/* Le disque reste un cercle à toutes les tailles : son diamètre est borné à la fois par la hauteur
+   et par la largeur du cadre (unités de conteneur), jamais écrasé en ovale. */
+.show[data-forme="disque"] .show-panel{container-type:size}
+.show[data-forme="disque"] .show-shape{--ring:clamp(8px,1.1vw,16px);outline:1px solid color-mix(in srgb,var(--bg,#93949c) 55%,transparent);outline-offset:var(--ring);bottom:var(--ring);max-width:none;height:min(84cqh,100cqw - 2*var(--ring))}
+@media (max-width:640px){.show[data-forme="disque"] .show-shape{height:min(80cqh,100cqw - 2*var(--ring))}}
+/* Lien de la vitrine : quand il passe sur deux lignes, la flèche reste collée au dernier mot */
+.show-link{display:inline-block}
+.show-link svg{display:inline-block;vertical-align:-1px;margin-left:5px}
+.show-link-end{white-space:nowrap}
+.show[data-forme="disque"] .show-shape .show-ghost{display:none}
+
+/* =====================================================================
+   HAUT DE PAGE RECOMPOSÉ — 19/11/2026
+   La photo du bourgeon est en portrait : étirée sur tout l'écran, elle était floue et le bourgeon
+   tombait sous le titre. Elle garde maintenant son format, placée par rapport au BOURGEON
+   (--bx, --by : où il se pose à l'écran ; --pw : largeur de la photo). Le texte vit à gauche sur le
+   vert profond, la photo se fond dedans. Le bourgeon est à 46 % / 34 % de la photo.
+   ===================================================================== */
+.hero2{--bx:69%;--by:41%;--pw:max(62vw,86svh);--pl:calc(var(--bx) - var(--pw)*.46);--pt:calc(var(--by) - var(--pw)*.5095);--D:#132419;--D0:rgba(19,36,25,0)}
+.h2-fig{position:absolute;left:var(--pl);top:var(--pt);width:var(--pw);aspect-ratio:1468/2200;will-change:opacity}
+.h2-photo .kb{transform-origin:46% 34%}
+.h2-photo img{position:absolute;inset:0;object-position:50% 50%;transform-origin:46% 34%}
+/* Deux arcs de cercle encadrent le bourgeon (ouverts en haut pour la branche, en bas pour la tige) :
+   le même trait que l'anneau des vitrines et que le cercle du logo */
+.h2-ring{position:absolute;left:28%;top:21.99%;width:36%;aspect-ratio:1;overflow:visible;fill:none;stroke:rgba(245,238,225,.85);stroke-width:1}
+.h2-ring path{vector-effect:non-scaling-stroke}
+.h2-ring{filter:drop-shadow(0 0 1.5px rgba(11,20,14,.55))}
+.h2-veil{background:
+  linear-gradient(0deg,rgba(11,20,14,.82),rgba(11,20,14,0) 36%),
+  linear-gradient(90deg,var(--D) 0,var(--D) calc(var(--pl) + var(--pw)*.05),rgba(19,36,25,.6) calc(var(--pl) + var(--pw)*.22),var(--D0) calc(var(--pl) + var(--pw)*.44)),
+  linear-gradient(180deg,var(--D) 0,var(--D) calc(var(--pt) + 2%),var(--D0) calc(var(--pt) + 26%))}
+.h2-in{max-width:none}
+.hero2 .row>*{white-space:nowrap}
+.hero2 .lede{max-width:24em}
+/* Les trois phrases : un bandeau réglé sur trois colonnes, sous un filet */
+.h2-facts{display:grid;grid-template-columns:repeat(3,1fr);gap:4px var(--g);bottom:26px;padding-top:16px;border-top:1px solid rgba(245,238,225,.24);font-size:.9rem;line-height:1.5}
+@media (min-width:641px) and (max-width:1040px){
+  .hero2{--bx:76%;--by:60%;--pw:max(62vw,min(126svh,105vw))}
+  .h2-in{max-width:none}
+  .hero2 .lede{max-width:19em}
+  .h2-facts{font-size:.84rem;line-height:1.45}
+  .h2-facts em{display:block}
+  .h2-facts li{text-wrap:balance}
+}
+/* Tablette tenue debout : même composition que le téléphone (texte en haut, bourgeon dessous) */
+@media (min-width:641px) and (max-width:1040px) and (orientation:portrait){
+  .hero2{--bx:56%;--by:calc(50% + 170px);--pw:125vw;align-items:flex-start}
+  .h2-in{align-self:flex-start;padding:calc(var(--nav-h) + 6vh) var(--m) 0}
+  .hero2 .lede{max-width:24em}
+  .h2-veil{background:
+    linear-gradient(0deg,rgba(11,20,14,.86),rgba(11,20,14,0) 34%),
+    linear-gradient(180deg,var(--D) 0,var(--D) calc(var(--pt) + 3%),var(--D0) calc(var(--pt) + 22%))}
+}
+@media (max-width:640px){
+  .hero2{--bx:54%;--by:calc(50% + 140px);--pw:150vw}
+  .h2-veil{background:
+    linear-gradient(0deg,rgba(11,20,14,.86),rgba(11,20,14,0) 34%),
+    linear-gradient(180deg,var(--D) 0,var(--D) calc(var(--pt) + 3%),var(--D0) calc(var(--pt) + 22%))}
+  .h2-in{max-width:none}
+  .h2-facts{grid-template-columns:1fr;gap:2px;justify-items:start;bottom:22px;padding-top:12px;font-size:.84rem}
+}
+
+/* Le texte du haut de page ne défile plus : il reste en place (position fixe, géré par le navigateur,
+   donc sans à-coup) et la section suivante le recouvre comme un rideau, pendant qu'il s'efface.
+   Il ne passe donc plus jamais sous le menu. clip-path limite ce texte fixe à la zone du haut de page.
+   Réservé aux fenêtres assez hautes pour contenir tout le texte. */
+@media (min-height:540px){
+  .hero2{clip-path:inset(0)}
+  .h2-in{position:fixed;left:0;right:0;bottom:0}
+  .h2-facts{position:fixed}
+}
+@media (min-height:540px) and (max-width:1040px) and (orientation:portrait){.h2-in{top:0;bottom:auto}}
+@media (min-height:540px) and (max-width:640px){.h2-in{top:0;bottom:auto}.h2-facts{position:absolute}}
+
+/* ---------- 19/11/2026 : liens vers les fiches produit ---------- */
+.show-actions{display:flex;flex-wrap:wrap;align-items:center;gap:14px 24px;margin-top:22px}
+.show-actions .show-link{margin-top:0}
+.show-fiche[hidden]{display:none}
+.show.flip .show-fiche{background:var(--cream);color:var(--forest)}
+@media (hover:hover) and (pointer:fine){.show.flip .show-fiche:hover{background:var(--sand)}}
+/* Panier dans le menu (présent seulement sur le site WordPress) */
+.nav-end{display:flex;align-items:center;gap:8px}
+.links a,.nav .pill{white-space:nowrap}
+@media (min-width:641px) and (max-width:820px){.nav-end{gap:2px}.nav .links{gap:13px;font-size:.8rem}}
+.nav-cart{position:relative;display:inline-grid;place-items:center;width:44px;height:44px;border-radius:50%}
+.nav-cart svg{width:20px;height:20px}
+.nav-cart b{position:absolute;right:2px;top:2px;min-width:17px;height:17px;padding:0 4px;border-radius:9px;background:var(--orange);color:var(--cream);font-size:.66rem;font-weight:600;line-height:17px;text-align:center}
+.nav-cart b[hidden]{display:none}
+
+</style>
+</head>
+<body>
+<a class="sr" href="#main">Aller au contenu</a>
+
+<header class="nav" id="nav">
+  <a class="logo" href="#top" aria-label="Complément Terre, haut de page">
+    <img class="ls" src="fichiers/assets/1ad14e5426ef4ee1.svg" alt="Complément Terre">
+    <img class="lc" src="fichiers/assets/9e44caa8a83c67c7.svg" alt="" aria-hidden="true">
+  </a>
+  <nav class="links" aria-label="Sections">
+    <a href="#geste">Le geste</a><a href="#gamme">Macérats</a><a href="#complexes">Complexes</a><a href="#gemmo">Émotions</a>
+    <span class="bar" aria-hidden="true"></span>
+  </nav>
+  <a class="pill" href="#apercu-indisponible">La boutique <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+  <button class="menu-btn" id="menuBtn" aria-expanded="false" aria-controls="sheet">Menu <i aria-hidden="true"></i></button>
+</header>
+
+<div class="sheet" id="sheet" role="dialog" aria-modal="true" aria-label="Menu">
+  <button class="close" id="menuClose">Fermer</button>
+  <nav aria-label="Sections"><a class="big" href="#geste">Le geste</a><a class="big" href="#gamme">Macérats</a><a class="big" href="#complexes">Complexes</a><a class="big" href="#gemmo">Émotions</a></nav>
+  <div class="foot"><a class="pill" href="#apercu-indisponible">La boutique</a><span class="meta" style="color:var(--cr-3)">Mulhouse, Alsace</span></div>
+</div>
+
+<main id="main">
+<!-- 1 · HERO — 3 chapitres -->
+<section class="hero2" id="top" data-theme="dark" aria-label="Du bourgeon au flacon">
+  <div class="h2-photo" aria-hidden="true"><div class="h2-fig"><div class="kb"><img src="fichiers/assets/3cd49662fa2a12d1.webp" alt="" fetchpriority="high" decoding="async"></div><svg class="h2-ring" viewBox="0 0 100 100"><path d="M73.24 6.3A49.5 49.5 0 0 1 85 85"/><path d="M15 85A49.5 49.5 0 0 1 19.52 10.99"/></svg></div></div>
+  <div class="h2-veil" aria-hidden="true"></div>
+  <div class="h2-in">
+    <h1 class="d1"><span class="row"><span>Du bourgeon</span></span><span class="row"><em>au flacon.</em></span></h1>
+    <p class="lede">Gemmothérapie bio et artisanale, à Mulhouse, en Alsace.</p>
+    <div class="h2-actions"><a class="pill" href="#collections">Découvrir les trois gammes <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg></a><a class="hero-story" href="#geste">Du rameau au flacon</a></div>
+  </div>
+  <ul class="h2-facts"><li>Fabriqué à la main, <em>en Alsace.</em></li><li>Macéré, dynamisé, certifié bio.</li><li>Quelques gouttes, <em>un rituel.</em></li></ul>
+</section>
+
+<section class="gammes wrap" id="collections" data-theme="light" aria-labelledby="collections-title">
+  <div class="gammes-head"><div class="gammes-title"><p class="meta">L’artisanat du bourgeon</p><h2 id="collections-title">Trois façons de découvrir<br>Complément Terre.</h2></div><p class="lede">Un bourgeon, une association, une gamme dédiée aux émotions. Explorez nos préparations.</p></div>
+  <div class="gammes-grid">
+    <a class="gtile t-cream" href="#gamme"><span class="gt-ph"><img src="fichiers/assets/r/bourgeon-chataignier.jpg" alt="" style="object-position:50% 40%" loading="lazy" decoding="async"></span><span class="gt-tx"><span class="meta">Les unitaires</span><h3>Un bourgeon.<br>Un macérat.</h3><p>Parcourez les 38 macérats par nom de plante.</p><span class="gt-link">Explorer les macérats <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span></span></a>
+    <a class="gtile t-moss" href="#complexes"><span class="gt-ph"><img src="fichiers/assets/r/bourgeons-eglantier.jpg" alt="" style="object-position:50% 50%" loading="lazy" decoding="async"></span><span class="gt-tx"><span class="meta">Les complexes</span><h3>Des bourgeons<br>associés.</h3><p>19 associations, classées par univers.</p><span class="gt-link">Découvrir les complexes <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span></span></a>
+    <a class="gtile t-forest" href="#gemmo"><span class="gt-ph"><img src="fichiers/assets/r/printemps.jpg" alt="" style="object-position:40% 60%" loading="lazy" decoding="async"></span><span class="gt-tx"><span class="meta">Gemmo Émotions</span><h3>Une gamme.<br>Sept synergies.</h3><p>Les sept références numérotées.</p><span class="gt-link">Explorer Gemmo Émotions <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span></span></a>
+  </div>
+</section>
+
+<!-- 2 · MANIFESTE -->
+<section class="mani wrap" id="manifeste" data-theme="light">
+  <div class="grid">
+    <blockquote class="quote" id="quote">Le bourgeon, toute la force du printemps <em>à venir.</em></blockquote>
+    <div class="body">
+      <p>Avant la feuille, avant la fleur, il y a le bourgeon. Nous le cueillons frais, au moment où l'arbre s'éveille, puis nous le laissons macérer lentement pour en recueillir toute la richesse.</p>
+      <p>Chaque macérat est confectionné à la main, à Mulhouse, avec soin. Une gemmothérapie artisanale et certifiée bio, pensée pour accompagner le quotidien, saison après saison.</p>
+      <p>Gemmothérapie vient du latin « gemmae », le bourgeon. Cette branche de la phytothérapie travaille les tissus embryonnaires des plantes : bourgeons et jeunes pousses.</p>
+      <p>Chaque bourgeon concentre toute la puissance de la plante dont il est issu. Nous le cueillons frais, au moment où l'arbre s'éveille.</p>
+    </div>
+    <div class="sign">Muriel &amp; Simon, Complément Terre</div>
+    <div class="mani-media">
+      <figure class="mani-ph"><img src="fichiers/assets/r/bourgeon-vigne.jpg" alt="Bourgeon de vigne qui s'ouvre au printemps" loading="lazy" decoding="async"></figure>
+      <figure class="mani-ph2"><img src="fichiers/assets/r/cueillette.jpg" alt="Une main cueille un rameau de genévrier" loading="lazy" decoding="async"></figure>
+      <p class="mani-cap">Bourgeon de vigne, cueillette du genévrier</p>
+    </div>
+  </div>
+</section>
+
+<!-- 3 · BANDEAU -->
+<section class="mq" aria-label="Les bourgeons de la gamme"><div class="mq-row a" id="mqA"></div><div class="mq-row b" id="mqB"></div></section>
+
+<!-- 4 · LE GESTE -->
+<section class="geste wrap" id="geste" data-theme="light">
+  <div class="geste-head">
+    <h2 class="d2">Le geste.</h2>
+    <p class="lede">Trois temps, du rameau au flacon. Rien n'est pressé, tout est fait à la main.</p>
+  </div>
+  <div class="grid geste-grid">
+    <div class="g-frame" id="gFrame">
+      <div class="g-img"><img src="fichiers/assets/r/cueillette-simon.jpg" alt="Simon cueille de jeunes pousses de genévrier à la main, en pleine nature" style="object-position:50% 30%" loading="lazy" decoding="async"></div>
+      <div class="g-img"><img src="fichiers/assets/r/maceration.jpg" alt="Deux grands bocaux de bourgeons frais en macération, à l'atelier" loading="lazy" decoding="async"></div>
+      <div class="g-img prods">
+        <div class="b"><img src="fichiers/assets/a8968441232ba22c.webp" alt="Flacon de macérat de cassis" loading="lazy" decoding="async"><span class="shadow-floor"></span></div>
+        <div class="b"><img src="fichiers/assets/ac2d45eab3ecc469.webp" alt="Flacon de macérat de tilleul" loading="lazy" decoding="async"><span class="shadow-floor"></span></div>
+        <div class="b"><img src="fichiers/assets/4dcef748ca5d97e1.webp" alt="Flacon de macérat d'aubépine" loading="lazy" decoding="async"><span class="shadow-floor"></span></div>
+      </div>
+      <div class="g-cap"><b id="gCapN">01</b><span id="gCap">Le bourgeon frais</span></div>
+    </div>
+    <div class="g-steps">
+      <div class="g-step"><span class="n num">01</span><h3 class="d3">Cueillette.</h3><p>Le bourgeon frais, sélectionné et cueilli à la main, au moment exact où il s'éveille.</p><p class="g-more">Des bourgeons frais, cueillis en pleine nature ou issus de cultures certifiées bio.</p></div>
+      <div class="g-step"><span class="n num">02</span><h3 class="d3">Macération.</h3><p>Macéré, concentré, dynamisé. Le temps fait son œuvre, lentement, sans rien brusquer.</p><p class="g-more">Mis en macération juste après la récolte, pour préserver leur vitalité.</p></div>
+      <div class="g-step"><span class="n num">03</span><h3 class="d3">Flacon.</h3><p>Confectionné à la main, certifié bio, mis en flacon ambré. Prêt à vous accompagner.</p><p class="g-more">Chaque flacon, avec passion et soin.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- 4b · LA VITALITÉ -->
+<section class="vit" id="vitalite" data-theme="dark" aria-label="La vitalité des bourgeons">
+  <div class="vit-ph" aria-hidden="true"><img src="fichiers/assets/r/arbres-soleil.jpg" alt="" loading="lazy" decoding="async"></div>
+  <div class="vit-in">
+    <blockquote class="d2">Les bourgeons et les jeunes pousses débordent <em>d'une vitalité pétillante.</em></blockquote>
+    <p class="lede">La gemmothérapie, c'est cette foi inébranlable dans le pouvoir de la nature. Une cure s'inscrit dans une démarche progressive : trois semaines, une pause, puis l'on recommence si besoin.</p>
+    <dl class="vit-facts">
+      <div><dt>100 % naturelle</dt><dd>Des bourgeons frais, issus de cueillettes ou de cultures bio.</dd></div>
+      <div><dt>Macération immédiate</dt><dd>Juste après la récolte, pour préserver leur vitalité.</dd></div>
+      <div><dt>Fabriqués à la main</dt><dd>Chaque flacon, avec passion et soin.</dd></div>
+    </dl>
+  </div>
+</section>
+
+<!-- 5 · MURIEL & SIMON -->
+<section class="about wrap dark" id="about" data-theme="dark">
+  <div class="grid">
+    <h2 class="d2">Une aventure de couple, <em>au service du vivant.</em></h2>
+    <figure class="ph-main" id="aboutMain"><img src="fichiers/assets/1eadd542194d0813.webp" alt="Muriel et Simon, fondateurs de Complément Terre, dans un verger au soleil couchant" style="object-position:50% 40%" loading="lazy" decoding="async"></figure>
+    <div class="txt">
+      <p>Complément Terre, c'est avant tout l'histoire d'un couple uni par une même passion&nbsp;: la nature, le vivant, et la recherche d'un mieux-être au quotidien. Deux personnalités complémentaires, qui associent leurs sensibilités pour proposer des approches naturelles.</p>
+      <p>Une entreprise artisanale, à taille humaine, où la relation et l'écoute occupent une place essentielle&nbsp;: des macérats confectionnés à la main, à partir de bourgeons sélectionnés.</p>
+      <p>Notre envie : accompagner chaque personne sur le chemin de la vitalité, avec bienveillance, humour et simplicité.</p>
+      <span class="names">Muriel &amp; Simon</span>
+    </div>
+  </div>
+</section>
+
+<!-- 5b · LES SALONS -->
+<section class="salons wrap" id="salons" data-theme="light" aria-labelledby="salons-title">
+  <div class="salons-head">
+    <h2 class="d2" id="salons-title">Sur les salons, <em>à votre rencontre.</em></h2>
+    <p class="lede">Muriel et Simon exposent sur de nombreux salons bio et bien-être, en Alsace et aux alentours.</p>
+  </div>
+  <div class="salons-grid">
+    <figure class="sal sal-a"><img src="fichiers/assets/r/salon-stand.jpg" alt="Muriel sur le stand Complément Terre, entre deux présentoirs de macérats de bourgeons" loading="lazy" decoding="async"></figure>
+    <figure class="sal sal-b"><img src="fichiers/assets/r/salon-simon.jpg" alt="Simon, sur le stand, tend un dépliant de la gamme" style="object-position:50% 30%" loading="lazy" decoding="async"></figure>
+    <figure class="sal sal-c"><img src="fichiers/assets/r/salon-couple.jpg" alt="Muriel et Simon sur leur stand, à côté d'un bonsaï" style="object-position:50% 20%" loading="lazy" decoding="async"><figcaption>Sur les marchés d'Alsace</figcaption></figure>
+    <div class="sal-tx">
+      <p>Les salons et événements sont toujours des moments privilégiés pour échanger autrement qu'à travers un écran ou un catalogue.</p>
+      <p>Nous sommes impatients de vous accueillir sur notre stand, de vous faire découvrir l'univers de Complément Terre et de partager avec vous notre passion pour les bourgeons et la gemmothérapie.</p>
+      <dl class="sal-date"><dt>Parmi nos rendez-vous</dt><dd>Fête Éco Bio de Chavannes-sur-l'Étang (Haut-Rhin), 13 et 14 juin 2026</dd></dl>
+      <a class="sal-link" href="#apercu-indisponible">Demander les prochaines dates <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a>
+    </div>
+  </div>
+</section>
+
+<!-- 6 · UNITAIRES — 38 macérats -->
+<section class="gamme" id="gamme" data-theme="light">
+  <div class="gamme-head wrap">
+    <h2 class="d2">Le bourgeon, <em>à l'état brut.</em></h2>
+    <div class="side">
+      <p class="lede">Trente-huit macérats de bourgeons frais, concentrés et dynamisés, certifiés bio. Un arbre, un bourgeon, un flacon.</p>
+      <div class="rail-ctl">
+        <span class="range num" id="range" aria-live="polite"><b>N°01–04</b> sur 38</span>
+        <button class="arw" id="prev" aria-label="Flacons précédents"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M12.5 4.5L7 10l5.5 5.5"/></svg></button>
+        <button class="arw" id="next" aria-label="Flacons suivants"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M7.5 4.5L13 10l-5.5 5.5"/></svg></button>
+      </div>
+    </div>
+  </div>
+  <div class="catalogue-tools wrap"><label for="budSearch">Retrouver un bourgeon</label><input id="budSearch" type="search" placeholder="Cassis, tilleul, noisetier…" autocomplete="off" aria-controls="rail"><p id="searchStatus" role="status" aria-live="polite">38 macérats à explorer</p></div>
+  <div class="rail" id="rail" tabindex="0" aria-label="Les 38 macérats de bourgeons, faire défiler horizontalement"></div>
+  <div class="rail-bar" aria-hidden="true"><i id="railBar"></i></div>
+</section>
+
+<!-- 7 · COMPLEXES — 19, par univers d'étiquette -->
+<section class="show" id="complexes" data-theme="light" aria-label="Les dix-neuf complexes"></section>
+
+<!-- 8 · GEMMO ÉMOTIONS -->
+<section class="show flip" id="gemmo" data-theme="dark" aria-label="Gemmo Émotions"></section>
+
+<!-- 9 · SIGNATURE -->
+<div class="sig-run" data-theme="light">
+<section class="sig" id="sig" aria-label="Une seule terre">
+  <div class="sig-photo" id="sigPhoto"><img src="fichiers/assets/p/pommier.jpg" alt="Bourgeon de pommier sur son rameau" loading="lazy" decoding="async"></div>
+  <svg class="sig-mask" id="sigMask" aria-hidden="true">
+    <defs><mask id="m71"><rect width="100%" height="100%" fill="#fff"/><text id="t71" fill="#000" font-family="Poppins" font-weight="800" text-anchor="middle" letter-spacing="-0.05em">3</text></mask></defs>
+    <rect width="100%" height="100%" fill="#F5EEE1" mask="url(#m71)"/>
+  </svg>
+  <div class="sig-cap" id="sigCap" aria-hidden="true"><span>Gammes artisanales</span><span>Mulhouse, Alsace</span></div>
+  <div class="sig-end on-dark" id="sigEnd">
+    <h2 class="d1"><span class="row">Trois gammes.</span><span class="row"><em>Une seule terre.</em></span></h2>
+    <p class="facts"><span><b class="num">38</b> macérats de bourgeons</span><span><b class="num">19</b> complexes</span><span><b class="num">7</b> Gemmo Émotions</span></p>
+  </div>
+</section>
+</div>
+</main>
+
+<!-- 10 · FINALE -->
+<footer class="fin wrap dark" id="fin" data-theme="dark">
+  <div class="grid fin-top">
+    <div class="tx">
+      <h2 class="d1">Entrez dans <em>la gamme.</em></h2>
+      <p class="lede">Les trente-huit macérats, les dix-neuf complexes et la série Gemmo Émotions vous attendent sur le site de Complément Terre.</p>
+      <a class="cta" href="#apercu-indisponible"><span class="c"><svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M5 15L15 5M6.5 5H15v8.5"/></svg></span><u>Découvrir la gamme sur complement-terre.com</u></a>
+    </div>
+    <figure class="fin-ph" id="duo"><img src="fichiers/assets/r/muriel-stand.jpg" alt="Muriel sur le stand Complément Terre, devant les flacons de macérats" style="object-position:50% 30%" loading="lazy" decoding="async"></figure>
+  </div>
+  <div class="caution" role="note">
+    <span class="ic"><svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" aria-hidden="true"><path d="M8 7.3v4.4"/><circle cx="8" cy="4.5" r="1.05" fill="currentColor" stroke="none"/></svg></span>
+    <div>
+      <p>Compléments alimentaires à base de plantes. Femmes enceintes ou allaitantes, jeunes enfants, personnes allergiques ou sous traitement&nbsp;: demandez l'avis d'un professionnel de santé.</p>
+      <small>Ne se substituent pas à une alimentation variée et équilibrée ni à un mode de vie sain. Ne pas dépasser la dose journalière recommandée. Tenir hors de portée des jeunes enfants.</small>
+    </div>
+  </div>
+  <div class="end">
+    <img src="fichiers/assets/1ad14e5426ef4ee1.svg" alt="Complément Terre" loading="lazy" decoding="async">
+    <div class="c1"><h4>Complément Terre</h4><p>Gemmothérapie bio et artisanale.<br>Mulhouse, Alsace.</p></div>
+    <div class="c2"><h4>Échangeons</h4><p>81 rue de Mulhouse, 68350 Didenheim<br><a href="#apercu-indisponible">Nous contacter <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a><br><a href="#apercu-indisponible">Accès professionnel <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></a></p></div>
+  </div>
+  <div class="legal"><span>© Complément Terre</span><a href="#apercu-indisponible">Mentions légales</a><button id="motionToggle" type="button" aria-pressed="false">Réduire les animations</button><a href="#apercu-indisponible">www.complement-terre.com</a></div>
+</footer>
+
+<!-- GSAP 3.15.1 -- https://gsap.com -- Copyright 2026 GreenSock -->
+<script>window.CT_ACCUEIL = {"urls": {"site": "index.html", "buds": "#apercu-indisponible", "cx": "#apercu-indisponible", "gem": "#apercu-indisponible"}, "buds": {"airelle": "fichiers/fiches/airelle-le-bourgeon-anti-vieillissement-de-la-femme-30ml-bio.html", "argousier": "fichiers/fiches/argousier-le-bourgeon-fortifiant-30ml-bio-2.html", "aubepine": "fichiers/fiches/aubepine-le-bourgeon-du-coeur-30ml-bio-2.html", "aulne-glutineux": "fichiers/fiches/aulne-glutineux-le-bourgeon-polyvalent-des-inflammations-et-des-infections-30ml-bio-2.html", "bouleau-pubescent": "fichiers/fiches/bouleau-pubescent-le-bourgeon-de-la-detox-30ml-bio-2.html", "cassis": "fichiers/fiches/cassis-lincontournable-de-la-gemmotherapie-30ml-bio-3.html", "cedre-du-liban": "fichiers/fiches/cedre-du-liban-la-plante-des-peaux-seches-30ml-bio-2.html", "charme": "fichiers/fiches/charme-le-bourgeon-qui-regule-les-plaquettes-sanguines-30ml-bio-2.html", "chataignier": "fichiers/fiches/chataignier-le-bourgeon-de-la-circulation-lymphatique-30ml-bio.html", "chene": "fichiers/fiches/chene-le-bourgeon-tonique-du-stimulus-hormonal-30ml-bio.html", "cornouiller-sanguin": "fichiers/fiches/cornouiller-le-bourgeon-qui-fluidifie-le-sang-30ml-bio.html", "eglantier": "fichiers/fiches/eglantier-la-plante-de-limmunite-pour-les-enfants-30ml-bio-2.html", "erable": "fichiers/fiches/erable-champetre-le-bourgeon-de-la-vesicule-biliaire-30ml-bio-2.html", "figuier": "fichiers/fiches/figuier-le-regulateur-du-systeme-nerveux-et-de-la-digestion-30ml-bio-2.html", "framboisier": "fichiers/fiches/framboisier-le-regulateur-du-cycle-feminin-30ml-bio-6.html", "frene": "fichiers/fiches/frene-le-bourgeon-qui-draine-leau-30ml-bio-2.html", "genevrier": "fichiers/fiches/genevrier-le-grand-draineur-hepato-renal-30ml-bio-2.html", "ginko": "fichiers/fiches/ginkgo-la-plante-de-la-microcirculation-et-de-la-memoire-30ml-bio.html", "hetre": "fichiers/fiches/hetre-le-bourgeon-de-la-renaissance-30ml-bio-2.html", "marronnier": "fichiers/fiches/marronnier-le-bourgeon-de-la-circulation-veineuse-30ml-bio-2.html", "myrtiller": "fichiers/fiches/myrtillier-le-bourgeon-de-la-vue-et-du-diabete-30ml-bio.html", "noisetier": "fichiers/fiches/noisetier-le-regenerant-des-poumons-30ml-bio-2.html", "noyer": "fichiers/fiches/noyer-le-regulateur-des-intestins-30ml-bio-2.html", "olivier": "fichiers/fiches/olivier-le-bourgeon-des-troubles-cardio-vasculaires-30ml-bio.html", "orme": "fichiers/fiches/orme-le-grand-draineur-de-la-peau-30ml-bio-2.html", "peuplier": "fichiers/fiches/peuplier-le-bourgeon-riche-en-propolis-30ml-bio-2.html", "pin-sylvestre": "fichiers/fiches/pin-sylvestre-le-bourgeon-des-os-et-des-cartilages-30ml-bio-2.html", "pommier": "fichiers/fiches/pommier-un-bourgeon-qui-stimule-la-progesterone-30ml-bio-2.html", "romarin": "fichiers/fiches/romarin-lami-du-foie-30ml-bio-2.html", "ronce": "fichiers/fiches/ronce-la-plante-des-insuffisances-respiratoires-et-des-articulations-30ml-bio.html", "sapin-pectine": "fichiers/fiches/sapin-le-bourgeon-qui-soutient-la-croissance-des-enfants-30ml-bio-2.html", "saule": "fichiers/fiches/saule-un-bourgeon-apaisant-30ml-bio-2.html", "sequoia": "fichiers/fiches/sequoia-la-plante-tonique-contre-le-vieillissement-30ml-bio.html", "sureau": "fichiers/fiches/sureau-le-bourgeon-du-transit-intestinal-30ml-bio-2.html", "tilleul": "fichiers/fiches/tilleul-le-bourgeon-qui-reequilibre-le-systeme-nerveux-30ml-bio-3.html", "vigne-vierge": "fichiers/fiches/vigne-vierge-lamie-des-petites-articulations-30ml-bio-5.html", "vigne": "fichiers/fiches/vigne-le-bourgeon-des-inflammations-chroniques-30ml-bio.html", "viorne": "fichiers/fiches/viorne-le-bourgeon-des-allergies-respiratoires-30ml-bio.html"}, "cx": {"anti-stress": "fichiers/fiches/complexe-anti-stress-30-ml-bio.html", "sommeil": "fichiers/fiches/complexe-sommeil-30ml-bio.html", "concentration-memoire": "fichiers/fiches/complexe-concentration-memoire-30-ml-bio.html", "voies-respiratoires": "fichiers/fiches/complexe-voies-respiratoires-30ml-bio.html", "detox": "fichiers/fiches/complexe-detox-30ml-bio.html", "anti-cholesterol": "fichiers/fiches/complexe-anti-cholesterol-30-ml-bio-2.html", "anti-cellulite": "fichiers/fiches/complexe-anti-cellulite-30ml-bio-2.html", "osteo-articulaire": "fichiers/fiches/complexe-osteo-articulaire-30ml-bio.html", "estomac": "fichiers/fiches/complexe-estomac-30ml-bio-2.html", "foie-et-pancreas": "fichiers/fiches/complexe-foie-et-pancreas-30ml-bio.html", "intestins": "fichiers/fiches/complexe-intestins-30ml-bio.html", "defense-immunite": "fichiers/fiches/complexe-defenses-immunite-30-ml-bio.html", "vitalite": "fichiers/fiches/complexe-vitalite-30ml-bio.html", "vision": "fichiers/fiches/complexe-vision-30ml-bio.html", "circulation-veineuse": "fichiers/fiches/complexe-de-la-circulation-veineuse-30-ml-bio.html", "arteres-et-coeur": "fichiers/fiches/complexe-artere-et-coeur-30-ml-bio.html", "confort-masculin": "fichiers/fiches/complexe-confort-masculin-30-ml-bio-2.html", "confort-feminin": "fichiers/fiches/complexe-confort-feminin-30-ml-bio.html", "peau": "fichiers/fiches/complexe-peau-30ml-bio.html"}, "gem": {"7": "fichiers/fiches/gemmo-emotions-n-7-surmenage-et-ruminations-30ml-bio.html", "1": "fichiers/fiches/gemmo-emotions-n1-peurs-et-angoisses30ml-bio.html", "2": "fichiers/fiches/gemmo-emotions-n2-hypersensibilite-et-tensions-30ml-bio.html", "3": "fichiers/fiches/gemmo-emotions-n3-doutes-et-indecision-30ml-bio.html", "4": "fichiers/fiches/gemmo-emotions-n4-tristesse-et-chagrin-30ml-bio.html", "5": "fichiers/fiches/gemmo-emotions-n5-transition-et-changement-30ml-bio.html", "6": "fichiers/fiches/gemmo-emotions-n6-manque-de-motivation-30ml-bio.html"}};</script>
+<script src="fichiers/vendor/gsap.min.js"></script>
+<!-- ScrollTrigger 3.15.1 -- https://gsap.com -- Copyright 2026 GreenSock -->
+<script src="fichiers/vendor/scrolltrigger.min.js"></script>
+<script>
+(() => {
+"use strict";
+/* Intégration WordPress : le thème fournit window.CT_ACCUEIL = { urls, buds, cx, gem, img }
+   (adresse de chaque fiche produit, images du thème). Sans lui (maquette seule), les liens
+   pointent vers le site en ligne, dans un nouvel onglet. */
+const A = window.CT_ACCUEIL || {};
+const AU = A.urls || {};
+const SITE = AU.site || "https://www.complement-terre.com";
+const BUD_URL = AU.buds || SITE + "/categorie-produit/gemmotherapie-concentree-dynamisee/bourgeon-unitaire/";
+const CX_URL = AU.cx || SITE + "/categorie-produit/gemmotherapie-concentree-dynamisee/les-complexes-de-bourgeons/";
+const GEM_URL = AU.gem || SITE + "/categorie-produit/gemmo-emotions/";
+const EXT = A.urls ? "" : ' target="_blank" rel="noopener"';
+const ficheOf = (map, k) => (map && map[k]) || "";
+const __IMG={"cut/complexe-anti-cellulite.webp": "fichiers/assets/fb19008cae1118e9.webp", "cut/complexe-anti-cholesterol.webp": "fichiers/assets/5c96cc502be02fa6.webp", "cut/complexe-anti-stress.webp": "fichiers/assets/2ca967103fd7a3d0.webp", "cut/complexe-arteres-et-coeur.webp": "fichiers/assets/6f0f6eb8f40a75ae.webp", "cut/complexe-circulation-veineuse.webp": "fichiers/assets/eb100c91a85a1373.webp", "cut/complexe-concentration-memoire.webp": "fichiers/assets/5e2b7c1c55f7b8ba.webp", "cut/complexe-confort-feminin.webp": "fichiers/assets/f5c5d25d89cf58c0.webp", "cut/complexe-confort-masculin.webp": "fichiers/assets/126958e111f1c3ab.webp", "cut/complexe-defense-immunite.webp": "fichiers/assets/67d003c7e412085f.webp", "cut/complexe-detox.webp": "fichiers/assets/59a6bbe091e20c88.webp", "cut/complexe-estomac.webp": "fichiers/assets/4807903f1235e4bf.webp", "cut/complexe-foie-et-pancreas.webp": "fichiers/assets/94736de57db63029.webp", "cut/complexe-intestins.webp": "fichiers/assets/f30cf8c56d61cfaa.webp", "cut/complexe-osteo-articulaire.webp": "fichiers/assets/9794b7f431bbf636.webp", "cut/complexe-peau.webp": "fichiers/assets/8f908e92cc7cd31f.webp", "cut/complexe-sommeil.webp": "fichiers/assets/eec2a762a578e2ac.webp", "cut/complexe-vision.webp": "fichiers/assets/c872f0fbc42a8c67.webp", "cut/complexe-vitalite.webp": "fichiers/assets/4e55c4ff6a2dd260.webp", "cut/complexe-voies-respiratoires.webp": "fichiers/assets/a591d7302354b4b8.webp", "cut/flacon-airelle.webp": "fichiers/assets/d96e2a74daf71ad4.webp", "cut/flacon-argousier.webp": "fichiers/assets/729d09679e3d6f15.webp", "cut/flacon-aubepine.webp": "fichiers/assets/4dcef748ca5d97e1.webp", "cut/flacon-aulne-glutineux.webp": "fichiers/assets/8d57abb3489a4526.webp", "cut/flacon-bouleau-pubescent.webp": "fichiers/assets/e73c804b1ea4bf61.webp", "cut/flacon-cassis.webp": "fichiers/assets/a8968441232ba22c.webp", "cut/flacon-cedre-du-liban.webp": "fichiers/assets/7449b3ff9ee3acb8.webp", "cut/flacon-charme.webp": "fichiers/assets/841c394ce67646f3.webp", "cut/flacon-chataignier.webp": "fichiers/assets/25227ba1d37b173a.webp", "cut/flacon-chene.webp": "fichiers/assets/29b6fe042c6a2ff9.webp", "cut/flacon-cornouiller-sanguin.webp": "fichiers/assets/30ed807bd2eb60e5.webp", "cut/flacon-eglantier.webp": "fichiers/assets/ab7ea78abe88031c.webp", "cut/flacon-erable.webp": "fichiers/assets/b9311920f8e37842.webp", "cut/flacon-figuier.webp": "fichiers/assets/5502b99a030e94e9.webp", "cut/flacon-framboisier.webp": "fichiers/assets/8e280c6792e8866e.webp", "cut/flacon-frene.webp": "fichiers/assets/6bf46a9f428de454.webp", "cut/flacon-genevrier.webp": "fichiers/assets/932e78758c82681c.webp", "cut/flacon-ginko.webp": "fichiers/assets/afb2f6dc01e5c81d.webp", "cut/flacon-hetre.webp": "fichiers/assets/233a28a499550c51.webp", "cut/flacon-marronnier.webp": "fichiers/assets/ccd2ded54b52d3c1.webp", "cut/flacon-myrtiller.webp": "fichiers/assets/8574d978f3cbffe8.webp", "cut/flacon-noisetier.webp": "fichiers/assets/906c5b29a7560db6.webp", "cut/flacon-noyer.webp": "fichiers/assets/7ef9d82578580b1f.webp", "cut/flacon-olivier.webp": "fichiers/assets/9fab512d318bd992.webp", "cut/flacon-orme.webp": "fichiers/assets/a82bed99d644aff7.webp", "cut/flacon-peuplier.webp": "fichiers/assets/4425f22546da7666.webp", "cut/flacon-pin-sylvestre.webp": "fichiers/assets/5e2b5c51776ddfeb.webp", "cut/flacon-pommier.webp": "fichiers/assets/aa5a7c5a39a4a251.webp", "cut/flacon-romarin.webp": "fichiers/assets/5571ad94ad56571b.webp", "cut/flacon-ronce.webp": "fichiers/assets/fb2fc4e05267a74a.webp", "cut/flacon-sapin-pectine.webp": "fichiers/assets/baf859d5b93b79b6.webp", "cut/flacon-saule.webp": "fichiers/assets/180c91a4a0f5bc04.webp", "cut/flacon-sequoia.webp": "fichiers/assets/e9c166df534dabbf.webp", "cut/flacon-sureau.webp": "fichiers/assets/4095f824a5837f95.webp", "cut/flacon-tilleul.webp": "fichiers/assets/ac2d45eab3ecc469.webp", "cut/flacon-vigne-vierge.webp": "fichiers/assets/7d8b39d9f192c811.webp", "cut/flacon-vigne.webp": "fichiers/assets/ace0ec48247fd5d7.webp", "cut/flacon-viorne.webp": "fichiers/assets/6b26ffdd851f28b3.webp", "cut/gemmo-emotions-01.webp": "fichiers/assets/1d984236a55d2e07.webp", "cut/gemmo-emotions-02.webp": "fichiers/assets/2a957d2fdda27fcc.webp", "cut/gemmo-emotions-03.webp": "fichiers/assets/72c0f96e2104c59f.webp", "cut/gemmo-emotions-04.webp": "fichiers/assets/2fa57f081be73f17.webp", "cut/gemmo-emotions-05.webp": "fichiers/assets/a73ce708d97e8e7b.webp", "cut/gemmo-emotions-06.webp": "fichiers/assets/0f8f1aa891fbbb31.webp", "cut/gemmo-emotions-07.webp": "fichiers/assets/5a5c9aed31d1d1ec.webp"};
+const IMG = p => { const f = __IMG[p] || ("fichiers/assets/img/" + p); return A.img ? (A.img[f.replace(/^assets\//, "")] || f) : f; };
+const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
+const pad = n => String(n).padStart(2, "0");
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const isMobile = () => innerWidth <= 640;
+
+/* Mouvement : respecte prefers-reduced-motion par défaut. ?motion=reduced|full et le bouton du
+   pied de page permettent une préférence explicite, mémorisée (localStorage), qui prime sur le système. */
+const motionMQ = matchMedia("(prefers-reduced-motion: reduce)");
+const motionParam = new URLSearchParams(location.search).get("motion");
+const motionStore = (() => { try { return localStorage.getItem("ct-motion"); } catch (e) { return null; } })();
+const explicitMotion = motionParam === "reduced" || motionParam === "full" ? motionParam : motionStore;
+// Choix du propriétaire du site (18/11/2026) : les animations jouent par défaut, même si le
+// système demande de les réduire. Seul un choix explicite (bouton du pied de page ou
+// ?motion=reduced) les coupe.
+const RM = explicitMotion === "reduced";
+document.documentElement.classList.toggle("rm", RM);
+const motionBtn = $("#motionToggle");
+motionBtn.textContent = RM ? "Activer les animations" : "Réduire les animations";
+motionBtn.setAttribute("aria-pressed", String(RM));
+motionBtn.addEventListener("click", () => {
+  const next = !document.documentElement.classList.contains("rm") ? "reduced" : "full";
+  try { localStorage.setItem("ct-motion", next); } catch (e) {}
+  const url = new URL(location.href);
+  url.searchParams.set("motion", next);
+  location.href = url.toString();
+});
+// Si l'utilisateur n'a jamais choisi explicitement, on suit un changement de préférence système en direct.
+
+/* ---------- Données vérifiées sur les étiquettes ---------- */
+const BUDS = [
+  ["airelle","Airelle","Vaccinium vitis-idaea"],["argousier","Argousier","Hippophae rhamnoides"],["aubepine","Aubépine","Crataegus oxyacantha"],
+  ["aulne-glutineux","Aulne glutineux","Alnus glutinosa"],["bouleau-pubescent","Bouleau pubescent","Betula pubescens"],["cassis","Cassis","Ribes nigrum"],
+  ["cedre-du-liban","Cèdre du Liban","Cedrus libani"],["charme","Charme","Carpinus betulus"],["chataignier","Châtaignier","Castanea vesca"],
+  ["chene","Chêne","Quercus pedonculata"],["cornouiller-sanguin","Cornouiller sanguin","Cornus sanguinea"],["eglantier","Églantier","Rosa canina"],
+  ["erable","Érable","Acer campestris"],["figuier","Figuier","Ficus carica"],["framboisier","Framboisier","Rubus idaeus"],
+  ["frene","Frêne","Fraxinus excelsior"],["genevrier","Genévrier","Juniperus communis"],["ginko","Ginkgo","Ginkgo biloba"],
+  ["hetre","Hêtre","Fagus sylvatica"],["marronnier","Marronnier","Aesculus hippocastanum"],["myrtiller","Myrtillier","Vaccinium myrtillus"],
+  ["noisetier","Noisetier","Corylus avellana"],["noyer","Noyer","Juglans regia"],["olivier","Olivier","Olea europaea"],
+  ["orme","Orme","Ulmus campestris"],["peuplier","Peuplier","Populus nigra"],["pin-sylvestre","Pin sylvestre","Pinus sylvestris"],
+  ["pommier","Pommier","Malus communis"],["romarin","Romarin","Rosmarinus officinalis"],["ronce","Ronce","Rubus fruticosus"],
+  ["sapin-pectine","Sapin pectiné","Abies pectinata"],["saule","Saule","Salix alba"],["sequoia","Séquoia","Sequoia gigantea"],
+  ["sureau","Sureau","Sambucus nigra"],["tilleul","Tilleul","Tilia tomentosa"],["vigne-vierge","Vigne vierge","Ampelopsis weitchii"],
+  ["vigne","Vigne","Vitis vinifera"],["viorne","Viorne","Viburnum lantana"]
+];
+/* Univers = mention « Système … » imprimée sur chaque étiquette. Compositions : uniquement celles déjà documentées. */
+const UNIV = [
+  { c: "c-forest", sys: "Système nerveux", items: [["anti-stress","Anti-stress","Aubépine, cassis, figuier et tilleul, pour accompagner les tensions du quotidien."],["sommeil","Sommeil","Figuier, pommier, saule, tilleul et jeunes pousses d'olivier."],["concentration-memoire","Concentration & mémoire",""]] },
+  { c: "c-orange", sys: "Système cardio-vasculaire", items: [["arteres-et-coeur","Artères & cœur","Aubépine et alliés, pour soutenir l'équilibre cardiovasculaire."],["circulation-veineuse","Circulation veineuse",""],["vision","Vision","Myrtillier et compagnons, pour accompagner le confort visuel."]] },
+  { c: "c-cream", sys: "Métabolisme, drainage et détox", items: [["detox","Détox","Une association de bourgeons pour soutenir les voies d'élimination."],["anti-cholesterol","Anti-cholestérol",""],["anti-cellulite","Anti-cellulite",""]] },
+  { c: "c-bark", sys: "Système digestif", items: [["estomac","Estomac",""],["foie-et-pancreas","Foie & pancréas",""],["intestins","Intestins",""]] },
+  { c: "c-moss", sys: "Système immunitaire", items: [["defense-immunite","Défense & immunité","Aulne glutineux, cassis, noyer, peuplier et églantier."],["vitalite","Vitalité","Cassis, chêne, jeunes pousses de romarin et séquoia."]] },
+  { c: "c-terre", sys: "Système endocrinien et uro-génital", items: [["confort-feminin","Confort féminin",""],["confort-masculin","Confort masculin",""]] },
+  { c: "c-deep", sys: "Respiratoire · ostéo-articulaire · cutané", items: [["voies-respiratoires","Voies respiratoires","Une formule pensée pour accompagner le confort respiratoire."],["osteo-articulaire","Ostéo-articulaire",""],["peau","Peau",""]] }
+];
+/* Gemmo Émotions : nom et trois mots tels qu'imprimés sur chaque étiquette */
+const GEM = [
+  ["Peurs & Angoisses","Apaisement · Sérénité · Calme intérieur"],
+  ["Hyper sensibilité & tensions","Sérénité · Lâcher prise · Harmonie"],
+  ["Doutes & Indécision","Confiance · Clarté · Détermination"],
+  ["Tristesse & chagrin","Réconfort · Douceur · Soutien émotionnel"],
+  ["Transitions & changements","Courage · Adaptation · Stabilité"],
+  ["Manque de motivation","Élan · Dynamisme · Joie"],
+  ["Surmenage & ruminations","Clarté mentale · Apaisement · Concentration"]
+];
+UNIV.forEach(u => u.items.forEach(item => { item[2] = ""; })); // Pas de compositions non revérifiées.
+const esc = s => s.replace(/&/g, "&amp;");
+
+/* ---------- Construction ---------- */
+$("#rail").innerHTML = BUDS.map(([k, n, l], i) => `<a class="card" href="${ficheOf(A.buds, k) || BUD_URL}"${EXT} draggable="false" aria-label="N°${pad(i + 1)}, macérat de bourgeons ${n}, ${l}">
+  <span class="im"><span class="no num">N°${pad(i + 1)}</span><span class="go">${ficheOf(A.buds, k) ? "Voir la fiche" : "Voir la gamme"} <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></span>
+  <span class="bt"><img src="${IMG("cut/flacon-" + k + ".webp")}" alt="" draggable="false" loading="lazy" decoding="async"><span class="shadow-floor"></span></span></span>
+  <span class="meta-row"><span><span class="lat">${l}</span><h3>${n}</h3></span><span class="inf">Macérat<br>de bourgeons</span></span></a>`).join("")
+  + `<a class="card more" href="${BUD_URL}"${EXT} draggable="false"><span class="im"><strong class="num">38</strong><span>bourgeons, un flacon chacun.<br><em>La gamme complète sur complement-terre.com <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg></em></span></span></a>`;
+
+$("#mqA").innerHTML = BUDS.slice(0, 19).map(b => `<span>${b[1]}</span>`).join("").repeat(2);
+$("#mqB").innerHTML = BUDS.slice(19).map(b => `<span>${b[2]}</span>`).join("").repeat(2);
+
+/* ---------- Vitrines (reprise du 18/11/2026) ----------
+   Complexes : nom, système et composition tels qu'au catalogue ; `c` = couleur
+   dominante RELEVÉE sur l'étiquette du flacon détouré. */
+const CX = [{"k": "anti-stress", "n": "Anti-stress", "d": "Aubépine, cassis, figuier et tilleul", "c": "#a8a6b1", "sys": "Système nerveux"}, {"k": "sommeil", "n": "Sommeil", "d": "Figuier, pommier, saule, tilleul et olivier", "c": "#8f8d95", "sys": "Système nerveux"}, {"k": "concentration-memoire", "n": "Concentration & Mémoire", "d": "Aulne glutineux, ginkgo, olivier et romarin", "c": "#908e9a", "sys": "Système nerveux"}, {"k": "arteres-et-coeur", "n": "Artères & Cœur", "d": "Aubépine, cornouiller sanguin, ginkgo, peuplier et olivier", "c": "#dc2a3d", "sys": "Système cardio-vasculaire"}, {"k": "circulation-veineuse", "n": "Circulation veineuse", "d": "Aulne glutineux, châtaignier, marronnier et airelle", "c": "#e5755c", "sys": "Système cardio-vasculaire"}, {"k": "vision", "n": "Vision", "d": "Argousier, aulne glutineux, bouleau pubescent, cassis et myrtillier", "c": "#eeab8e", "sys": "Système cardio-vasculaire"}, {"k": "detox", "n": "Détox", "d": "Bouleau pubescent, tilleul, genévrier et romarin", "c": "#3bb174", "sys": "Métabolisme, drainage et détox"}, {"k": "anti-cholesterol", "n": "Anti-cholestérol", "d": "Bouleau pubescent, érable, olivier et romarin", "c": "#2b9f57", "sys": "Métabolisme, drainage et détox"}, {"k": "anti-cellulite", "n": "Anti-cellulite", "d": "Bouleau pubescent, châtaignier, frêne et noisetier", "c": "#90c799", "sys": "Métabolisme, drainage et détox"}, {"k": "estomac", "n": "Estomac", "d": "Aulne glutineux, figuier, tilleul et cèdre du liban", "c": "#f8df4f", "sys": "Système digestif"}, {"k": "foie-et-pancreas", "n": "Foie & Pancréas", "d": "Érable, tilleul, genévrier et romarin", "c": "#f7d715", "sys": "Système digestif"}, {"k": "intestins", "n": "Intestins", "d": "Figuier, noyer, sureau et romarin", "c": "#faea9b", "sys": "Système digestif"}, {"k": "defense-immunite", "n": "Défenses & Immunité", "d": "Aulne glutineux, cassis, noyer, peuplier et églantier", "c": "#d2ae69", "sys": "Système immunitaire"}, {"k": "vitalite", "n": "Vitalité", "d": "Cassis, chêne, romarin et séquoia", "c": "#dcbe8b", "sys": "Système immunitaire"}, {"k": "confort-feminin", "n": "Confort féminin", "d": "Cassis, framboisier, pommier et airelle", "c": "#de3491", "sys": "Système endocrinien et uro-génital"}, {"k": "confort-masculin", "n": "Confort masculin", "d": "Bouleau pubescent, cassis, airelle, romarin et séquoia", "c": "#ea97ba", "sys": "Système endocrinien et uro-génital"}, {"k": "voies-respiratoires", "n": "Voies respiratoires", "d": "Aulne glutineux, cassis, charme, noisetier, viorne et ronce", "c": "#1aa2dc", "sys": "Respiratoire · ostéo-articulaire · cutané"}, {"k": "osteo-articulaire", "n": "Ostéo-articulaire", "d": "Cassis, pin sylvestre, vigne, ronce et vigne vierge", "c": "#aaa12b", "sys": "Respiratoire · ostéo-articulaire · cutané"}, {"k": "peau", "n": "Peau", "d": "Cassis, noyer, orme et cèdre du liban", "c": "#9d308b", "sys": "Respiratoire · ostéo-articulaire · cutané"}];
+/* Gemmo Émotions : les sept étiquettes partagent le même vert sauge (relevé :
+   #78965e). Sept nuances de ce vert, du plus profond au plus clair. */
+const GEM_C = "#78965e";
+
+/* ---------- Menu mobile ---------- */
+const sheet = $("#sheet"), mBtn = $("#menuBtn");
+const openMenu = o => {
+ sheet.classList.toggle("open", o); mBtn.setAttribute("aria-expanded", o);
+ [$("#nav"), $("main"), $("footer")].forEach(el => el.inert = o);
+ document.body.style.overflow = o ? "hidden" : "";
+ if (typeof lenis !== "undefined" && lenis) o ? lenis.stop() : lenis.start();
+ (o ? $("#menuClose") : mBtn).focus();
+};
+sheet.addEventListener("keydown", e => {
+ if (e.key !== "Tab") return;
+ const f = [...sheet.querySelectorAll("a,button")], first=f[0], last=f[f.length-1];
+ if(e.shiftKey && document.activeElement===first){e.preventDefault();last.focus();}
+ else if(!e.shiftKey && document.activeElement===last){e.preventDefault();first.focus();}
+});
+mBtn.addEventListener("click", () => openMenu(true));
+$("#menuClose").addEventListener("click", () => openMenu(false));
+addEventListener("keydown", e => { if (e.key === "Escape" && sheet.classList.contains("open")) openMenu(false); });
+
+/* ---------- Rail des unitaires : défilement natif, glisser, flèches, plage visible ---------- */
+const rail = $("#rail"), cards = $$(".card", rail), railBar = $("#railBar"), prev = $("#prev"), next = $("#next"), range = $("#range");
+const step = () => { const c = (cards.find(c => !c.hidden) || cards[0]).getBoundingClientRect().width + parseFloat(getComputedStyle(rail).columnGap || 16); return Math.max(1, Math.floor((rail.clientWidth - 40) / c)) * c; };
+prev.addEventListener("click", () => rail.scrollBy({ left: -step(), behavior: RM ? "auto" : "smooth" }));
+next.addEventListener("click", () => rail.scrollBy({ left: step(), behavior: RM ? "auto" : "smooth" }));
+function railUpdate() {
+  const max = rail.scrollWidth - rail.clientWidth, p = max > 0 ? rail.scrollLeft / max : 0;
+  const vis = rail.clientWidth / rail.scrollWidth;
+  railBar.style.transform = `translateX(${p * (1 - vis) * 100}%) scaleX(${vis})`;
+  const r = rail.getBoundingClientRect(); let a = 0, b = 0;
+  cards.forEach((c, i) => { if (i >= BUDS.length || c.hidden) return; const cr = c.getBoundingClientRect();
+    if (cr.left >= r.left - 2 && cr.right <= r.right + 2) { if (!a) a = i + 1; b = i + 1; } });
+  if (!a) { a = b = 1; }
+  range.innerHTML = `<b>N°${pad(a)}${b > a ? "–" + pad(b) : ""}</b> sur 38`;
+  prev.disabled = max <= 0 || rail.scrollLeft < 4; next.disabled = max <= 0 || rail.scrollLeft >= max - 4;
+  if (!RM) cards.forEach(c => { const cr = c.getBoundingClientRect(); if (cr.right < r.left - 100 || cr.left > r.right + 100) return;
+    const d = ((cr.left + cr.width / 2) - (r.left + r.width / 2)) / r.width; const bt = c.querySelector(".bt");
+    if (bt) bt.style.transform = `translateX(calc(-50% + ${(-d * 14).toFixed(1)}px))`; });
+}
+let rq = 0; rail.addEventListener("scroll", () => { if (!rq) rq = requestAnimationFrame(() => { rq = 0; railUpdate(); }); }, { passive: true });
+addEventListener("resize", railUpdate); railUpdate();
+const normalize = s => s.normalize("NFD").replace(/[\u0300-\u036f]/g, "").toLowerCase();
+$("#budSearch").addEventListener("input", e => {
+ const term = normalize(e.target.value.trim()); let count = 0;
+ cards.forEach((card, i) => { const match = i < BUDS.length && normalize(BUDS[i].slice(1).join(" ")).includes(term); card.hidden = i === BUDS.length ? !!term : !match; if (match) count++; });
+ rail.scrollLeft = 0; railUpdate();
+ $("#searchStatus").textContent = count ? `${count} macérat${count > 1 ? "s" : ""} à explorer` : "Aucun résultat. Essayez un autre nom de plante.";
+ range.hidden = !!term;
+});
+// glisser à la souris (le tactile reste natif)
+let dragX = null, dragS = 0, moved = 0;
+rail.addEventListener("pointerdown", e => { if (e.pointerType !== "mouse" || e.button !== 0) return; dragX = e.clientX; dragS = rail.scrollLeft; moved = 0; });
+addEventListener("pointermove", e => { if (dragX === null) return; const dx = e.clientX - dragX; moved = Math.max(moved, Math.abs(dx)); if (moved > 5) rail.classList.add("drag"); rail.scrollLeft = dragS - dx; });
+addEventListener("pointerup", () => { if (dragX === null) return; dragX = null; requestAnimationFrame(() => rail.classList.remove("drag")); });
+rail.addEventListener("click", e => { if (moved > 5) { e.preventDefault(); moved = 0; } }, true);
+rail.addEventListener("keydown", e => { if (e.key === "ArrowRight") { e.preventDefault(); next.click(); } if (e.key === "ArrowLeft") { e.preventDefault(); prev.click(); } });
+
+/* ---------- Défilement ---------- */
+gsap.registerPlugin(ScrollTrigger);
+ScrollTrigger.config({ ignoreMobileResize: true });
+let lenis = null;
+gsap.ticker.lagSmoothing(0);
+// Défilement natif du navigateur : aucune couche de lissage (elle ajoutait du retard et des à-coups).
+const scrollToEl = el => lenis ? lenis.scrollTo(el, { duration: 1.4, easing: t => 1 - Math.pow(1 - t, 4) }) : el.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
+$$('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
+  const t = $(a.getAttribute("href")); if (!t) return; e.preventDefault();
+  if (sheet.classList.contains("open")) { openMenu(false); t.setAttribute("tabindex", "-1"); t.focus({preventScroll:true}); }
+  scrollToEl(t);
+}));
+
+function navTriggers() {
+  const nav = $("#nav");
+  $$("[data-theme]").forEach(sec => ScrollTrigger.create({ trigger: sec, start: "top 40", end: "bottom 40",
+    onToggle: s => { if (s.isActive) nav.classList.toggle("light", sec.dataset.theme === "light"); } }));
+  ScrollTrigger.create({ trigger: "#collections", start: "top 72", end: "max", onToggle: s => nav.classList.toggle("solid", s.isActive) });
+  const links = $$(".links a"), bar = $(".links .bar");
+  const setActive = id => { let on = null;
+    links.forEach(a => { const m = a.getAttribute("href") === "#" + id; a.setAttribute("aria-current", m); if (m) on = a; });
+    bar.style.transform = on ? `translateX(${on.offsetLeft}px) scaleX(${on.offsetWidth / 100})` : bar.style.transform.replace(/scaleX\([^)]*\)/, "scaleX(0)"); };
+  // Rubrique active = section qui occupe le milieu de l'écran (mesuré, donc juste même avec des
+  // sections épinglées et après un saut direct dans la page).
+  const zones = ["geste", "gamme", "complexes", "gemmo"].map(id => { const e = $("#" + id); return { id, box: () => e.closest(".pin-spacer") || e }; });
+  let curId;
+  const pick = () => { const mid = innerHeight / 2; let found = null;
+    for (const z of zones) { const r = z.box().getBoundingClientRect(); if (r.top <= mid && r.bottom > mid) { found = z.id; break; } }
+    if (found !== curId) { curId = found; setActive(found); } };
+  addEventListener("scroll", pick, { passive: true });
+  ScrollTrigger.addEventListener("refresh", pick);
+  pick();
+}
+
+/* ---------- Bandeau ---------- */
+if (!RM) {
+  const rows = [{ el: $("#mqA"), d: -1, x: 0 }, { el: $("#mqB"), d: 1, x: 0 }]; let boost = 0;
+  const measure = () => rows.forEach(r => { r.half = r.el.scrollWidth / 2; });
+  measure(); addEventListener("resize", measure);
+  rows[1].x = -rows[1].half;
+  let mqOn = false;
+  new IntersectionObserver(([e]) => { mqOn = e.isIntersecting; }, { rootMargin: "200px 0px" }).observe($(".mq"));
+  gsap.ticker.add((t, dt) => {
+    if (!mqOn) return;
+    const v = lenis ? Math.abs(lenis.velocity) : 0; boost += (Math.min(v, 60) * .1 - boost) * .08;
+    rows.forEach(r => { const half = r.half; r.x += r.d * (.045 * dt + boost);
+      if (r.x <= -half) r.x += half; if (r.x > 0) r.x -= half; r.el.style.transform = `translate3d(${r.x}px,0,0)`; });
+  });
+}
+
+/* =====================================================================
+   HAUT DE PAGE + VITRINES — communs au mouvement complet et au mode doux.
+   `soft` = préférence « réduire les animations » : on garde les fondus et
+   les changements de couleur, on retire les déplacements.
+   ===================================================================== */
+const CREAM = "#F5EEE1", NIGHT = "#0B140E";
+const hx = h => [1, 3, 5].map(i => parseInt(h.slice(i, i + 2), 16));
+const mix = (a, b, t) => { const A = hx(a), B = hx(b); return "#" + A.map((v, i) => Math.round(v + (B[i] - v) * t).toString(16).padStart(2, "0")).join(""); };
+const lum = h => { const [r, g, b] = hx(h).map(v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }); return .2126 * r + .7152 * g + .0722 * b; };
+const ratio = (a, b) => { const [x, y] = [lum(a), lum(b)].sort((p, q) => q - p); return (x + .05) / (y + .05); };
+/* Thème d'un flacon : fond = couleur d'étiquette légèrement approfondie, texte = crème ou nuit selon le contraste. */
+const themeOf = (c, deepen = .14) => { const bg = mix(c, "#132419", deepen); return { bg, fg: ratio(bg, CREAM) >= ratio(bg, NIGHT) ? CREAM : NIGHT, glow: mix(c, "#ffffff", .4) }; };
+const ARW_L = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M16 10H4M9 5l-5 5 5 5"/></svg>';
+const ARW_R = '<svg viewBox="0 0 20 20" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4 10h12M11 5l5 5-5 5"/></svg>';
+const ARW_NE = '<svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M4.5 11.5l7-7M5.5 4.5h6v6"/></svg>';
+
+function initHero(soft) {
+  const h = $("#top");
+  if (!h || soft) return;
+  const E = "expo.out";
+  // La photo a sa propre entrée, lancée quand elle est réellement décodée (connexion lente : le texte
+  // n'attend pas, et la photo arrive en fondu au lieu de surgir d'un coup).
+  // Elle arrive en fondu en se resserrant sur le bourgeon (le zoom part du bourgeon, il ne bouge pas), puis
+  // les deux arcs tournent pour se poser autour. Opacité seule sur le grand calque (jamais visibility).
+  const photoIn = gsap.timeline({ paused: true, defaults: { ease: E } })
+    .fromTo(".h2-fig", { opacity: 0 }, { opacity: 1, duration: 1.6, ease: "power2.out" }, 0)
+    .fromTo(".h2-photo .kb", { scale: 1.16 }, { scale: 1, duration: 2.6 }, 0)
+    .fromTo(".h2-ring", { opacity: 0, rotation: -38, scale: .88 }, { opacity: 1, rotation: 0, scale: 1, duration: 2.2, ease: "expo.out" }, .5);
+  const intro = gsap.timeline({ paused: true, defaults: { ease: E } })
+    .from(".hero2 .row > *", { yPercent: 112, duration: 1.2, stagger: .12 }, .35)
+    // Valeurs d'arrivée écrites en clair : avec un simple « from », le bouton restait bloqué 22 px trop bas.
+    .fromTo(".hero2 .lede, .h2-actions > *", { y: 22, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, stagger: .07, clearProps: "transform" }, .85)
+    .fromTo(".h2-facts", { autoAlpha: 0 }, { autoAlpha: 1, duration: .9, ease: "power2.out" }, 1.15)
+    .fromTo(".h2-facts li", { y: 14 }, { y: 0, duration: .9, stagger: .08, clearProps: "transform" }, 1.15)
+    .from("#nav", { autoAlpha: 0, duration: .9, ease: "power2.out" }, .9);
+  // Départ une fois la photo et le flacon décodés (sinon la première seconde saccade), 1,2 s au plus tard.
+  const ready = Promise.all($$(".h2-photo img").map(im => im.decode ? im.decode().catch(() => {}) : null));
+  // Page pré-chargée en arrière-plan par le navigateur (pré-rendu WordPress) : on attend qu'elle soit affichée.
+  const shown = fn => document.prerendering ? document.addEventListener("prerenderingchange", fn, { once: true }) : fn();
+  Promise.race([ready, new Promise(r => setTimeout(r, 1200))]).then(() => shown(() => intro.play()));
+  ready.then(() => shown(() => photoIn.play()));
+  // Le flacon respire doucement, la photo vit (Ken Burns), puis tout glisse au défilement.
+  const kb = gsap.to(".h2-photo img", { scale: 1.09, duration: 16, ease: "sine.inOut", repeat: -1, yoyo: true });
+  ScrollTrigger.create({ trigger: h, start: "top top", end: "bottom top", onLeave: () => kb.pause(), onEnterBack: () => kb.resume() });
+  const sc = { trigger: h, start: "top top", end: "bottom top", scrub: .6 };
+  // La photo monte moins vite que la page : le bourgeon reste à l'écran pendant que la section suivante arrive.
+  gsap.to(".h2-photo", { yPercent: 38, ease: "none", scrollTrigger: sc });
+  // Le texte et le bouton s'effacent en remontant : sans cela ils passaient sous le menu, encore transparent à cet endroit.
+  gsap.to(".h2-in, .h2-facts", { autoAlpha: 0, ease: "power1.in", scrollTrigger: { trigger: h, start: "top top", end: () => innerWidth <= 640 ? "38% top" : "50% top", scrub: true, invalidateOnRefresh: true } });
+}
+
+/* Une vitrine : `items` = [{ n, sys, d, g, img, alt, c, th }].
+   Tout dépend d'une seule valeur continue `a` (0 → N-1) : position des flacons, couleur du
+   fond, barre de progression. Sur ordinateur `a` suit le défilement (section épinglée) ;
+   sur téléphone il suit le glissement horizontal natif de la rangée. */
+function buildShow(sec, items, opt, soft) {
+  const N = items.length, nav = $("#nav");
+  sec.innerHTML = `<div class="show-pin">
+    <header class="show-head"><h2>${opt.title}</h2>${opt.lede ? `<p class="lede">${opt.lede}</p>` : ""}</header>
+    <div class="show-body">
+      <div class="show-tx" aria-live="polite"><p class="show-sys"></p>${opt.kind ? `<p class="show-kind">${opt.kind}</p>` : ""}<h3 class="show-name"></h3><p class="show-compo"></p><div class="show-actions"><a class="pill show-fiche" href="#" hidden>Voir la fiche ${ARW_NE}</a><a class="show-link" href="${opt.url}"${EXT}>${opt.cta.replace(/(\S+)$/, `<span class="show-link-end">$1&nbsp;${ARW_NE}</span>`)}</a></div></div>
+      <div class="show-stage"><div class="show-panel"><div class="show-shape" aria-hidden="true"><div class="show-glow"></div><span class="show-ghost num"></span></div><p class="show-count num" aria-hidden="true"><b>01</b> / ${pad(N)}</p>
+        <div class="show-track">${items.map(it => `<figure class="show-b"><div class="bb"><img src="${it.img}" alt="${esc(it.alt)}" decoding="async" draggable="false"><span class="shadow-floor"></span></div></figure>`).join("")}</div></div></div>
+      <ol class="show-index" aria-label="${opt.listLabel}">${items.map((it, i) => `<li><button type="button" style="--c:${it.c}" aria-current="${i === 0}">${esc(it.short || it.n)}</button></li>`).join("")}</ol>
+    </div>
+    <div class="show-foot"><button type="button" class="show-arw" data-d="-1" aria-label="Flacon précédent">${ARW_L}</button><button type="button" class="show-arw" data-d="1" aria-label="Flacon suivant">${ARW_R}</button><span class="show-bar" aria-hidden="true"><i></i></span><a class="show-skip" href="#${opt.next}">Passer la galerie</a></div></div>`;
+  const sysEl = $(".show-sys", sec), nameEl = $(".show-name", sec), compoEl = $(".show-compo", sec), ghost = $(".show-ghost", sec), count = $(".show-count b", sec), ficheEl = $(".show-fiche", sec);
+  const track = $(".show-track", sec), slots = $$(".show-b", sec), boxes = $$(".bb", sec), glow = $(".show-glow", sec), panel = $(".show-panel", sec), bar = $(".show-bar i", sec);
+  const btns = $$(".show-index button", sec), arws = $$(".show-arw", sec), index = $(".show-index", sec), txt = [sysEl, nameEl, compoEl];
+  const rgb = items.map(it => ({ bg: hx(it.th.bg), glow: hx(it.th.glow) }));
+  const CR = hx(CREAM), NI = hx(NIGHT);
+  const lumOf = c => { const [r, g, b] = c.map(v => { v /= 255; return v <= .03928 ? v / 12.92 : Math.pow((v + .055) / 1.055, 2.4); }); return .2126 * r + .7152 * g + .0722 * b; };
+  const LC = lumOf(CR), LN = lumOf(NI);
+  const css = c => `rgb(${c[0] | 0},${c[1] | 0},${c[2] | 0})`;
+  let k = -1, native = false, st = null, active = false, w = 0, tl = null, lastFg = "";
+  sec.dataset.forme = "disque";
+  const side = sec.classList.contains("flip") ? -1 : 1; // sens de la rangée : les flacons à venir arrivent du côté opposé au texte
+  const paintNav = () => { if (active) nav.classList.toggle("light", sec.dataset.theme === "light"); };
+  const measure = () => { w = (native ? slots[0] : slots[0]).offsetWidth || 1; };
+  // Texte, compteur et liste : changent quand le flacon le plus proche change.
+  function setK(nk, instant) {
+    if (nk === k) return;
+    const dir = nk > k ? 1 : -1, it = items[nk]; k = nk;
+    count.textContent = pad(nk + 1);
+    btns.forEach((b, i) => b.setAttribute("aria-current", String(i === nk)));
+    arws[0].disabled = nk === 0; arws[1].disabled = nk === N - 1;
+    if (index.scrollWidth > index.clientWidth + 4) { const b = btns[nk]; index.scrollTo({ left: b.offsetLeft - index.clientWidth / 2 + b.offsetWidth / 2, behavior: instant ? "auto" : "smooth" }); }
+    const write = () => { sysEl.textContent = it.sys; nameEl.textContent = it.n; compoEl.textContent = it.d; ghost.textContent = it.g; };
+    // Le bouton « Voir la fiche » suit le flacon affiché.
+    ficheEl.hidden = !it.url; if (it.url) { ficheEl.href = it.url; ficheEl.setAttribute("aria-label", "Voir la fiche : " + it.n); }
+    if (tl) tl.kill();
+    gsap.killTweensOf([ghost, ...txt]);
+    if (instant) { write(); gsap.set([...txt, ghost], { autoAlpha: 1, y: 0 }); return; }
+    const m = soft ? 0 : 1;
+    write();
+    tl = gsap.fromTo([...txt, ghost], { autoAlpha: .3, y: 10 * dir * m }, { autoAlpha: 1, y: 0, duration: .45, ease: "power3.out", stagger: .03 });
+  }
+  // Rendu continu pour une position `a`.
+  function render(a) {
+    a = clamp(a, 0, N - 1);
+    const i0 = Math.min(N - 1, Math.floor(a)), i1 = Math.min(N - 1, i0 + 1), f = a - i0, t = f * f * (3 - 2 * f);
+    const A = rgb[i0], B = rgb[i1];
+    const bg = [0, 1, 2].map(j => A.bg[j] + (B.bg[j] - A.bg[j]) * t), gl = [0, 1, 2].map(j => A.glow[j] + (B.glow[j] - A.glow[j]) * t);
+    const L = lumOf(bg), fg = (Math.max(L, LC) + .05) / (Math.min(L, LC) + .05) >= (Math.max(L, LN) + .05) / (Math.min(L, LN) + .05) ? CREAM : NIGHT;
+    panel.style.setProperty("--bg", css(bg)); panel.style.setProperty("--glow", css(gl)); sec.style.setProperty("--accent", css(bg));
+    if (fg !== lastFg) { lastFg = fg; panel.style.setProperty("--fg", fg); }
+    bar.style.transform = `scaleX(${N > 1 ? a / (N - 1) : 1})`;
+    for (let i = 0; i < N; i++) {
+      const d = i - a, ad = Math.abs(d), el = native ? boxes[i] : slots[i];
+      if (ad > 2.4) { if (!el._off) { el.style.visibility = "hidden"; el.style.transform = ""; el.style.willChange = ""; el._off = true; } continue; }
+      if (el._off !== false) { el.style.visibility = ""; el.style.willChange = "transform, opacity"; el._off = false; }
+      const q = Math.min(ad, 2.4);
+      if (native) { el.style.transform = `scale(${(1 - q * .2).toFixed(3)})`; el.style.opacity = (1 - q * .42).toFixed(3); }
+      else {
+        if (sec.dataset.forme === "disque") {
+          // Disque : un trio net. Les deux voisins sont pleins (pas de flacon fantôme), plus petits,
+          // et ceux d'après s'effacent avant de sortir de la forme.
+          el.style.transform = `translate3d(${(d * side * w * .86 * (1 - q * .06)).toFixed(1)}px,0,0) scale(${(1 - Math.min(q, 1) * .3 - Math.max(0, q - 1) * .2).toFixed(3)})`;
+          el.style.opacity = clamp(1 - (ad - 1.05) / .55, 0, 1).toFixed(3);
+        } else {
+        el.style.transform = `translate3d(${(d * side * w * .9 * (1 - q * .07)).toFixed(1)}px,0,0) scale(${(1 - q * .28).toFixed(3)})`;
+        // Les flacons déjà passés glissent vers le texte : ils s'effacent avant de le toucher.
+        el.style.opacity = (d < 0 ? Math.max(0, 1 - q * .8) : 1 - q * .38).toFixed(3);
+        }
+        el.style.zIndex = 100 - Math.round(ad * 10);
+      }
+    }
+    setK(Math.round(a));
+  }
+  const resetStyles = () => { slots.concat(boxes).forEach(el => { el.style.transform = ""; el.style.opacity = ""; el.style.zIndex = ""; el.style.visibility = ""; el.style.willChange = ""; el._off = undefined; }); };
+  let jump = () => {};
+  btns.forEach((b, i) => b.addEventListener("click", () => jump(i)));
+  // Un clic sur le flacon du centre ouvre sa fiche ; sur un voisin, il l'amène au centre.
+  slots.forEach((el, i) => { if (items[i].url) el.style.cursor = "pointer"; el.addEventListener("click", () => { if (i === k && items[i].url) location.href = items[i].url; else if (i !== k && !native) jump(i); }); });
+  arws.forEach(x => x.addEventListener("click", () => jump(k + Number(x.dataset.d))));
+  measure(); setK(0, true); render(0);
+
+  const mm = gsap.matchMedia();
+  // Ordinateur et écrans intermédiaires : section épinglée, `a` suit le défilement avec un temps de
+  // pose sur chaque flacon (le flacon reste centré, puis glisse vers le suivant).
+  // Ordinateur et écrans intermédiaires : la section est haute, son contenu reste COLLÉ en haut de
+  // l'écran (position:sticky, géré nativement par le navigateur, donc sans saut ni recalcul à l'entrée
+  // et à la sortie). `a` suit le défilement, avec un temps de pose sur chaque flacon.
+  mm.add("(min-width: 641px)", () => {
+    native = false; resetStyles(); measure();
+    sec.style.setProperty("--run", (opt.step * (N - 1) * 100) + "svh");
+    const pose = p => { const raw = p * (N - 1), i = Math.floor(raw), f = raw - i, g = clamp((f - .2) / .6, 0, 1); return i + g * g * (3 - 2 * g); };
+    let target = 0, cur = 0, running = false;
+    const tick = () => {
+      cur += (target - cur) * (soft ? 1 : .2);
+      if (Math.abs(target - cur) < .0004) { cur = target; running = false; gsap.ticker.remove(tick); }
+      render(pose(cur));
+    };
+    const read = () => {
+      const r = sec.getBoundingClientRect(), total = Math.max(1, r.height - innerHeight);
+      target = clamp(-r.top / total, 0, 1);
+      if (!running && target !== cur) { running = true; gsap.ticker.add(tick); }
+    };
+    const onResize = () => { measure(); read(); render(pose(cur)); };
+    addEventListener("scroll", read, { passive: true });
+    addEventListener("resize", onResize);
+    jump = i => { i = clamp(i, 0, N - 1); const r = sec.getBoundingClientRect(), total = Math.max(1, r.height - innerHeight);
+      scrollTo({ top: r.top + scrollY + total * (N > 1 ? i / (N - 1) : 0) + 1, behavior: soft ? "auto" : "smooth" }); };
+    read(); cur = target; render(pose(cur));
+    return () => { removeEventListener("scroll", read); removeEventListener("resize", onResize); gsap.ticker.remove(tick); running = false; sec.style.removeProperty("--run"); jump = () => {}; };
+  });
+  // Téléphone : la rangée défile nativement au doigt (aimantée sur chaque flacon), `a` suit.
+  mm.add("(max-width: 640px)", () => {
+    native = true; resetStyles(); measure();
+    let raf = 0;
+    const read = () => { raf = 0; measure(); render(track.scrollLeft / w); };
+    const onScroll = () => { if (!raf) raf = requestAnimationFrame(read); };
+    track.addEventListener("scroll", onScroll, { passive: true });
+    addEventListener("resize", onScroll);
+    jump = i => { i = clamp(i, 0, N - 1); measure(); track.scrollTo({ left: i * w, behavior: soft ? "auto" : "smooth" }); };
+    track.scrollLeft = 0; render(0);
+    return () => { track.removeEventListener("scroll", onScroll); removeEventListener("resize", onScroll); jump = () => {}; };
+  });
+}
+
+/* Ordre des complexes : par système, les systèmes étant rangés pour que les couleurs
+   d'étiquette s'enchaînent en dégradé (gris → bleu → verts → jaunes → ocres → rouges → roses → violet). */
+const CX_ORDER = ["anti-stress", "sommeil", "concentration-memoire", "voies-respiratoires", "detox", "anti-cholesterol", "anti-cellulite", "osteo-articulaire", "estomac", "foie-et-pancreas", "intestins", "defense-immunite", "vitalite", "vision", "circulation-veineuse", "arteres-et-coeur", "confort-masculin", "confort-feminin", "peau"];
+
+function initShow(soft) {
+  const cxSorted = CX_ORDER.map(key => CX.find(c => c.k === key)).filter(Boolean);
+  const cxItems = cxSorted.map((c, i) => ({ n: c.n, sys: c.sys, d: c.d, g: pad(i + 1), c: c.c, th: themeOf(c.c),
+    img: IMG("cut/complexe-" + c.k + ".webp"), alt: "Flacon du complexe " + c.n, url: ficheOf(A.cx, c.k) }));
+  buildShow($("#complexes"), cxItems, { title: "Nos complexes, <em>par univers.</em>", lede: "Dix-neuf complexes, regroupés comme sur leurs étiquettes, par système. Plusieurs bourgeons réunis dans un même flacon, pensés pour accompagner un équilibre précis.", kind: "Le complexe", url: CX_URL, cta: "Voir la gamme de complexes", next: "gemmo", listLabel: "Les dix-neuf complexes", step: .34 }, soft);
+  const gemItems = GEM.map(([n, w], i) => { const c = mix(GEM_C, "#F5EEE1", .12 + i * .085);
+    return { n, short: "N°" + (i + 1) + " · " + n, sys: "Gemmo Émotions", d: w, g: "N°" + (i + 1), c, th: themeOf(c, 0),
+      img: IMG("cut/gemmo-emotions-0" + (i + 1) + ".webp"), alt: "Flacon Gemmo Émotions N°" + (i + 1) + ", " + n, url: ficheOf(A.gem, String(i + 1)) }; });
+  buildShow($("#gemmo"), gemItems, { title: "La force des bourgeons, <em>l'équilibre des émotions.</em>", lede: "Gemmo Émotions&nbsp;: une série numérotée de sept synergies de bourgeons, pour accompagner les mouvements du quotidien, en douceur.", url: GEM_URL, cta: "Voir les sept fiches Gemmo Émotions", next: "sig", listLabel: "Les sept Gemmo Émotions", step: .5 }, soft);
+}
+
+/* ---------- Mode réduit explicite : états lisibles, sans mouvement ---------- */
+if (RM) {
+  const gImgs = $$(".g-img");
+  $$(".g-step").forEach((s, i) => ScrollTrigger.create({ trigger: s, start: () => isMobile() ? "top 86%" : "top 60%", end: () => isMobile() ? "bottom 86%" : "bottom 60%", invalidateOnRefresh: true, onToggle: t => t.isActive && gImgs.forEach((g, j) => g.style.clipPath = j <= i ? "inset(0 0 0 0)" : "inset(100% 0 0 0)") }));
+  initHero(true);
+  initShow(true);
+  navTriggers();
+  ScrollTrigger.refresh();
+  return;
+}
+
+/* =====================================================================
+   MOUVEMENT COMPLET
+   ===================================================================== */
+const EXPO = "expo.out";
+// Démarrage garanti même si le chargement des polices tarde.
+let motionStarted = false;
+function startMotion() {
+  if (motionStarted) return; motionStarted = true;
+  try { init(); }
+  catch (err) {
+    // Une animation qui échoue ne doit jamais laisser une section invisible : on retombe
+    // sur la mise en page statique (accessible), déjà entièrement gérée en CSS pur.
+    console.error("Complément Terre — initialisation des animations interrompue, repli sur la mise en page statique.", err);
+    document.documentElement.classList.add("rm");
+    $$('[style]').forEach(el => { el.style.opacity = ""; el.style.visibility = ""; el.style.clipPath = ""; el.style.transform = ""; });
+    try { navTriggers(); } catch (e2) {}
+  }
+}
+const motionFallback = setTimeout(startMotion, 1200);
+if (document.fonts && document.fonts.ready) {
+  document.fonts.ready.then(() => { clearTimeout(motionFallback); startMotion(); ScrollTrigger.refresh(); }, startMotion);
+} else { clearTimeout(motionFallback); startMotion(); }
+
+function init() {
+  /* ---- 1 · Haut de page ---- */
+  initHero(false);
+
+  /* ---- 1b · Les trois gammes ---- */
+  gsap.from(".gtile", { y: 56, autoAlpha: 0, duration: 1.1, ease: EXPO, stagger: .1, scrollTrigger: { trigger: ".gammes-grid", start: "top 94%" } });
+
+  /* ---- 2 · Manifeste ---- */
+  gsap.from("#quote", { y: 28, autoAlpha: 0, duration: 1.1, ease: EXPO, scrollTrigger: { trigger: "#quote", start: "top 92%" } });
+  gsap.from(".mani .body p, .mani .sign", { y: 28, autoAlpha: 0, duration: 1.1, ease: EXPO, stagger: .09, scrollTrigger: { trigger: ".mani .body", start: "top 94%" } });
+
+  /* ---- 4 · Le geste ---- */
+  const gImgs = $$(".g-img"), caps = [["01", "Le bourgeon frais"], ["02", "Le macérat, goutte à goutte"], ["03", "Macérats Complément Terre"]];
+  $$(".g-step").forEach((s, i) => {
+    gsap.from($$(".n,h3,p", s), { y: 36, autoAlpha: 0, duration: 1.1, ease: EXPO, stagger: .08, scrollTrigger: { trigger: s, start: "top 94%" } });
+    ScrollTrigger.create({ trigger: s, start: () => isMobile() ? "top 86%" : "top 55%", end: () => isMobile() ? "bottom 86%" : "bottom 55%", invalidateOnRefresh: true, onToggle: t => { if (!t.isActive) return;
+      $("#gCapN").textContent = caps[i][0]; $("#gCap").textContent = caps[i][1];
+      gImgs.forEach((g, j) => gsap.to(g, { clipPath: j <= i ? "inset(0% 0 0 0)" : "inset(100% 0 0 0)", duration: .7, ease: "power3.inOut", overwrite: "auto" }));
+      if (i === 2 && !s._played) { s._played = true; gsap.fromTo(".g-img.prods .b", { y: 60, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, ease: EXPO, stagger: { each: .08, from: "center" }, delay: .25, overwrite: "auto" }); } } });
+  });
+
+  /* ---- 5 · Muriel & Simon ---- */
+  gsap.fromTo("#aboutMain", { clipPath: "inset(0 0 100% 0)" }, { clipPath: "inset(0 0 0% 0)", duration: 1.5, ease: "expo.inOut", scrollTrigger: { trigger: "#aboutMain", start: "top 94%" } });
+  ["#aboutMain img"].forEach(s => gsap.fromTo(s, { yPercent: -10 }, { yPercent: 0, ease: "none", scrollTrigger: { trigger: s, start: "top bottom", end: "bottom top", scrub: true } }));
+  gsap.from(".about h2, .about .txt > *", { y: 34, autoAlpha: 0, duration: 1.1, ease: EXPO, stagger: .08, scrollTrigger: { trigger: ".about", start: "top 94%" } });
+
+  /* ---- 6 · Unitaires : entrée des premières cartes ---- */
+  gsap.from(cards.slice(0, 6), { y: 70, autoAlpha: 0, duration: 1.2, ease: EXPO, stagger: { each: .07 }, scrollTrigger: { trigger: "#rail", start: "top 94%" } });
+
+  /* ---- 7 et 8 · Vitrines complexes et Gemmo Émotions ---- */
+  initShow(false);
+
+  /* ---- 9 · Signature : plongée dans le « 71 » ---- */
+  const svg = $("#sigMask"), t71 = $("#t71");
+  let zoomMax = 40, stemW = 60;
+  function fit71() {
+    const W = innerWidth, H = innerHeight;
+    svg.setAttribute("viewBox", `0 0 ${W} ${H}`);
+    const fs = Math.min(W * (isMobile() ? .78 : .6), H * .9), base = H * (isMobile() ? .56 : .6) + fs * .36;
+    t71.setAttribute("font-size", fs); t71.setAttribute("x", W / 2); t71.setAttribute("y", base);
+    const bb = t71.getBBox(), oy = bb.y + bb.height * .6; let ox = bb.x + bb.width * .85;
+    try {
+      const c = document.createElement("canvas"); c.width = W; c.height = 3; const x = c.getContext("2d");
+      x.font = `800 ${fs}px Poppins`; x.textAlign = "center"; if ("letterSpacing" in x) x.letterSpacing = (-.05 * fs) + "px";
+      x.fillText("71", W / 2, base - oy + 1);
+      const d = x.getImageData(0, 1, W, 1).data; let runs = [], st = -1;
+      for (let i = 0; i < W; i++) { const on = d[i * 4 + 3] > 128; if (on && st < 0) st = i; if (!on && st >= 0) { runs.push([st, i]); st = -1; } }
+      if (st >= 0) runs.push([st, W]);
+      if (runs.length) { const r = runs[runs.length - 1]; ox = (r[0] + r[1]) / 2; stemW = r[1] - r[0]; }
+    } catch (e) {}
+    svg.style.transformOrigin = `${ox / W * 100}% ${oy / H * 100}%`;
+    zoomMax = Math.max(W, H) / Math.max(8, stemW) * 1.5;
+  }
+  fit71();
+  const sProxy = { z: 0 };
+  // État de départ posé explicitement : dans une animation liée au défilement, un départ décalé
+  // (stagger) ne masquait que la première ligne, les autres restaient affichées par-dessus le « 3 ».
+  gsap.set($$("#sigEnd .row"), { y: 60, autoAlpha: 0 });
+  gsap.set("#sigEnd .facts span", { y: 14, autoAlpha: 0 });
+  const stl = gsap.timeline({ defaults: { ease: "none" } })
+    .to("#sigCap", { autoAlpha: 0, duration: .1 }, .05)
+    .to(sProxy, { z: 1, duration: .55, ease: "power1.inOut", onUpdate: () => { svg.style.transform = `scale(${Math.exp(Math.log(zoomMax) * sProxy.z)})`; } }, .05)
+    .fromTo("#sigPhoto", { scale: 1.28 }, { scale: 1, duration: .6, ease: "power2.out" }, .05)
+    .to(svg, { opacity: 0, duration: .05 }, .56)
+    .to($$("#sigEnd .row"), { y: 0, autoAlpha: 1, duration: .16, stagger: .05, ease: "power3.out" }, .6)
+    .to("#sigEnd .facts span", { autoAlpha: 1, y: 0, duration: .12, stagger: .03, ease: "power2.out" }, .72)
+    .to({}, { duration: .1 });
+  ScrollTrigger.create({ trigger: ".sig-run", start: "top top", end: "bottom bottom", scrub: .6, animation: stl, invalidateOnRefresh: true, onRefreshInit: fit71 });
+
+  /* ---- 10 · Finale ---- */
+  gsap.from(".fin-top .tx > *", { y: 40, autoAlpha: 0, duration: 1.2, ease: EXPO, stagger: .09, scrollTrigger: { trigger: ".fin-top", start: "top 94%" } });
+
+  // V42 : défilement libre, sans repositionnement forcé sur mobile.
+
+  /* ---- Récit : les photos se dévoilent, la grande image glisse doucement ---- */
+  $$(".mani-ph, .mani-ph2, .fin-ph, .sal").forEach(f => gsap.fromTo(f, { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 1.3, ease: "expo.inOut", scrollTrigger: { trigger: f, start: "top 94%" } }));
+  gsap.fromTo(".mani-ph img", { yPercent: -10 }, { yPercent: 0, ease: "none", scrollTrigger: { trigger: ".mani-ph", start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.fromTo(".vit-ph", { yPercent: -5 }, { yPercent: 5, ease: "none", scrollTrigger: { trigger: ".vit", start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.from(".vit-in > blockquote, .vit-in > p, .vit-facts div", { y: 30, autoAlpha: 0, duration: 1.1, ease: EXPO, stagger: .08, scrollTrigger: { trigger: ".vit-in", start: "top 82%" } });
+  gsap.from(".salons-head > *, .sal-tx > *", { y: 28, autoAlpha: 0, duration: 1.1, ease: EXPO, stagger: .07, scrollTrigger: { trigger: "#salons", start: "top 86%" } });
+  gsap.from(".gt-ph img", { scale: 1.14, duration: 1.8, ease: EXPO, stagger: .1, scrollTrigger: { trigger: ".gammes-grid", start: "top 94%" } });
+
+  navTriggers();
+  ScrollTrigger.refresh();
+}
+})();
+</script>
+
+<style>
+#apercu-note{position:fixed;left:50%;bottom:26px;translate:-50% 20px;z-index:99999;max-width:min(92vw,460px);padding:13px 20px;border-radius:999px;background:#132419;color:#F5EEE1;font:400 14px/1.4 Poppins,system-ui,sans-serif;text-align:center;box-shadow:0 10px 30px rgba(0,0,0,.28);opacity:0;pointer-events:none;transition:opacity .3s ease,translate .3s ease}
+#apercu-note.on{opacity:1;translate:-50% 0}
+</style>
+<div id="apercu-note" role="status" aria-live="polite"></div>
+<script>
+(function(){
+  var note=document.getElementById("apercu-note"),t;
+  function say(m){note.textContent=m;note.classList.add("on");clearTimeout(t);t=setTimeout(function(){note.classList.remove("on")},3200)}
+  document.addEventListener("click",function(e){
+    var a=e.target.closest&&e.target.closest("a[href]"); if(!a) return;
+    var h=a.getAttribute("href")||"";
+    if(h.indexOf("#apercu-indisponible")!==-1){e.preventDefault();e.stopPropagation();say("Cette page n\u2019est pas incluse dans l\u2019aper\u00e7u.")}
+  },true);
+  document.addEventListener("submit",function(e){e.preventDefault();e.stopPropagation();say("Aper\u00e7u : le panier fonctionnera sur le vrai site.")},true);
+})();
+</script>
+</body>
+</html>
