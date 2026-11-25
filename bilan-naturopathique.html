@@ -931,10 +931,11 @@ html.rm .sig-run .sig{position:relative}
 .bn-hero-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(11,20,14,.95) 0%,rgba(11,20,14,.82) 32%,rgba(11,20,14,.3) 66%,rgba(11,20,14,.6) 100%),linear-gradient(90deg,rgba(11,20,14,.5),rgba(11,20,14,0) 60%)}
 .bn-crumbs{position:absolute;z-index:2;left:var(--m);top:calc(var(--nav-h) + 12px);display:flex;flex-wrap:wrap;gap:8px;font-size:.8rem;color:var(--cr-2)}
 .bn-crumbs a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(245,238,225,.4)}
-.bn-hero-in{position:relative;z-index:2;width:100%;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:22px 56px;padding:calc(var(--nav-h) + 12vh) var(--m) clamp(28px,6vh,60px)}
+/* Hors mode « texte fixe » (téléphone, fenêtre très basse) : le texte est dans le flux, sous le menu et le fil d'Ariane */
+.bn-hero-in{position:relative;z-index:2;width:100%;padding:max(calc(var(--nav-h) + 12vh),calc(var(--nav-h) + 64px)) var(--m) clamp(28px,6vh,60px)}
+.bn-hero-side{margin-top:20px}
 .bn-hero .meta{margin-bottom:10px}
-/* Taille bornée aussi par la hauteur de l'écran : sur un écran large mais bas, le titre ne monte pas sous le menu */
-.bn-hero h1{font-size:clamp(3rem,min(9vw,17svh),8.4rem)}
+.bn-hero h1{font-size:clamp(2.4rem,9vw,8.4rem)}
 .bn-hero .row{display:block;overflow:hidden;padding:.08em .06em .2em 0;margin:-.08em 0 -.2em}
 .bn-hero .row>*{display:block;white-space:nowrap}
 .bn-hero em{color:var(--orange-lite)}
@@ -947,10 +948,23 @@ html.rm .sig-run .sig{position:relative}
 .bn-buy .pill{background:var(--cream);color:var(--forest);height:52px;padding:0 24px;font-size:.92rem}
 @media (hover:hover) and (pointer:fine){.bn-buy .pill:hover,.bn-bar .pill:hover{background:var(--sand)}}
 /* Le texte reste en place pendant que la section suivante le recouvre (comme sur l'accueil) */
-@media (min-width:641px) and (min-height:540px){
+/* Le bloc est ancré en bas de l'écran : il doit TOUJOURS tenir entre le fil d'Ariane et le bas.
+   La taille du titre est donc bornée par la largeur ET par la hauteur disponibles (le problème signalé
+   le 25/11 : fenêtre large mais basse, le texte montait sous le menu). */
+/* Ordinateur : titre à gauche, texte et bouton à droite, sur deux colonnes fixes */
+@media (min-width:1041px) and (min-height:540px){
   .bn-hero{clip-path:inset(0)}
-  .bn-hero-in{position:fixed;left:0;right:0;bottom:0}
   .bn-crumbs{position:fixed}
+  .bn-hero-in{position:fixed;left:0;right:0;bottom:0;display:grid;grid-template-columns:minmax(0,1fr) minmax(0,27rem);column-gap:56px;align-items:end;padding-top:0}
+  .bn-hero-side{margin-top:0}
+  .bn-hero h1{font-size:clamp(3rem,min(9vw,17svh,calc((100vw - 2*var(--m) - 56px - 27rem)/7.7)),8.4rem)}
+}
+/* Écrans intermédiaires : titre puis texte, l'un sous l'autre */
+@media (min-width:641px) and (max-width:1040px) and (min-height:620px){
+  .bn-hero{clip-path:inset(0)}
+  .bn-crumbs{position:fixed}
+  .bn-hero-in{position:fixed;left:0;right:0;bottom:0;padding-top:0}
+  .bn-hero h1{font-size:clamp(2.4rem,min(9vw,calc((100svh - 500px)/2.2)),8.4rem)}
 }
 
 /* ---------- 2 · Pour qui, pour quoi ? : un texte qui se lit en grand ---------- */
@@ -982,7 +996,7 @@ html.rm .sig-run .sig{position:relative}
 .bn-count b{font-size:1.7em;font-weight:800;letter-spacing:-.03em;color:var(--forest)}
 .bn-dial{position:absolute;z-index:1;right:-5vw;top:calc(50% + var(--nav-h)/2);width:min(50vw,84svh);aspect-ratio:1;translate:0 -50%}
 .bn-dial-ph{position:absolute;inset:8%;border-radius:50%;overflow:hidden;background:var(--moss)}
-.bn-dial-ph img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.bn-dial-ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;will-change:transform,opacity}
 .bn-dial svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none}
 .bn-dial svg circle{vector-effect:non-scaling-stroke}
 .bn-dial .b{stroke:rgba(31,58,43,.28);stroke-width:1}
@@ -1083,6 +1097,7 @@ html.rm .bn-quote-pin{position:relative;height:auto;padding-block:clamp(110px,20
 
 /* ---------- Écrans intermédiaires ---------- */
 @media (min-width:641px) and (max-width:1040px){
+  .bn-hero-side{max-width:36em}
   .bn-pour .bn-h{grid-column:1/-1;position:static}
   .bn-big{grid-column:1/-1}
   .bn-motifs.is-roue .bn-roue-l{width:62%}
@@ -1393,9 +1408,11 @@ mm.add("(min-width: 641px)", () => {
   left.append(slot, count);
   const dial = document.createElement("div"); dial.className = "bn-dial"; dial.setAttribute("aria-hidden", "true");
   const dots = names.map((_, i) => { const t = (-90 + i * 360 / N) * Math.PI / 180; return `<circle class="d" cx="${(100 + 98 * Math.cos(t)).toFixed(2)}" cy="${(100 + 98 * Math.sin(t)).toFixed(2)}" r="1.6"/>`; }).join("");
-  dial.innerHTML = `<div class="bn-dial-ph"><img src="${$(".bn-band img").getAttribute("src")}" alt=""></div><svg viewBox="0 0 200 200"><circle class="b" cx="100" cy="100" r="98"/><circle class="p" cx="100" cy="100" r="98" pathLength="1"/>${dots}<circle class="cur" cx="100" cy="2" r="3.4"/></svg>`;
+  // Une photo par motif (photos déjà présentes sur le site), empilées : chacune se fond sur la précédente.
+  const dossier = $(".bn-band img").getAttribute("src").replace(/[^/]+$/, "");
+  dial.innerHTML = `<div class="bn-dial-ph">${names.map((_, i) => `<img src="${dossier}motif-${i + 1}.jpg" alt="" decoding="async">`).join("")}</div><svg viewBox="0 0 200 200"><circle class="b" cx="100" cy="100" r="98"/><circle class="p" cx="100" cy="100" r="98" pathLength="1"/>${dots}<circle class="cur" cx="100" cy="2" r="3.4"/></svg>`;
   pin.append(dial);
-  const rows = $$("span", slot), cnt = $("b", count), arc = $(".p", dial), cur = $(".cur", dial), ph = $("img", dial);
+  const rows = $$("span", slot), cnt = $("b", count), arc = $(".p", dial), cur = $(".cur", dial), phs = $$(".bn-dial-ph img", dial);
   let rh = 0, k = -1;
   const measure = () => { rh = rows[0].offsetHeight || 1; };
   const render = a => {
@@ -1404,7 +1421,9 @@ mm.add("(min-width: 641px)", () => {
       el.style.opacity = Math.max(0, 1 - ad * .8).toFixed(3); });
     arc.style.strokeDashoffset = (1 - a / N).toFixed(4);
     cur.setAttribute("transform", `rotate(${(a * 360 / N).toFixed(2)} 100 100)`);
-    ph.style.transform = `rotate(${(-a * 7).toFixed(2)}deg) scale(1.22)`;
+    phs.forEach((im, i) => { const d = a - i;
+      im.style.opacity = i ? clamp(d + 1, 0, 1).toFixed(3) : "1";
+      im.style.transform = `rotate(${(-d * 8).toFixed(2)}deg) scale(${(1.16 + Math.min(Math.abs(d), 1) * .08).toFixed(3)})`; });
     const nk = Math.round(a); if (nk !== k) { k = nk; cnt.textContent = pad(nk + 1); }
   };
   const pose = p => { const raw = p * (N - 1), i = Math.floor(raw), f = raw - i, g = clamp((f - .2) / .6, 0, 1); return i + g * g * (3 - 2 * g); };
