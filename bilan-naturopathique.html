@@ -908,7 +908,7 @@ html.rm .sig-run .sig{position:relative}
 
 
 /* =====================================================================
-   PAGE « BILAN NATUROPATHIQUE » (25/11/2026). Classes bn-… ; le reste vient de l'accueil.
+   PAGE « BILAN NATUROPATHIQUE », version 2 (25/11/2026). Classes bn-… ; le reste vient de l'accueil.
    ===================================================================== */
 :root{--bn-sec:clamp(84px,13vh,168px)}
 .bn-sec{padding-block:var(--bn-sec)}
@@ -916,8 +916,6 @@ html.rm .sig-run .sig{position:relative}
 .bn-sec.dark .meta,.bn-hero .meta{color:var(--orange-lite)}
 /* Sur fond clair, l'italique des titres prend l'orange foncé de la marque (lisibilité) */
 .bn-sec:not(.dark) em{color:var(--orange-ink)}
-/* Sur le sable, les petits textes orange passent en terre (contraste suffisant) */
-.bn-motifs .meta,.bn-list .n{color:var(--terre)}
 .bn-tx p{font-size:clamp(1.02rem,1.2vw,1.16rem);line-height:1.7;color:var(--ink-2)}
 .bn-tx p+p{margin-top:1.1em}
 .bn-tx strong{font-weight:600;color:var(--ink)}
@@ -926,65 +924,109 @@ html.rm .sig-run .sig{position:relative}
 .bn-ph{margin:0;border-radius:6px;overflow:hidden;background:var(--sand-2)}
 .bn-ph img{width:100%;height:100%;object-fit:cover}
 
-/* ---------- Haut de page : le titre à gauche, Simon dans un disque à droite ---------- */
+/* ---------- 1 · Ouverture : le chêne en plein écran, le titre en très grand ---------- */
 .bn-hero{position:relative;min-height:100vh;min-height:100svh;display:flex;align-items:flex-end;background:var(--forest-deep);color:var(--cream);overflow:hidden;isolation:isolate}
-.bn-hero-in{position:relative;z-index:2;width:100%;padding-top:calc(var(--nav-h) + 4vh);padding-bottom:clamp(36px,7vh,84px)}
-.bn-hero-tx{max-width:min(54vw,840px)}
-.bn-crumbs{display:flex;flex-wrap:wrap;gap:8px;font-size:.8rem;color:var(--cr-3);margin-bottom:clamp(18px,4vh,44px)}
-.bn-crumbs a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(245,238,225,.35)}
-.bn-hero .meta{margin-bottom:14px}
-.bn-hero h1{font-size:clamp(2.6rem,6.4vw,6rem)}
-.bn-hero .row{display:block;overflow:hidden;padding:.08em 0 .2em;margin:-.08em 0 -.2em}
+.bn-hero-ph{position:absolute;inset:0;z-index:-2;overflow:hidden}
+.bn-hero-ph img{width:100%;height:100%;object-fit:cover;object-position:50% 46%;will-change:transform}
+.bn-hero-veil{position:absolute;inset:0;z-index:-1;background:linear-gradient(0deg,rgba(11,20,14,.95) 0%,rgba(11,20,14,.82) 32%,rgba(11,20,14,.3) 66%,rgba(11,20,14,.6) 100%),linear-gradient(90deg,rgba(11,20,14,.5),rgba(11,20,14,0) 60%)}
+.bn-crumbs{position:absolute;z-index:2;left:var(--m);top:calc(var(--nav-h) + 12px);display:flex;flex-wrap:wrap;gap:8px;font-size:.8rem;color:var(--cr-2)}
+.bn-crumbs a{text-decoration:underline;text-underline-offset:4px;text-decoration-color:rgba(245,238,225,.4)}
+.bn-hero-in{position:relative;z-index:2;width:100%;display:flex;flex-wrap:wrap;align-items:flex-end;justify-content:space-between;gap:22px 56px;padding:calc(var(--nav-h) + 12vh) var(--m) clamp(28px,6vh,60px)}
+.bn-hero .meta{margin-bottom:10px}
+/* Taille bornée aussi par la hauteur de l'écran : sur un écran large mais bas, le titre ne monte pas sous le menu */
+.bn-hero h1{font-size:clamp(3rem,min(9vw,17svh),8.4rem)}
+.bn-hero .row{display:block;overflow:hidden;padding:.08em .06em .2em 0;margin:-.08em 0 -.2em}
 .bn-hero .row>*{display:block;white-space:nowrap}
 .bn-hero em{color:var(--orange-lite)}
-.bn-hero .lede{color:var(--cr-2);margin-top:clamp(16px,2.6vh,26px);max-width:31em}
-.bn-buy{display:flex;flex-wrap:wrap;align-items:center;gap:14px 30px;margin-top:clamp(20px,3.4vh,34px)}
+.bn-hero-side{max-width:27em;padding-bottom:.5rem}
+.bn-hero .lede{color:var(--cream)}
+.bn-hero .lede,.bn-crumbs,.bn-price{text-shadow:0 1px 16px rgba(11,20,14,.7)}
+.bn-buy{display:flex;flex-wrap:wrap;align-items:center;gap:14px 26px;margin-top:clamp(16px,2.6vh,24px)}
 .bn-price{font-size:.95rem;color:var(--cr-2)}
 .bn-price b{font-size:clamp(1.6rem,2.4vw,2.2rem);font-weight:800;letter-spacing:-.03em;color:var(--cream)}
 .bn-buy .pill{background:var(--cream);color:var(--forest);height:52px;padding:0 24px;font-size:.92rem}
 @media (hover:hover) and (pointer:fine){.bn-buy .pill:hover,.bn-bar .pill:hover{background:var(--sand)}}
-.bn-portrait{position:absolute;z-index:1;margin:0;right:calc(var(--m) + 3vw);top:calc(50% + var(--nav-h)/2);width:min(40vw,70svh);aspect-ratio:1;translate:0 -50%}
-.bn-disc{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:var(--moss)}
-.bn-disc img{width:100%;height:100%;object-fit:cover;object-position:38% 28%}
-.bn-ring{position:absolute;left:-6%;top:-6%;width:112%;height:112%;overflow:visible;fill:none;stroke:rgba(245,238,225,.72);stroke-width:1}
-.bn-ring path{vector-effect:non-scaling-stroke}
+/* Le texte reste en place pendant que la section suivante le recouvre (comme sur l'accueil) */
+@media (min-width:641px) and (min-height:540px){
+  .bn-hero{clip-path:inset(0)}
+  .bn-hero-in{position:fixed;left:0;right:0;bottom:0}
+  .bn-crumbs{position:fixed}
+}
 
-/* ---------- Pour qui, pour quoi ? ---------- */
-.bn-pour .grid{align-items:center;row-gap:36px}
-.bn-pour .bn-ph{grid-column:1/span 7;aspect-ratio:3/2}
-.bn-pour .bn-col{grid-column:9/span 4}
+/* ---------- 2 · Pour qui, pour quoi ? : un texte qui se lit en grand ---------- */
+.bn-pour .grid{row-gap:30px;align-items:start}
+.bn-pour .bn-h{grid-column:1/span 4;position:sticky;top:calc(var(--nav-h) + 6vh)}
+.bn-big{grid-column:6/span 7}
+.bn-big p{font-size:clamp(1.45rem,2.7vw,2.5rem);line-height:1.22;letter-spacing:-.022em;font-weight:300;color:var(--ink-2);text-wrap:pretty}
+.bn-big p+p{margin-top:.9em}
+.bn-big strong{font-weight:700;color:var(--ink)}
+
+/* ---------- 3 · Motifs de consultation ---------- */
+.bn-motifs{position:relative;background:var(--sand)}
+.bn-motifs .meta,.bn-list .n{color:var(--terre)}
+.bn-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--g);margin-top:clamp(34px,6vh,70px)}
+.bn-list li{position:relative;display:flex;align-items:baseline;gap:clamp(14px,2vw,30px);padding:clamp(16px,2.6vh,30px) 0;border-top:1px solid rgba(31,58,43,.24)}
+.bn-list .n{flex:none;min-width:2.2em;font-size:.82rem;font-weight:500}
+.bn-list h3{font-size:clamp(1.3rem,2.5vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.08}
+/* En scène (écrans de 641 px et plus, animations actives) : la section est haute, son contenu reste
+   collé à l'écran ; les motifs défilent un à un, le cadran avance. La liste reste dans la page pour
+   les lecteurs d'écran, la scène est décorative. */
+.bn-motifs.is-roue{padding-block:0;height:calc(100svh + var(--run,250svh))}
+.bn-motifs.is-roue .bn-roue-pin{position:sticky;top:0;height:100vh;height:100svh;overflow:hidden;display:flex;align-items:center;padding-top:var(--nav-h)}
+.bn-motifs.is-roue .bn-roue-l{position:relative;z-index:2;width:min(60%,820px);min-width:0}
+.bn-motifs.is-roue .bn-roue-head h2{font-size:clamp(1.7rem,3.2vw,3rem)}
+.bn-motifs.is-roue .bn-list{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);margin:0}
+.bn-slot{position:relative;height:calc(var(--rh)*3);margin-top:clamp(10px,2.4vh,30px);font-size:clamp(1.7rem,4.6vw,4.4rem);--rh:1.34em;-webkit-mask:linear-gradient(180deg,transparent 0,#000 30%,#000 70%,transparent 100%);mask:linear-gradient(180deg,transparent 0,#000 30%,#000 70%,transparent 100%)}
+.bn-slot span{position:absolute;left:0;top:var(--rh);height:var(--rh);display:flex;align-items:center;white-space:nowrap;font-weight:800;letter-spacing:-.035em;line-height:1;color:var(--forest);transform-origin:0 50%;will-change:transform,opacity}
+.bn-count{display:flex;align-items:baseline;gap:.4em;margin-top:clamp(8px,2vh,22px);font-size:.95rem;font-weight:500;color:var(--terre)}
+.bn-count b{font-size:1.7em;font-weight:800;letter-spacing:-.03em;color:var(--forest)}
+.bn-dial{position:absolute;z-index:1;right:-5vw;top:calc(50% + var(--nav-h)/2);width:min(50vw,84svh);aspect-ratio:1;translate:0 -50%}
+.bn-dial-ph{position:absolute;inset:8%;border-radius:50%;overflow:hidden;background:var(--moss)}
+.bn-dial-ph img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.bn-dial svg{position:absolute;inset:0;width:100%;height:100%;overflow:visible;fill:none}
+.bn-dial svg circle{vector-effect:non-scaling-stroke}
+.bn-dial .b{stroke:rgba(31,58,43,.28);stroke-width:1}
+.bn-dial .p{stroke:var(--orange-ink);stroke-width:2;stroke-dasharray:1;stroke-dashoffset:1;transform:rotate(-90deg);transform-origin:50% 50%}
+.bn-dial .d{fill:var(--forest);stroke:none}
+.bn-dial .cur{fill:var(--orange-ink);stroke:var(--sand);stroke-width:3}
+
+/* ---------- 4 · Naturopathie : la bande de fleurs s'ouvre jusqu'aux bords de l'écran ---------- */
+.bn-naturo{padding-bottom:0;overflow:hidden}
+.bn-naturo .grid{row-gap:28px}
+.bn-naturo .bn-h{grid-column:1/span 7}
+.bn-naturo h2{font-size:clamp(2.5rem,6.4vw,6rem)}
+.bn-naturo .bn-tx{grid-column:8/span 5;align-self:end}
+.bn-band{margin:clamp(44px,8vh,96px) calc(var(--m)*-1) 0;height:min(78svh,720px);border-radius:0;background:var(--moss);clip-path:inset(0 var(--m) 0 var(--m) round 6px)}
+.bn-band img{height:126%}
+
+/* ---------- 5 · Citation : plein écran, les mots s'allument ---------- */
+.bn-quote{position:relative;height:210svh;background:var(--forest-deep);color:var(--cream)}
+.bn-quote-pin{position:sticky;top:0;height:100vh;height:100svh;display:flex;align-items:center;overflow:hidden;isolation:isolate}
+.bn-quote-ph{position:absolute;inset:0;z-index:-2}
+.bn-quote-ph img{width:100%;height:100%;object-fit:cover;will-change:transform}
+.bn-quote-pin::before{content:"";position:absolute;inset:0;z-index:-1;background:linear-gradient(90deg,rgba(11,20,14,.9),rgba(11,20,14,.66))}
+.bn-quote blockquote{font-size:clamp(1.9rem,5vw,4.8rem);font-weight:800;line-height:1.06;letter-spacing:-.035em;max-width:17em;text-wrap:balance}
+.bn-quote .w{opacity:var(--o,1)}
+.bn-by{display:flex;align-items:center;gap:14px;margin-top:clamp(26px,4vh,44px);font-weight:500;color:var(--cream)}
+.bn-by::before{content:"";width:46px;height:1px;background:var(--orange-lite)}
+html.rm .bn-quote{height:auto}
+html.rm .bn-quote-pin{position:relative;height:auto;padding-block:clamp(110px,20vh,220px)}
+
+/* ---------- 6 · Le déroulé : Simon sur le terrain, son portrait dans un disque ---------- */
+.bn-deroule .grid{align-items:center;row-gap:44px}
+.bn-duo{grid-column:1/span 5;position:relative;padding:0 10% 10% 0}
+.bn-duo .bn-ph{aspect-ratio:3/4}
+.bn-duo .bn-ph img{object-position:50% 20%}
+.bn-portrait{position:absolute;right:0;bottom:0;width:46%;aspect-ratio:1;margin:0}
+.bn-disc{position:absolute;inset:0;border-radius:50%;overflow:hidden;background:var(--moss);box-shadow:0 0 0 8px var(--cream)}
+.bn-disc img{width:100%;height:100%;object-fit:cover;object-position:38% 28%}
+.bn-ring{position:absolute;left:-13%;top:-13%;width:126%;height:126%;overflow:visible;fill:none;stroke:rgba(31,58,43,.55);stroke-width:1}
+.bn-ring path{vector-effect:non-scaling-stroke}
+.bn-deroule .bn-col{grid-column:7/span 6}
 .bn-col h2{margin-bottom:clamp(18px,3vh,30px)}
 .bn-deroule h2,.bn-faq h2{font-size:clamp(2.1rem,4.2vw,3.9rem)}
 
-/* ---------- Motifs de consultation ---------- */
-.bn-motifs{background:var(--sand)}
-.bn-list{list-style:none;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));column-gap:var(--g);margin-top:clamp(34px,6vh,70px)}
-.bn-list li{position:relative;display:flex;align-items:baseline;gap:clamp(14px,2vw,30px);padding:clamp(16px,2.6vh,30px) 0}
-.bn-list li::before{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:rgba(31,58,43,.24);transform-origin:0 50%;transform:scaleX(var(--l,1))}
-.bn-list .n{flex:none;min-width:2.2em;font-size:.82rem;font-weight:500}
-.bn-list h3{font-size:clamp(1.3rem,2.5vw,2.3rem);font-weight:800;letter-spacing:-.03em;line-height:1.08;transition:translate .35s var(--ease-out),color .25s ease}
-@media (hover:hover) and (pointer:fine){.bn-list li:hover h3{translate:10px 0;color:var(--terre)}}
-
-/* ---------- Naturopathie ---------- */
-.bn-naturo .grid{row-gap:28px}
-.bn-naturo .bn-h{grid-column:1/span 6}
-.bn-naturo .bn-tx{grid-column:8/span 5;align-self:end}
-.bn-band{margin-top:clamp(40px,7vh,88px);aspect-ratio:21/8;background:var(--moss)}
-.bn-band img{height:124%}
-
-/* ---------- Citation ---------- */
-.bn-quote{background:var(--forest-deep);color:var(--cream);padding-block:clamp(104px,20vh,230px)}
-.bn-quote blockquote{font-size:clamp(1.7rem,4.3vw,4.1rem);font-weight:800;line-height:1.08;letter-spacing:-.035em;max-width:19em;text-wrap:balance}
-.bn-quote .w{opacity:var(--o,1)}
-.bn-by{display:flex;align-items:center;gap:14px;margin-top:clamp(26px,4vh,44px);font-weight:500;color:var(--cr-2)}
-.bn-by::before{content:"";width:46px;height:1px;background:var(--orange-lite)}
-
-/* ---------- Le déroulé ---------- */
-.bn-deroule .grid{align-items:center;row-gap:36px}
-.bn-deroule .bn-col{grid-column:1/span 5}
-.bn-deroule .bn-ph{grid-column:7/span 6;aspect-ratio:4/3}
-
-/* ---------- Questions fréquentes ---------- */
+/* ---------- 7 · Questions fréquentes ---------- */
 .bn-faq{background:var(--paper)}
 .bn-faq .grid{row-gap:28px}
 .bn-faq .bn-h{grid-column:1/span 4}
@@ -999,22 +1041,21 @@ html.rm .sig-run .sig{position:relative}
 .bn-faq details[open] .bn-pm{rotate:45deg;background:var(--forest);color:var(--cream)}
 .bn-faq .bn-tx{padding:0 54px clamp(20px,3vh,30px) 0;max-width:44em}
 
-/* ---------- Comment ça se passe + demande de rendez-vous ---------- */
-.bn-rdv .grid{align-items:start;row-gap:44px}
-.bn-how{grid-column:1/span 5;position:sticky;top:calc(var(--nav-h) + 5vh)}
-.bn-steps{list-style:none;position:relative;margin-top:clamp(22px,4vh,40px)}
-.bn-steps::before,.bn-steps::after{content:"";position:absolute;left:27.5px;top:46px;bottom:46px;width:1px;background:rgba(245,238,225,.2)}
-.bn-steps::after{background:var(--orange-lite);transform-origin:50% 0;transform:scaleY(var(--p,1))}
-.bn-steps li{display:grid;grid-template-columns:56px 1fr;gap:20px;align-items:center;padding:16px 0}
-.bn-steps .n{position:relative;z-index:1;display:grid;place-items:center;width:56px;height:56px;border-radius:50%;border:1px solid rgba(245,238,225,.3);background:var(--forest);font-weight:600;font-size:1.05rem;transition:background-color .4s ease,border-color .4s ease}
-.bn-steps li.on .n{background:var(--orange-ink);border-color:var(--orange-ink)}
-.bn-steps p{font-size:clamp(1.08rem,1.6vw,1.42rem);font-weight:500;line-height:1.3}
-.bn-conseil{margin-top:clamp(26px,4vh,44px);color:var(--cr-2)}
-.bn-conseil a{color:var(--cream);font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(245,238,225,.45);white-space:nowrap}
-.bn-form{grid-column:7/span 6;background:var(--cream);color:var(--ink);border-radius:8px;padding:clamp(22px,3.4vw,48px)}
-.bn-form h2{margin-bottom:12px}
-.bn-form>p{color:var(--ink-2);line-height:1.6}
-.bn-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px;margin-top:26px}
+/* ---------- 8 · Comment ça se passe : trois chiffres géants, puis la demande ---------- */
+.bn-steps{list-style:none;display:grid;grid-template-columns:repeat(3,minmax(0,1fr));column-gap:var(--g);margin-top:clamp(24px,5vh,54px)}
+.bn-steps li{position:relative;padding-top:clamp(12px,2.4vh,26px)}
+.bn-steps li::before,.bn-steps li::after{content:"";position:absolute;left:0;right:0;top:0;height:1px;background:rgba(245,238,225,.22)}
+.bn-steps li::after{background:var(--orange-lite);transform-origin:0 50%;transform:scaleX(var(--p,1))}
+.bn-steps .n{display:block;font-size:clamp(4.6rem,11vw,10.5rem);font-weight:300;line-height:.9;letter-spacing:-.05em;color:var(--orange-lite)}
+.bn-steps p{margin-top:clamp(8px,2vh,22px);font-size:clamp(1.05rem,1.7vw,1.5rem);font-weight:500;line-height:1.3;max-width:15em}
+.bn-form{margin-top:clamp(48px,9vh,110px);display:grid;grid-template-columns:repeat(12,minmax(0,1fr));column-gap:var(--g);row-gap:26px;background:var(--cream);color:var(--ink);border-radius:8px;padding:clamp(22px,3.6vw,56px)}
+.bn-form-l{grid-column:1/span 4}
+.bn-form-r{grid-column:6/span 7}
+.bn-form h2{margin-bottom:14px}
+.bn-form-l>p{color:var(--ink-2);line-height:1.6}
+.bn-conseil{margin-top:clamp(18px,3vh,30px)}
+.bn-conseil a{color:var(--ink);font-weight:600;text-decoration:underline;text-underline-offset:5px;text-decoration-color:rgba(31,58,43,.45);white-space:nowrap}
+.bn-fields{display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
 .bn-f{display:flex;flex-direction:column;gap:7px}
 .bn-f.full{grid-column:1/-1}
 .bn-f label{font-size:.82rem;font-weight:500;color:var(--ink)}
@@ -1037,38 +1078,37 @@ html.rm .sig-run .sig{position:relative}
 /* ---------- Pied de page (fin du pied de page de l'accueil) ---------- */
 .bn-fin{padding-block:clamp(56px,9vh,96px) 40px}
 .bn-fin .end{margin-top:0}
-/* Sur le haut de page (vert profond), le menu plein prend la même teinte */
+/* Sur la citation (vert profond), le menu plein prend la même teinte */
 .nav.solid.bn-top{background:var(--forest-deep)}
 
 /* ---------- Écrans intermédiaires ---------- */
 @media (min-width:641px) and (max-width:1040px){
-  .bn-hero-tx{max-width:54vw}
-  .bn-portrait{right:var(--m);width:min(33vw,52svh);top:calc(46% + var(--nav-h)/2)}
-  .bn-hero .lede{max-width:20em}
-  .bn-pour .bn-ph{grid-column:1/span 6}
-  .bn-pour .bn-col{grid-column:8/span 5}
+  .bn-pour .bn-h{grid-column:1/-1;position:static}
+  .bn-big{grid-column:1/-1}
+  .bn-motifs.is-roue .bn-roue-l{width:62%}
+  .bn-slot{font-size:clamp(1.6rem,4.1vw,2.6rem)}
+  .bn-dial{right:-4vw;width:min(40vw,60svh)}
   .bn-naturo .bn-h,.bn-naturo .bn-tx{grid-column:1/-1}
-  .bn-deroule .bn-col{grid-column:1/span 6}
-  .bn-deroule .bn-ph{grid-column:8/span 5;aspect-ratio:4/5}
+  .bn-duo{grid-column:1/span 5}
+  .bn-deroule .bn-col{grid-column:7/span 6}
   .bn-faq .bn-h,.bn-faq-list{grid-column:1/-1}
-  .bn-how{grid-column:1/-1;position:static}
-  .bn-form{grid-column:1/-1}
+  .bn-form-l,.bn-form-r{grid-column:1/-1}
 }
 /* ---------- Téléphone ---------- */
 @media (max-width:640px){
-  .bn-hero{display:block;min-height:0}
-  .bn-hero-in{padding-top:calc(var(--nav-h) + 3vh);padding-bottom:0}
-  .bn-hero-tx{max-width:none}
-  .bn-hero h1{font-size:clamp(2.5rem,11.6vw,3.4rem)}
-  .bn-portrait{position:relative;right:auto;top:auto;translate:none;width:min(76vw,400px);margin:44px auto 0;padding-bottom:64px;aspect-ratio:auto}
-  .bn-disc{position:relative;inset:auto;aspect-ratio:1}
-  .bn-ring{height:auto;aspect-ratio:1}
+  .bn-hero-in{padding-bottom:26px}
+  .bn-hero h1{font-size:clamp(2.5rem,11.6vw,3.3rem)}
   .bn-buy .pill{height:48px;font-size:.88rem;padding:0 20px}
-  .bn-pour .bn-ph,.bn-pour .bn-col,.bn-naturo .bn-h,.bn-naturo .bn-tx,.bn-deroule .bn-col,.bn-deroule .bn-ph,.bn-faq .bn-h,.bn-faq-list,.bn-how,.bn-form{grid-column:1/-1}
-  .bn-deroule .bn-ph{order:-1}
+  .bn-pour .bn-h,.bn-big,.bn-naturo .bn-h,.bn-naturo .bn-tx,.bn-duo,.bn-deroule .bn-col,.bn-faq .bn-h,.bn-faq-list,.bn-form-l,.bn-form-r{grid-column:1/-1}
+  .bn-pour .bn-h{position:static}
   .bn-list{grid-template-columns:1fr}
-  .bn-band{aspect-ratio:4/3}
-  .bn-how{position:static}
+  .bn-band{height:54svh}
+  .bn-quote{height:180svh}
+  .bn-duo{padding:0 12% 14% 0}
+  .bn-steps{grid-template-columns:1fr;row-gap:6px}
+  .bn-steps li{display:grid;grid-template-columns:76px 1fr;align-items:center;gap:8px;padding:14px 0}
+  .bn-steps .n{font-size:4.2rem}
+  .bn-steps p{margin-top:0}
   .bn-fields{grid-template-columns:1fr}
   .bn-faq .bn-tx{padding-right:0}
   .bn-bar{left:12px;right:12px;bottom:12px;justify-content:space-between}
@@ -1100,44 +1140,50 @@ html.rm .sig-run .sig{position:relative}
 
 <main id="main">
 <section class="bn-hero" id="top" data-theme="dark" aria-labelledby="bn-title">
-  <div class="bn-hero-in wrap">
-    <div class="bn-hero-tx">
-      <nav class="bn-crumbs" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Bilan de vitalité</span><span aria-hidden="true">/</span><span aria-current="page">Bilan naturopathique</span></nav>
+  <div class="bn-hero-ph" aria-hidden="true"><img src="fichiers/assets/bilan/chene.jpg" alt="" fetchpriority="high" decoding="async"></div>
+  <div class="bn-hero-veil" aria-hidden="true"></div>
+  <nav class="bn-crumbs" aria-label="Fil d'Ariane"><a href="index.html">Accueil</a><span aria-hidden="true">/</span><span>Bilan de vitalité</span><span aria-hidden="true">/</span><span aria-current="page">Bilan naturopathique</span></nav>
+  <div class="bn-hero-in">
+    <div class="bn-hero-title">
       <p class="meta">Bilan de vitalité</p>
       <h1 class="d1" id="bn-title"><span class="row"><span>Bilan</span></span> <span class="row"><em>naturopathique</em></span></h1>
+    </div>
+    <div class="bn-hero-side">
       <p class="lede">Le bilan naturopathique permet d'évaluer votre niveau d'énergie, votre terrain, vos surcharges et carences. C'est le point de départ possible d'un accompagnement proposant des solutions naturelles pour être bien.</p>
       <div class="bn-buy"><p class="bn-price"><b class="num">60,00&nbsp;€</b> · à régler lors de la séance</p><a class="pill" href="#rendez-vous">Demander un rendez-vous <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="1.6" aria-hidden="true"><path d="M8 3v10M3.5 8.5L8 13l4.5-4.5"/></svg></a></div>
     </div>
   </div>
-  <figure class="bn-portrait"><div class="bn-disc"><img src="fichiers/assets/bilan/simon.jpg" alt="Simon Jund, souriant, en forêt" fetchpriority="high" decoding="async"></div><svg class="bn-ring" viewBox="0 0 100 100" aria-hidden="true"><path d="M73.24 6.3A49.5 49.5 0 0 1 97.6 63.4"/><path d="M26.76 93.7A49.5 49.5 0 0 1 2.4 36.6"/></svg></figure>
 </section>
 
 <section class="bn-sec bn-pour wrap" id="pour-qui" data-theme="light">
   <div class="grid">
-    <figure class="bn-ph" data-reveal><img src="fichiers/assets/bilan/chene.jpg" alt="Un très vieux chêne aux longues branches étalées" loading="lazy" decoding="async"></figure>
-    <div class="bn-col" data-rise>
+    <div class="bn-h" data-rise>
       <p class="meta">Le bilan naturopathique</p>
       <h2 class="d2">Pour qui, <em>pour quoi&nbsp;?</em></h2>
-      <div class="bn-tx"><p>Le bilan naturopathique s’adresse à <strong>tout le monde</strong>, du bébé à la personne âgée.</p><p>Il se pratique aussi bien de façon <strong>préventive</strong> que lorsque des troubles sont déjà présents.</p></div>
     </div>
+    <div class="bn-big" data-rise><p>Le bilan naturopathique s’adresse à <strong>tout le monde</strong>, du bébé à la personne âgée.</p><p>Il se pratique aussi bien de façon <strong>préventive</strong> que lorsque des troubles sont déjà présents.</p></div>
   </div>
 </section>
 
 <section class="bn-sec bn-motifs wrap" id="motifs" data-theme="light">
-  <div data-rise>
-    <p class="meta">Motifs de consultation</p>
-    <h2 class="d2">Des raisons de consulter <em>variées</em></h2>
+  <div class="bn-roue-pin">
+    <div class="bn-roue-l">
+      <div class="bn-roue-head" data-rise>
+        <p class="meta">Motifs de consultation</p>
+        <h2 class="d2">Des raisons de consulter <em>variées</em></h2>
+      </div>
+      <ol class="bn-list">
+        <li><span class="n num">01</span><h3>Réglage alimentaire</h3></li>
+        <li><span class="n num">02</span><h3>Stress</h3></li>
+        <li><span class="n num">03</span><h3>Perte de poids</h3></li>
+        <li><span class="n num">04</span><h3>Allergies &amp; intolérances</h3></li>
+        <li><span class="n num">05</span><h3>Troubles du sommeil</h3></li>
+        <li><span class="n num">06</span><h3>Maladies hivernales</h3></li>
+        <li><span class="n num">07</span><h3>Douleurs articulaires</h3></li>
+        <li><span class="n num">08</span><h3>Inconfort féminin</h3></li>
+      </ol>
+    </div>
   </div>
-  <ol class="bn-list">
-    <li><span class="n num">01</span><h3>Réglage alimentaire</h3></li>
-    <li><span class="n num">02</span><h3>Stress</h3></li>
-    <li><span class="n num">03</span><h3>Perte de poids</h3></li>
-    <li><span class="n num">04</span><h3>Allergies &amp; intolérances</h3></li>
-    <li><span class="n num">05</span><h3>Troubles du sommeil</h3></li>
-    <li><span class="n num">06</span><h3>Maladies hivernales</h3></li>
-    <li><span class="n num">07</span><h3>Douleurs articulaires</h3></li>
-    <li><span class="n num">08</span><h3>Inconfort féminin</h3></li>
-  </ol>
 </section>
 
 <section class="bn-sec bn-naturo wrap dark" id="naturopathie" data-theme="dark">
@@ -1148,24 +1194,30 @@ html.rm .sig-run .sig{position:relative}
     </div>
     <div class="bn-tx" data-rise><p>Reconnue par l’<strong>OMS</strong> comme médecine traditionnelle, aux côtés des médecines chinoise et ayurvédique, la naturopathie est une <strong>approche holistique</strong> qui agit non pas sur le symptôme, mais sur sa cause.</p><p>Elle rétablit la santé par des <strong>moyens naturels</strong>, en s’appuyant sur les capacités d’<strong>auto-guérison</strong> de chacun.</p></div>
   </div>
-  <figure class="bn-ph bn-band" data-reveal><img src="fichiers/assets/bilan/marguerites.jpg" alt="Un champ de marguerites roses et blanches" loading="lazy" decoding="async"></figure>
+  <figure class="bn-ph bn-band"><img src="fichiers/assets/bilan/marguerites.jpg" alt="Un champ de marguerites roses et blanches" loading="lazy" decoding="async"></figure>
 </section>
 
-<section class="bn-quote wrap" id="citation" data-theme="dark">
-  <figure>
-    <blockquote id="bnQuote">Agir non pas sur le symptôme, mais sur sa cause&nbsp;: renforcer les points forts pour contrebalancer les faiblesses.</blockquote>
-    <figcaption class="bn-by">Complément Terre</figcaption>
-  </figure>
+<section class="bn-quote" id="citation" data-theme="dark">
+  <div class="bn-quote-pin wrap">
+    <div class="bn-quote-ph" aria-hidden="true"><img src="fichiers/assets/r/arbres-soleil.jpg" alt="" loading="lazy" decoding="async"></div>
+    <figure>
+      <blockquote id="bnQuote">Agir non pas sur le symptôme, mais sur sa cause&nbsp;: renforcer les points forts pour contrebalancer les faiblesses.</blockquote>
+      <figcaption class="bn-by">Complément Terre</figcaption>
+    </figure>
+  </div>
 </section>
 
 <section class="bn-sec bn-deroule wrap" id="deroule" data-theme="light">
   <div class="grid">
+    <div class="bn-duo">
+      <figure class="bn-ph" data-reveal><img src="fichiers/assets/r/cueillette-simon.jpg" alt="Simon cueille de jeunes pousses de genévrier à la main, en pleine nature" loading="lazy" decoding="async"></figure>
+      <figure class="bn-portrait"><div class="bn-disc"><img src="fichiers/assets/bilan/simon.jpg" alt="Simon Jund, souriant, en forêt" loading="lazy" decoding="async"></div><svg class="bn-ring" viewBox="0 0 100 100" aria-hidden="true"><path d="M73.24 6.3A49.5 49.5 0 0 1 97.6 63.4"/><path d="M26.76 93.7A49.5 49.5 0 0 1 2.4 36.6"/></svg></figure>
+    </div>
     <div class="bn-col" data-rise>
       <p class="meta">Le déroulé</p>
       <h2 class="d2">Un bilan personnalisé <em>avec Simon JUND</em></h2>
       <div class="bn-tx"><p><strong>Simon JUND</strong> établit avec vous un bilan qui mesure votre <strong>niveau d’énergie</strong>, votre terrain, vos surcharges et vos carences, dans un espace de parole libre et <strong>totalement confidentiel</strong>.</p><p>Habitudes de vie, antécédents, tempérament, objectifs&nbsp;: autant d’informations qu’il peut approfondir grâce à ses <strong>outils quantiques de biorésonance</strong>.</p></div>
     </div>
-    <figure class="bn-ph" data-reveal><img src="fichiers/assets/r/arbres-soleil.jpg" alt="Le soleil traverse le feuillage de grands arbres" loading="lazy" decoding="async"></figure>
   </div>
 </section>
 
@@ -1181,19 +1233,19 @@ html.rm .sig-run .sig{position:relative}
 </section>
 
 <section class="bn-sec bn-rdv wrap dark" id="rendez-vous" data-theme="dark">
-  <div class="grid">
-    <div class="bn-how">
-      <h2 class="d3">Comment ça se passe</h2>
-      <ol class="bn-steps" id="bnSteps">
-        <li><span class="n num">1</span><p>Vous envoyez votre demande</p></li>
-        <li><span class="n num">2</span><p>Nous vous rappelons pour fixer la date</p></li>
-        <li><span class="n num">3</span><p>La séance, réglée sur place</p></li>
-      </ol>
-      <p class="bn-conseil">Un conseil&nbsp;? Muriel et Simon vous répondent au <a href="tel:+33769820727">07 69 82 07 27</a></p>
-    </div>
-    <form class="bn-form" id="bnForm" novalidate>
+  <h2 class="d2" data-rise-self>Comment ça se passe</h2>
+  <ol class="bn-steps" id="bnSteps">
+    <li><span class="n num">1</span><p>Vous envoyez votre demande</p></li>
+    <li><span class="n num">2</span><p>Nous vous rappelons pour fixer la date</p></li>
+    <li><span class="n num">3</span><p>La séance, réglée sur place</p></li>
+  </ol>
+  <form class="bn-form" id="bnForm" novalidate>
+    <div class="bn-form-l">
       <h2 class="d3">Demander un rendez-vous</h2>
       <p>Indiquez vos disponibilités&nbsp;: nous vous rappelons pour fixer la date ensemble. Rien à payer en ligne.</p>
+      <p class="bn-conseil">Un conseil&nbsp;? Muriel et Simon vous répondent au <a href="tel:+33769820727">07 69 82 07 27</a></p>
+    </div>
+    <div class="bn-form-r">
       <div class="bn-fields">
         <div class="bn-f"><label for="bn-prenom">Prénom</label><input id="bn-prenom" type="text" autocomplete="given-name"></div>
         <div class="bn-f"><label for="bn-nom">Nom</label><input id="bn-nom" type="text" autocomplete="family-name"></div>
@@ -1206,8 +1258,8 @@ html.rm .sig-run .sig{position:relative}
       <label class="bn-ok"><input type="checkbox"> <span>J'accepte l'usage de mes données pour ma demande.</span></label>
       <button class="pill" type="submit">Demander un rendez-vous</button>
       <p class="bn-note" id="bnNote" role="status" hidden>Aperçu : sur le vrai site, votre demande sera envoyée à Complément Terre. Rien n'est envoyé depuis cette maquette.</p>
-    </form>
-  </div>
+    </div>
+  </form>
 </section>
 </main>
 
@@ -1230,6 +1282,8 @@ html.rm .sig-run .sig{position:relative}
 "use strict";
 const $ = (s, c = document) => c.querySelector(s), $$ = (s, c = document) => [...c.querySelectorAll(s)];
 const isMobile = () => innerWidth <= 640;
+const clamp = (v, a, b) => Math.min(b, Math.max(a, v));
+const pad = n => String(n).padStart(2, "0");
 
 /* Mouvement : comme sur l'accueil, les animations jouent par défaut (choix du propriétaire).
    Seul un choix explicite (bouton du pied de page, ?motion=reduced) les coupe. */
@@ -1249,7 +1303,7 @@ if (motionBtn) {
 }
 
 /* ---------- Menu ---------- */
-const nav = $("#nav"), sheet = $("#sheet"), mBtn = $("#menuBtn");
+const nav = $("#nav"), sheet = $("#sheet"), mBtn = $("#menuBtn"), hero = $("#top"), bar = $("#bnBar"), form = $("#bnForm");
 const openMenu = o => {
   sheet.classList.toggle("open", o); mBtn.setAttribute("aria-expanded", o);
   [nav, $("main"), $("footer")].forEach(el => el.inert = o);
@@ -1259,37 +1313,31 @@ const openMenu = o => {
 mBtn.addEventListener("click", () => openMenu(true));
 $("#menuClose").addEventListener("click", () => openMenu(false));
 addEventListener("keydown", e => { if (e.key === "Escape" && sheet.classList.contains("open")) openMenu(false); });
-// Couleur du menu selon la section qui passe dessous ; fond plein une fois le haut de page quitté.
+// Couleur du menu selon la section qui passe dessous ; barre de rendez-vous entre le haut et le formulaire.
 const zones = $$("[data-theme]");
-const paintNav = () => {
+const paint = () => {
   const z = zones.find(s => { const r = s.getBoundingClientRect(); return r.top <= 40 && r.bottom > 40; });
-  if (z) { nav.classList.toggle("light", z.dataset.theme === "light"); nav.classList.toggle("bn-top", z.id === "top" || z.id === "citation"); }
-  nav.classList.toggle("solid", scrollY > 24);
+  if (z) { nav.classList.toggle("light", z.dataset.theme === "light"); nav.classList.toggle("bn-top", z.id === "citation"); }
+  nav.classList.toggle("solid", scrollY > hero.offsetHeight - 76);
+  const f = form.getBoundingClientRect();
+  const on = scrollY > hero.offsetHeight * .62 && !(f.top < innerHeight * .78 && f.bottom > 0);
+  bar.classList.toggle("on", on); bar.toggleAttribute("inert", !on);
 };
-addEventListener("scroll", paintNav, { passive: true }); addEventListener("resize", paintNav); paintNav();
+addEventListener("scroll", paint, { passive: true }); addEventListener("resize", paint); paint();
 $$('a[href^="#"]').forEach(a => a.addEventListener("click", e => {
   const t = $(a.getAttribute("href")); if (!t) return; e.preventDefault();
   t.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "start" });
 }));
 
-/* ---------- Barre de rendez-vous : après le bouton du haut, avant le formulaire ---------- */
-const bar = $("#bnBar");
-if ("IntersectionObserver" in window) {
-  let past = false, atForm = false;
-  const sync = () => { const on = past && !atForm; bar.classList.toggle("on", on); bar.toggleAttribute("inert", !on); };
-  new IntersectionObserver(([e]) => { past = !e.isIntersecting && e.boundingClientRect.top < 0; sync(); }).observe($(".bn-buy .pill"));
-  new IntersectionObserver(([e]) => { atForm = e.isIntersecting; sync(); }, { rootMargin: "0px 0px -25% 0px" }).observe($("#bnForm"));
-}
-
 /* ---------- Formulaire : maquette, rien n'est envoyé ---------- */
-$("#bnForm").addEventListener("submit", e => { e.preventDefault(); const n = $("#bnNote"); n.hidden = false; n.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "nearest" }); });
+form.addEventListener("submit", e => { e.preventDefault(); const n = $("#bnNote"); n.hidden = false; n.scrollIntoView({ behavior: RM ? "auto" : "smooth", block: "nearest" }); });
 
 /* ---------- Citation : un mot = un élément (les mots s'allument au défilement) ---------- */
 const quote = $("#bnQuote");
 quote.innerHTML = quote.innerHTML.split(/( )/).map(w => w === " " ? " " : `<span class="w">${w}</span>`).join("");
 const words = $$(".w", quote);
 
-if (RM || typeof gsap === "undefined") { $$(".bn-steps li").forEach(li => li.classList.add("on")); return; }
+if (RM || typeof gsap === "undefined") return;
 
 /* =====================================================================
    MOUVEMENT
@@ -1298,51 +1346,108 @@ gsap.registerPlugin(ScrollTrigger);
 ScrollTrigger.config({ ignoreMobileResize: true });
 const EXPO = "expo.out";
 
-/* Haut de page : le portrait s'ouvre dans son disque, les arcs se posent, le texte monte. */
-const img = $(".bn-disc img");
+/* 1 · Ouverture : la photo arrive en se resserrant, le titre monte. Opacité seule sur le grand calque. */
+const hImg = $(".bn-hero-ph img");
 const photoIn = gsap.timeline({ paused: true })
-  .fromTo(".bn-disc", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(50.5% at 50% 50%)", duration: 1.5, ease: "expo.inOut" }, 0)
-  .fromTo(img, { scale: 1.35 }, { scale: 1.06, duration: 2.4, ease: EXPO }, 0)
-  .fromTo(".bn-ring", { opacity: 0, rotation: -70, scale: .9 }, { opacity: 1, rotation: 0, scale: 1, duration: 2.2, ease: EXPO, transformOrigin: "50% 50%" }, .45);
+  .fromTo(".bn-hero-ph", { opacity: 0 }, { opacity: 1, duration: 1.5, ease: "power2.out" }, 0)
+  .fromTo(hImg, { scale: 1.24 }, { scale: 1.05, duration: 2.8, ease: EXPO }, 0);
 const intro = gsap.timeline({ paused: true, defaults: { ease: EXPO } })
-  .fromTo(".bn-crumbs, .bn-hero .meta", { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .9, stagger: .08 }, .1)
-  .fromTo(".bn-hero .row > *", { yPercent: 115 }, { yPercent: 0, duration: 1.2, stagger: .12 }, .25)
-  .fromTo(".bn-hero .lede, .bn-buy > *", { y: 22, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, stagger: .08, clearProps: "transform" }, .7)
-  .fromTo("#nav", { autoAlpha: 0 }, { autoAlpha: 1, duration: .9, ease: "power2.out" }, .7);
-gsap.to(".bn-ring", { rotation: "+=360", duration: 90, ease: "none", repeat: -1, delay: 3, transformOrigin: "50% 50%" });
-const ready = img.decode ? img.decode().catch(() => {}) : Promise.resolve();
+  .fromTo(".bn-hero .row > *", { yPercent: 115 }, { yPercent: 0, duration: 1.3, stagger: .13 }, .3)
+  // Le fil d'Ariane : on anime ses éléments, pas le conteneur (son opacité appartient au fondu de défilement).
+  .fromTo(".bn-crumbs > *, .bn-hero .meta", { y: 16, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: .9, stagger: .08 }, .55)
+  .fromTo(".bn-hero .lede, .bn-buy > *", { y: 22, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, stagger: .08, clearProps: "transform" }, .85)
+  .fromTo("#nav", { autoAlpha: 0 }, { autoAlpha: 1, duration: .9, ease: "power2.out" }, .8);
+const ready = hImg.decode ? hImg.decode().catch(() => {}) : Promise.resolve();
 Promise.race([ready, new Promise(r => setTimeout(r, 1200))]).then(() => intro.play());
 ready.then(() => photoIn.play());
-// Au défilement : le portrait glisse moins vite que la page, le texte s'efface.
-gsap.to(".bn-portrait", { yPercent: () => isMobile() ? 0 : 16, ease: "none", scrollTrigger: { trigger: "#top", start: "top top", end: "bottom top", scrub: .6, invalidateOnRefresh: true } });
-gsap.to(".bn-hero-tx", { autoAlpha: 0, y: -30, ease: "power1.in", scrollTrigger: { trigger: "#top", start: () => isMobile() ? "30% top" : "12% top", end: () => isMobile() ? "70% top" : "62% top", scrub: true, invalidateOnRefresh: true } });
+// La photo vit doucement, puis monte moins vite que la page ; le texte s'efface.
+const kb = gsap.to(hImg, { scale: 1.11, duration: 18, ease: "sine.inOut", repeat: -1, yoyo: true, delay: 3 });
+ScrollTrigger.create({ trigger: hero, start: "top top", end: "bottom top", onLeave: () => kb.pause(), onEnterBack: () => kb.resume() });
+gsap.to(".bn-hero-ph", { yPercent: 30, ease: "none", scrollTrigger: { trigger: hero, start: "top top", end: "bottom top", scrub: .6 } });
+gsap.to(".bn-hero-in, .bn-crumbs", { autoAlpha: 0, ease: "power1.in", scrollTrigger: { trigger: hero, start: "top top", end: () => isMobile() ? "36% top" : "50% top", scrub: true, invalidateOnRefresh: true } });
 
 /* Textes : montée douce, élément par élément. */
 $$("[data-rise]").forEach(box => {
   const items = box.matches(".bn-faq-list") ? [...box.children] : [...box.children].flatMap(c => c.matches(".bn-tx") ? [...c.children] : [c]);
-  gsap.fromTo(items, { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, ease: EXPO, stagger: .09, scrollTrigger: { trigger: box, start: "top 88%" } });
+  gsap.fromTo(items, { y: 34, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, ease: EXPO, stagger: .1, scrollTrigger: { trigger: box, start: "top 88%" } });
 });
+$$("[data-rise-self]").forEach(e => gsap.fromTo(e, { y: 34, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, ease: EXPO, scrollTrigger: { trigger: e, start: "top 90%" } }));
 /* Photos : le cadre se dévoile de bas en haut, l'image glisse à l'intérieur. */
 $$("[data-reveal]").forEach(f => {
   gsap.fromTo(f, { clipPath: "inset(100% 0 0 0)" }, { clipPath: "inset(0% 0 0 0)", duration: 1.4, ease: "expo.inOut", scrollTrigger: { trigger: f, start: "top 92%" } });
-  gsap.fromTo($("img", f), { yPercent: f.matches(".bn-band") ? -16 : -8, scale: f.matches(".bn-band") ? 1 : 1.12 }, { yPercent: 0, ease: "none", scrollTrigger: { trigger: f, start: "top bottom", end: "bottom top", scrub: true } });
+  gsap.fromTo($("img", f), { yPercent: -8, scale: 1.14 }, { yPercent: 0, ease: "none", scrollTrigger: { trigger: f, start: "top bottom", end: "bottom top", scrub: true } });
 });
-/* Motifs : les filets se tracent, les lignes montent l'une après l'autre. */
-const motifs = $$(".bn-list li");
-gsap.set(motifs, { "--l": 0 });
-gsap.to(motifs, { "--l": 1, duration: 1.1, ease: "expo.inOut", stagger: .07, scrollTrigger: { trigger: ".bn-list", start: "top 86%" } });
-gsap.fromTo(motifs.map(li => [...li.children]).flat(), { y: 26, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, ease: EXPO, stagger: .035, delay: .15, scrollTrigger: { trigger: ".bn-list", start: "top 86%" } });
-/* Citation : les mots s'allument au fil du défilement. */
-gsap.set(words, { "--o": .16 });
-gsap.to(words, { "--o": 1, ease: "none", stagger: .5, scrollTrigger: { trigger: quote, start: "top 78%", end: "bottom 48%", scrub: .4 } });
-gsap.fromTo(".bn-by", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, duration: 1, ease: EXPO, scrollTrigger: { trigger: ".bn-by", start: "top 82%" } });
-/* Étapes : le trait descend, chaque numéro s'allume à son tour. */
-const steps = $("#bnSteps"), lis = $$("li", steps);
-gsap.set(steps, { "--p": 0 });
-gsap.to(steps, { "--p": 1, ease: "none", scrollTrigger: { trigger: "#rendez-vous", start: "top 62%", end: "top 4%", scrub: .5,
-  onUpdate: s => lis.forEach((li, i) => li.classList.toggle("on", s.progress >= i / (lis.length - 1) - .02)) } });
-gsap.fromTo(".bn-how > h2, .bn-steps li, .bn-conseil", { y: 26, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, ease: EXPO, stagger: .08, scrollTrigger: { trigger: ".bn-how", start: "top 86%" } });
-gsap.fromTo(".bn-form", { y: 44, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.2, ease: EXPO, scrollTrigger: { trigger: ".bn-form", start: "top 90%" } });
+
+/* 3 · Motifs en scène : la liste devient une suite de grands mots qui défilent un à un,
+   à côté d'un cadran dont l'arc avance. Position continue `a` (0 → 7), avec un temps de pose
+   sur chaque motif. Téléphone : la liste simple reste affichée. */
+const mm = gsap.matchMedia();
+mm.add("(min-width: 641px)", () => {
+  const sec = $("#motifs"), left = $(".bn-roue-l", sec), pin = $(".bn-roue-pin", sec);
+  const names = $$(".bn-list h3", sec).map(h => h.textContent), N = names.length;
+  sec.classList.add("is-roue");
+  sec.style.setProperty("--run", ((N - 1) * 34) + "svh");
+  const slot = document.createElement("div"); slot.className = "bn-slot"; slot.setAttribute("aria-hidden", "true");
+  slot.innerHTML = names.map(n => `<span>${n.replace(/&/g, "&amp;")}</span>`).join("");
+  const count = document.createElement("p"); count.className = "bn-count num"; count.setAttribute("aria-hidden", "true"); count.innerHTML = `<b>01</b> / ${pad(N)}`;
+  left.append(slot, count);
+  const dial = document.createElement("div"); dial.className = "bn-dial"; dial.setAttribute("aria-hidden", "true");
+  const dots = names.map((_, i) => { const t = (-90 + i * 360 / N) * Math.PI / 180; return `<circle class="d" cx="${(100 + 98 * Math.cos(t)).toFixed(2)}" cy="${(100 + 98 * Math.sin(t)).toFixed(2)}" r="1.6"/>`; }).join("");
+  dial.innerHTML = `<div class="bn-dial-ph"><img src="${$(".bn-band img").getAttribute("src")}" alt=""></div><svg viewBox="0 0 200 200"><circle class="b" cx="100" cy="100" r="98"/><circle class="p" cx="100" cy="100" r="98" pathLength="1"/>${dots}<circle class="cur" cx="100" cy="2" r="3.4"/></svg>`;
+  pin.append(dial);
+  const rows = $$("span", slot), cnt = $("b", count), arc = $(".p", dial), cur = $(".cur", dial), ph = $("img", dial);
+  let rh = 0, k = -1;
+  const measure = () => { rh = rows[0].offsetHeight || 1; };
+  const render = a => {
+    rows.forEach((el, i) => { const d = i - a, ad = Math.abs(d);
+      el.style.transform = `translate3d(0,${(d * rh).toFixed(1)}px,0) scale(${(1 - Math.min(ad, 1.5) * .16).toFixed(3)})`;
+      el.style.opacity = Math.max(0, 1 - ad * .8).toFixed(3); });
+    arc.style.strokeDashoffset = (1 - a / N).toFixed(4);
+    cur.setAttribute("transform", `rotate(${(a * 360 / N).toFixed(2)} 100 100)`);
+    ph.style.transform = `rotate(${(-a * 7).toFixed(2)}deg) scale(1.22)`;
+    const nk = Math.round(a); if (nk !== k) { k = nk; cnt.textContent = pad(nk + 1); }
+  };
+  const pose = p => { const raw = p * (N - 1), i = Math.floor(raw), f = raw - i, g = clamp((f - .2) / .6, 0, 1); return i + g * g * (3 - 2 * g); };
+  let target = 0, now = 0, running = false;
+  const tick = () => { now += (target - now) * .16; if (Math.abs(target - now) < .0004) { now = target; running = false; gsap.ticker.remove(tick); } render(pose(now)); };
+  const read = () => { const r = sec.getBoundingClientRect(); target = clamp(-r.top / Math.max(1, r.height - innerHeight), 0, 1); if (!running && target !== now) { running = true; gsap.ticker.add(tick); } };
+  const onResize = () => { measure(); read(); render(pose(now)); };
+  addEventListener("scroll", read, { passive: true }); addEventListener("resize", onResize);
+  measure(); read(); now = target; render(pose(now));
+  // Entrée du cadran : il s'ouvre et tourne pour se poser.
+  gsap.fromTo(dial, { scale: .82, rotation: -24, autoAlpha: 0 }, { scale: 1, rotation: 0, autoAlpha: 1, duration: 1.6, ease: EXPO, scrollTrigger: { trigger: sec, start: "top 62%" } });
+  gsap.fromTo([slot, count], { y: 30, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.1, ease: EXPO, stagger: .1, scrollTrigger: { trigger: sec, start: "top 50%" } });
+  ScrollTrigger.refresh();
+  return () => { removeEventListener("scroll", read); removeEventListener("resize", onResize); gsap.ticker.remove(tick); slot.remove(); count.remove(); dial.remove(); sec.classList.remove("is-roue"); sec.style.removeProperty("--run"); };
+});
+mm.add("(max-width: 640px)", () => {
+  gsap.fromTo(".bn-list li", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, ease: EXPO, stagger: .06, scrollTrigger: { trigger: ".bn-list", start: "top 88%" } });
+});
+
+/* 4 · Naturopathie : la bande de fleurs s'ouvre jusqu'aux bords de l'écran. */
+const band = $(".bn-band");
+const marge = () => getComputedStyle(document.documentElement).getPropertyValue("--m").trim() || "5vw";
+gsap.fromTo(band, { clipPath: () => `inset(10% ${marge()} 10% ${marge()} round 6px)` },
+  { clipPath: "inset(0% 0px 0% 0px round 0px)", ease: "none", scrollTrigger: { trigger: band, start: "top 88%", end: "top 12%", scrub: .5, invalidateOnRefresh: true } });
+gsap.fromTo($("img", band), { yPercent: -18 }, { yPercent: 0, ease: "none", scrollTrigger: { trigger: band, start: "top bottom", end: "bottom top", scrub: true } });
+
+/* 5 · Citation : la section est haute, son contenu reste à l'écran pendant que les mots s'allument. */
+gsap.set(words, { "--o": .14 });
+gsap.to(words, { "--o": 1, ease: "none", stagger: .5, scrollTrigger: { trigger: "#citation", start: "top 30%", end: "bottom 110%", scrub: .4 } });
+gsap.fromTo(".bn-quote-ph img", { scale: 1.3 }, { scale: 1.02, ease: "none", scrollTrigger: { trigger: "#citation", start: "top bottom", end: "bottom top", scrub: true } });
+gsap.fromTo(".bn-by", { autoAlpha: 0, y: 16 }, { autoAlpha: 1, y: 0, ease: "none", scrollTrigger: { trigger: "#citation", start: "62% bottom", end: "78% bottom", scrub: .4 } });
+
+/* 6 · Le déroulé : le portrait s'ouvre dans son disque, ses arcs tournent pour se poser. */
+gsap.fromTo(".bn-disc", { clipPath: "circle(0% at 50% 50%)" }, { clipPath: "circle(51% at 50% 50%)", duration: 1.4, ease: "expo.inOut", scrollTrigger: { trigger: ".bn-portrait", start: "top 84%" } });
+gsap.fromTo(".bn-ring", { opacity: 0, rotation: -80, scale: .88 }, { opacity: 1, rotation: 0, scale: 1, duration: 2.2, ease: EXPO, transformOrigin: "50% 50%", scrollTrigger: { trigger: ".bn-portrait", start: "top 84%" } });
+gsap.to(".bn-portrait", { yPercent: -14, ease: "none", scrollTrigger: { trigger: ".bn-duo", start: "top bottom", end: "bottom top", scrub: true } });
+
+/* 8 · Étapes : les trois filets se tracent l'un après l'autre, les chiffres montent. */
+const lis = $$("#bnSteps li");
+gsap.set(lis, { "--p": 0 });
+gsap.to(lis, { "--p": 1, ease: "none", stagger: .5, scrollTrigger: { trigger: "#bnSteps", start: "top 82%", end: "top 34%", scrub: .5 } });
+gsap.fromTo(lis.map(li => [...li.children]).flat(), { y: 50, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.2, ease: EXPO, stagger: .07, scrollTrigger: { trigger: "#bnSteps", start: "top 84%" } });
+gsap.fromTo(form, { y: 50, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1.2, ease: EXPO, scrollTrigger: { trigger: form, start: "top 90%" } });
 gsap.fromTo(".bn-fin .end > *", { y: 24, autoAlpha: 0 }, { y: 0, autoAlpha: 1, duration: 1, ease: EXPO, stagger: .07, scrollTrigger: { trigger: ".bn-fin", start: "top 94%" } });
 
 if (document.fonts && document.fonts.ready) document.fonts.ready.then(() => ScrollTrigger.refresh());
